@@ -1,0 +1,56 @@
+.input_box {
+	background: none repeat scroll 0 0 #fff;
+	/* border: 1px solid #dde2e1; */
+	border: 1px solid #808080;
+	color: #000;
+	float: left;
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 5px;
+	width: 228px;
+}
+
+.btn {
+	background: none repeat scroll 0 0 #ec7769;
+	border: medium none;
+	color: #fff;
+	float: left;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	width: 30%;
+	hover:hand;
+}
+
+.bundleBtn{
+	width:90px;
+	margin-right:20px;
+}
+
+#passStrength{
+	height:6px;
+	width:120px;
+	border:1px solid #ccc;
+	padding:2px;
+}
+
+.strengthLv1{
+	background:red;
+	height:6px;
+	width:40px;
+}
+
+.strengthLv2{
+	background:orange;
+	height:6px;
+	width:80px;
+}
+
+.strengthLv3{
+	background:green;
+	height:6px;
+	width:120px;
+} 

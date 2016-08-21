@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.certus.dao.UserDao">
+	<resultMap type="com.certus.vo.UserVO" id="UserMap">
+		<id property="id" column="id" />
+		<result property="insertTime" column="insert_time" />
+		<result property="updateTime" column="update_time" />
+		<result property="recycleSign" column="recycle_sign" />
+		<result property="name" column="name" />
+		<result property="password" column="password" />
+		<result property="email" column="email" />
+		<result property="telephone" column="telephone"/>
+		<result property="tenant_name" column="tenant_name"/>
+		<result property="status" column="status" />
+	</resultMap>
+
+	<select id="getByUserId" parameterType="int" resultMap="UserMap">
+		select id, insert_time, update_time, name, password, email, telephone, tenant_name, status
+			from t_user
+				where id = #{id}
+				and recycle_sign = 0
+				limit 1
+	</select>
+
+	<select id="findUsers" resultMap="UserMap">
+		select id, insert_time, update_time, name, password, email, telephone, tenant_name, status
+			from t_user
+				where recycle_sign = 0
+				<if test="user != null">
+					<if test="user.name != null">
+						and name = #{user.name}
+					</if>
+				</if>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="com.certus.vo.UserVO">
+		insert into t_user(insert_time, update_time, recycle_sign, name, password, email, telephone, tenant_name, status, description)
+			values(#{insertTime}, #{updateTime}, 0, #{name}, #{password}, #{email}, #{telephone}, #{tenant_name}, #{status}, #{description})
+	</insert>
+
+</mapper>

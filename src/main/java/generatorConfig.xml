@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+	
+ <!--  <classPathEntry location="D:\flexmall-00.05.00\mysql-connector-java-5.1.33.jar"/> -->
+  <classPathEntry location="D:\work\flexMall\branches\flexmall-00.06.00\mysql-connector-java-5.1.35.jar"/>
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+	<commentGenerator>   
+		<property name="suppressDate" value="true"/>
+		<!-- 去除自动生成的注释 --> 
+        <property name="suppressAllComments" value="true"/>       
+    </commentGenerator> 
+    
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+    	connectionURL="jdbc:mysql://localhost:3306/aliyun?characterEncoding=utf8" 
+    	userId="root" password="123456"/>
+    	
+    <javaTypeResolver>  
+    	<!-- 把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer -->
+        <property name="forceBigDecimals" value="false"/>  
+    </javaTypeResolver> 
+        	
+    <javaModelGenerator targetPackage="com.certus.dao" targetProject="micro-union">
+    	<!-- 不让schema作为包的后缀 -->
+    	<property name="enableSubPackages" value="false"/>
+    	<!-- 从数据库返回的值清理前后的空格  -->
+    	<property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+    
+    <sqlMapGenerator targetPackage="mybatisMapper" targetProject="micro-union/src/main/resources" >
+    	<property name="enableSubPackages" value="false"/>
+    </sqlMapGenerator>
+    
+    <javaClientGenerator targetPackage="com.certus.dao" targetProject="micro-union" type="XMLMAPPER" />
+    
+
+   <table schema="aliyun" tableName="cloud_vm_group" domainObjectName="CloudVMGroup" 
+    	enableCountByExample="false" enableDeleteByExample="false" 
+    	enableSelectByExample="false" enableUpdateByExample="false" 
+    	selectByExampleQueryId="false">
+    </table> 
+
+  </context>
+</generatorConfiguration>

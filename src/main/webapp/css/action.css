@@ -1,0 +1,31 @@
+.table_details_btn{
+	width:55px;
+	height:27px;
+	/* float:left; */
+	background:url(../images/btn_normal_05.png) no-repeat;
+	cursor:pointer;
+	margin-left:0px;
+	display: inline-block;
+}
+.table_details_btn:hover{
+	width:55px;
+	height:27px;
+	/* float:left; */
+	background:url(../images/btn_click_05.png) no-repeat;
+} 
+
+.table_audit_btn {
+    background: url("../images/btn_normal_01.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    display: inline-block;
+    height: 27px;
+    margin-left: 10px;
+    width: 72px;
+}
+
+.table_audit_btn:hover{
+	width:72px;
+	height:27px;
+	/* float:left; */
+	background:url(../images/btn_click_01.png) no-repeat;
+}

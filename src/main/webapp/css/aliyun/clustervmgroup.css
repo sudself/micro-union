@@ -1,0 +1,54 @@
+.button-link{
+    border-radius: 0;
+    font-size: 12px;
+    height: 32px;
+    color: #00f;
+    line-height: 14px;
+    padding: 8px 16px;
+}
+.datagrid-cell{
+    font-size: 12px;
+    font-weight: normal;
+    height: 18px;
+    line-height: 18px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 4px;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.button-normal{
+    display: inline-block;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 0 4px;
+    padding: 8px 16px;
+    vertical-align: top;
+    width: auto;
+}
+.panel-title {
+    color: #0e2d5f;
+    font-weight: bold;
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+}
+.dash-table-head {
+    background: rgb(233, 233, 233) none repeat scroll 0 0;
+    border: 0 none;
+    color: #344969;
+    font-family: serif;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+}
+.f2c-error-button {
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #dd6763 0%, #d9534f 100%) repeat scroll 0 0;
+    border-color: #d43f3a;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.17), 0 1px 0 rgba(255, 255, 255, 0.36) inset;
+    color: #ffffff;
+    padding: 2px 5px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+}

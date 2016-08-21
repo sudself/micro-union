@@ -1,0 +1,57 @@
+.login {
+	background: url("../images/index/logo-splash1.png") no-repeat scroll
+		center 35px padding-box #ffffff;
+	border: 1px solid #e1e1e1;
+	border-radius: 6px;
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+	left: 50%;
+	margin: 50px 0 0 -195px;
+	max-height: none;
+	padding-top: 170px;
+	position: absolute;
+	top: 80px;
+	width: 390px;
+}
+
+.login_header {
+	border-bottom: 1px solid #eeeeee;
+	padding: 9px 15px;
+}
+
+.login_body {
+	max-height: none;
+	overflow-y: visible;
+}
+
+.login_footer {
+	background-color: #f5f5f5;
+	border-radius: 0 0 6px 6px;
+	border-top: 1px solid #dddddd;
+	box-shadow: 0 1px 0 #ffffff inset;
+	margin-bottom: 0;
+	padding: 14px 15px 15px;
+	clear: both;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.control_group {
+	margin-left: 9px;
+	margin-bottom: 9px;
+}
+
+.btn_primary {
+	background-color: #006ccc;
+	background-image: -moz-linear-gradient(center top, #0088cc, #0044cc);
+	background-repeat: repeat-x;
+	border-color: #0044cc #0044cc #002a80;
+}
+
+.input {
+	height:25px; 
+	width:90%;
+	border:1px solid rgba(0, 0, 0, 0.075);
+	background-color:#c8eccc;
+}

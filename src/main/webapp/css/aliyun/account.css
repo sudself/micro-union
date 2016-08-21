@@ -1,0 +1,52 @@
+.mainDiv{
+font-size:12px;
+}
+
+.taskresult-list td{
+height:32px;
+line-height:32px;
+}
+.modal-title{
+font-size:14px;
+}
+
+.form-group{
+margin-top:8px;
+margin-bottom:16px;
+font-weight:normal;
+font-size:12px;
+color:#666;
+}
+
+.btn{
+font-size:12px;
+border-radius:0px;
+padding:8px 16px;
+height:32px;
+line-height:14px;
+}
+.form-control{
+font-size:12px;
+}
+
+
+.font16{
+	font-size:16px;
+	font-weight: normal;
+}
+
+.conditionSelect {
+	width: 140px;
+	margin-right:10px;
+	cursor: pointer;
+}
+
+.manualRefresh{
+	margin-left:5px;
+	background-image: url("../../images/reload.png");
+	width:46px;
+	height:16px;
+	background-repeat: no-repeat;
+	padding-left:15px;
+	cursor: pointer;
+}

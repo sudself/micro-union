@@ -1,0 +1,123 @@
+.sureCase {
+    margin: 0 auto;
+    width: 1170px;
+}
+
+.cloudService_box_name {
+	border-bottom: 2px solid #ddd;
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.cloudService_box_name_con {
+	border-bottom: 2px solid #0081d4;
+    color: #000;
+    float: left;
+    font-family: "Î¢ÈíÑÅºÚ";
+    font-size: 16px;
+    height: 35px;
+    line-height: 35px;
+    padding-right: 15px;
+    width: auto;
+}
+
+.tithn {
+    color: #3a3a3a;
+    font-family: "Î¢ÈíÑÅºÚ";
+    font-size: 24px;
+    height: 37px;
+    line-height: 37px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    text-align: left;
+    font-weight: normal;
+}
+
+
+.sureCaseT {
+    padding: 60px 120px 0px 120px;
+}
+
+.sureCaseT h1 {
+    color: #3a3a3a;
+    font-size: 28px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.sureCaseT p {
+    color: #3a3a3a;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.sureCaseCon {
+    font: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.sureCaseCon dl {
+    border: 1px solid #d6d6d6;
+    display: block;
+    margin-bottom: 20px;
+    padding: 2% 3%;
+    width: 42%;   
+}
+
+
+
+
+.sureCaseCon dl dt {
+    float: left;
+    height: 155px;
+    width: 183px;
+}
+
+
+.sureCaseCon dl dd {
+    margin-left: 250px;
+    padding-top: 5px;
+}
+
+
+.sureCaseCon dl dd h1 {
+    color: #3a3a3a;
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    padding:0
+}
+
+
+.sureCaseCon ul li {
+    list-style: outside none none;
+}
+
+
+.sureCaseCon dl dd ul li {
+    color: #5b5b5b;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 24px;
+    list-style:  disc;
+}
+
+abbr, acronym, address, cite, q, em, code, var, dfn, ins {
+    font-style: normal;
+    text-decoration: none;
+}
+
+img, fieldset, abbr, acronym {
+    border: 0 none;
+}
+
+.sureCaseCon dl dd p {
+    color: #5b5b5b;
+    font-size: 14px;
+    line-height: 24px;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.certus.dao.CloudUserMapper" >
+  <resultMap id="CloudUser" type="com.certus.vo.CloudUser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="selectCloudUser" resultMap="CloudUser" >
+    select * from CLOUD_USER where name = #{name}
+  </select>
+  
+  <delete id="deleteUser"  >
+    delete from CLOUD_USER where name = #{name}
+  </delete>
+  
+  <insert id="insert" parameterType="com.certus.vo.CloudUser" >
+    insert into CLOUD_USER (id, name, password
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
+      )
+  </insert>
+  
+  <update id="updateUserPasswd" parameterType="com.certus.vo.CloudUser" >
+    update CLOUD_USER set password = #{password,jdbcType=VARCHAR} 
+    where name = #{name,jdbcType=VARCHAR}
+  </update>
+</mapper>

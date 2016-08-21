@@ -1,0 +1,168 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*-------------------首页  行业方案----------------------*/
+.industrySolutions_box_name{
+	width:100%;
+	height:35px;
+	line-height:35px;
+	margin-top:15px;
+	float:left;
+	border-bottom:2px solid #ddd
+}
+.industrySolutions_box_name .industrySolutions_box_name_con{
+	width:auto;
+	height:35px;
+	line-height:35px;
+	padding-right:15px;
+	font-size:16px;
+	color:#000;
+	float:left;
+	border-bottom:2px solid #d66b5e;
+	font-family: "微软雅黑";
+	
+}
+.industrySolutions_box{
+	width:100%;
+	height:145px;
+	margin-top:15px;
+	float:left;
+}
+.industrySolutions_box a{
+	margin:0px;
+	padding:0px;
+	width:299px;
+	height:145px;
+	float:left;
+	background:url(../images/index/trade1.png) no-repeat;
+	color:#fff;
+	margin-right:1px;
+}
+.industrySolutions_box .industrySolutions_box_li_2{
+	background:url(../images/index/trade2.png) no-repeat;
+}
+.industrySolutions_box .industrySolutions_box_li_3{
+	background:url(../images/index/trade3.png) no-repeat;
+}
+.industrySolutions_box .industrySolutions_box_li_4{
+	background:url(../images/index/trade4.png) no-repeat;
+	margin-right:0px;
+}
+.industrySolutions_box .industrySolutions_box_li .industrySolutions_box_li_name,.industrySolutions_box_li_con{ 
+	width:100%; 
+	height:auto; 
+	margin-top:15px; 
+	text-align:center; 
+	font-size:18px;
+	
+}
+.industrySolutions_box .industrySolutions_box_li .industrySolutions_box_li_con{
+	filter:alpha(opacity=80); 
+	-moz-opacity:0.8; 
+	opacity:0.8;
+}
+.industrySolutions_box .industrySolutions_box_li .industrySolutions_box_li_con{ 
+	font-size:14px
+}
+.link_box{
+	width:100%;
+	height:auto;
+	margin-top:25px;
+	margin-bottom:-20px;
+	float:left;
+	background:#165bbb;
+	padding-bottom:5px
+}
+.link_box .link_box_con{
+	width:150px;
+	height:auto;
+	float:left; 
+	margin-left:70px;
+	font-size:12px	
+}
+.link_box .link_box_con .link_head{
+	width:100%;
+	float:left;
+	color:#fff;
+	line-height:50px;
+	font-size:14px;
+}
+.link_box .link_box_con a{
+	color:#d66b5e;
+	width:100%;
+	line-height:22px;
+	float:left;
+	margin-left:0px	
+}
+
+/*-----------------------------------电商详情----------------------------*/
+.right_box_content .ele_business_details_box{
+	width:100%;
+	height:auto;
+	float:left;
+	margin-top:30px;
+}
+.right_box_content .ele_business_details_box .ele_business_details_box_con{
+	width:350px;
+	height:auto;
+	float:left;
+	margin-left:30px;
+}
+.right_box_content .ele_business_details_box .ele_business_details_box_con p{
+	width:100%;
+	float:left;
+	font-size:12px;
+	line-height:22px;
+	color:#575757;
+}
+.right_box_content .ele_business_details_box .ele_business_details_box_con .text{
+	font-size:14px;
+	margin-top:10px;
+	line-height:30px;
+	color:#2f2f2f;
+}
+.right_box_content .ele_business_details_box .ele_business_details_box_con a{
+	width:169px;
+	height:37px;
+	float:left;
+	font-size:15px;
+	line-height:37px;
+	color:#fff;
+	background:url(../images/index/btn_normal.png) no-repeat;
+	text-align:center;
+	margin:0px;
+	margin-top:65px;
+}
+.right_box_content .ele_business_details_box .ele_business_details_box_con .ele_btn{
+	background:url(../images/index/btn2_normal.png) no-repeat;
+	float:right
+}
+.right_box_content .ele_business_details_box .ele_business_details_box_con a:hover{
+	background:url(../images/index/btn_hover.png) no-repeat;
+}
+.right_box_content .ele_business_details_box .ele_business_details_box_con .ele_btn:hover{
+	background:url(../images/index/btn2_hover.png) no-repeat;
+}
+.right_box_content .ele_business_details_box .ele_business_details_box_pic{
+	width:auto;
+	height:auto;
+	float:right;
+	margin-right:30px;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

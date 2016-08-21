@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/layouts">
+	<excludes>
+		<pattern>/css*</pattern>
+		<pattern>/easyui*</pattern>
+		<pattern>/images*</pattern>
+		<pattern>/img*</pattern>
+		<pattern>/js/*</pattern>
+		<pattern>/staticjs/*</pattern>
+		<pattern>/jslib/*</pattern>
+		<pattern>/searchbox_files/*</pattern>
+		<pattern>/style/*</pattern>
+		<pattern>/themes/*</pattern>
+	</excludes>
+	<decorator name="default" page="default.jsp"> 
+	     <!--首页 -->
+		<pattern>/homePage/index.action</pattern> 
+	</decorator> 
+</decorators>
