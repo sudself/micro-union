@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.certus.dao.DetectsMapper" >
+  <resultMap id="BaseResultMap" type="com.certus.dao.Detects" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sample_id" property="sampleId" jdbcType="INTEGER" />
+    <result column="sample_type_id" property="sampleTypeId" jdbcType="INTEGER" />
+    <result column="detect_type_id" property="detectTypeId" jdbcType="INTEGER" />
+    <result column="print_time" property="printTime" jdbcType="TIMESTAMP" />
+    <result column="print_user_id" property="printUserId" jdbcType="INTEGER" />
+    <result column="code_no" property="codeNo" jdbcType="VARCHAR" />
+    <result column="deal_time" property="dealTime" jdbcType="TIMESTAMP" />
+    <result column="deal_user_id" property="dealUserId" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="child_id" property="childId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sample_id, sample_type_id, detect_type_id, print_time, print_user_id, code_no, 
+    deal_time, deal_user_id, status, child_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from detects
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from detects
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.certus.dao.Detects" >
+    insert into detects (id, sample_id, sample_type_id, 
+      detect_type_id, print_time, print_user_id, 
+      code_no, deal_time, deal_user_id, 
+      status, child_id)
+    values (#{id,jdbcType=INTEGER}, #{sampleId,jdbcType=INTEGER}, #{sampleTypeId,jdbcType=INTEGER}, 
+      #{detectTypeId,jdbcType=INTEGER}, #{printTime,jdbcType=TIMESTAMP}, #{printUserId,jdbcType=INTEGER}, 
+      #{codeNo,jdbcType=VARCHAR}, #{dealTime,jdbcType=TIMESTAMP}, #{dealUserId,jdbcType=INTEGER}, 
+      #{status,jdbcType=VARCHAR}, #{childId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.certus.dao.Detects" >
+    insert into detects
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sampleId != null" >
+        sample_id,
+      </if>
+      <if test="sampleTypeId != null" >
+        sample_type_id,
+      </if>
+      <if test="detectTypeId != null" >
+        detect_type_id,
+      </if>
+      <if test="printTime != null" >
+        print_time,
+      </if>
+      <if test="printUserId != null" >
+        print_user_id,
+      </if>
+      <if test="codeNo != null" >
+        code_no,
+      </if>
+      <if test="dealTime != null" >
+        deal_time,
+      </if>
+      <if test="dealUserId != null" >
+        deal_user_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="childId != null" >
+        child_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sampleId != null" >
+        #{sampleId,jdbcType=INTEGER},
+      </if>
+      <if test="sampleTypeId != null" >
+        #{sampleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="detectTypeId != null" >
+        #{detectTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="printTime != null" >
+        #{printTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="printUserId != null" >
+        #{printUserId,jdbcType=INTEGER},
+      </if>
+      <if test="codeNo != null" >
+        #{codeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dealTime != null" >
+        #{dealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealUserId != null" >
+        #{dealUserId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="childId != null" >
+        #{childId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.certus.dao.Detects" >
+    update detects
+    <set >
+      <if test="sampleId != null" >
+        sample_id = #{sampleId,jdbcType=INTEGER},
+      </if>
+      <if test="sampleTypeId != null" >
+        sample_type_id = #{sampleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="detectTypeId != null" >
+        detect_type_id = #{detectTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="printTime != null" >
+        print_time = #{printTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="printUserId != null" >
+        print_user_id = #{printUserId,jdbcType=INTEGER},
+      </if>
+      <if test="codeNo != null" >
+        code_no = #{codeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dealTime != null" >
+        deal_time = #{dealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealUserId != null" >
+        deal_user_id = #{dealUserId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="childId != null" >
+        child_id = #{childId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.certus.dao.Detects" >
+    update detects
+    set sample_id = #{sampleId,jdbcType=INTEGER},
+      sample_type_id = #{sampleTypeId,jdbcType=INTEGER},
+      detect_type_id = #{detectTypeId,jdbcType=INTEGER},
+      print_time = #{printTime,jdbcType=TIMESTAMP},
+      print_user_id = #{printUserId,jdbcType=INTEGER},
+      code_no = #{codeNo,jdbcType=VARCHAR},
+      deal_time = #{dealTime,jdbcType=TIMESTAMP},
+      deal_user_id = #{dealUserId,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      child_id = #{childId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

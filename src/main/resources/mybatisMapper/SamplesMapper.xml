@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.certus.dao.SamplesMapper" >
+  <resultMap id="BaseResultMap" type="com.certus.dao.Samples" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="hospital_code" property="hospitalCode" jdbcType="VARCHAR" />
+    <result column="bottle_code" property="bottleCode" jdbcType="VARCHAR" />
+    <result column="sample_type" property="sampleType" jdbcType="INTEGER" />
+    <result column="patient_info" property="patientInfo" jdbcType="VARCHAR" />
+    <result column="receive_time" property="receiveTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, hospital_code, bottle_code, sample_type, patient_info, receive_time, status, 
+    userid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from samples
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from samples
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.certus.dao.Samples" >
+    insert into samples (id, hospital_code, bottle_code, 
+      sample_type, patient_info, receive_time, 
+      status, userid)
+    values (#{id,jdbcType=INTEGER}, #{hospitalCode,jdbcType=VARCHAR}, #{bottleCode,jdbcType=VARCHAR}, 
+      #{sampleType,jdbcType=INTEGER}, #{patientInfo,jdbcType=VARCHAR}, #{receiveTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.certus.dao.Samples" >
+    insert into samples
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="hospitalCode != null" >
+        hospital_code,
+      </if>
+      <if test="bottleCode != null" >
+        bottle_code,
+      </if>
+      <if test="sampleType != null" >
+        sample_type,
+      </if>
+      <if test="patientInfo != null" >
+        patient_info,
+      </if>
+      <if test="receiveTime != null" >
+        receive_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalCode != null" >
+        #{hospitalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bottleCode != null" >
+        #{bottleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sampleType != null" >
+        #{sampleType,jdbcType=INTEGER},
+      </if>
+      <if test="patientInfo != null" >
+        #{patientInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveTime != null" >
+        #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.certus.dao.Samples" >
+    update samples
+    <set >
+      <if test="hospitalCode != null" >
+        hospital_code = #{hospitalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bottleCode != null" >
+        bottle_code = #{bottleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sampleType != null" >
+        sample_type = #{sampleType,jdbcType=INTEGER},
+      </if>
+      <if test="patientInfo != null" >
+        patient_info = #{patientInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveTime != null" >
+        receive_time = #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.certus.dao.Samples" >
+    update samples
+    set hospital_code = #{hospitalCode,jdbcType=VARCHAR},
+      bottle_code = #{bottleCode,jdbcType=VARCHAR},
+      sample_type = #{sampleType,jdbcType=INTEGER},
+      patient_info = #{patientInfo,jdbcType=VARCHAR},
+      receive_time = #{receiveTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -3,7 +3,7 @@
 <generatorConfiguration >
 	
  <!--  <classPathEntry location="D:\flexmall-00.05.00\mysql-connector-java-5.1.33.jar"/> -->
-  <classPathEntry location="D:\work\flexMall\branches\flexmall-00.06.00\mysql-connector-java-5.1.35.jar"/>
+  <classPathEntry location="D:/git/code/flexscape-all/monitor/target/monitor/WEB-INF/lib/mysql-connector-java-5.1.25.jar"/>
   <context id="DB2Tables" targetRuntime="MyBatis3">
 	<commentGenerator>   
 		<property name="suppressDate" value="true"/>
@@ -12,7 +12,7 @@
     </commentGenerator> 
     
     <jdbcConnection driverClass="com.mysql.jdbc.Driver" 
-    	connectionURL="jdbc:mysql://localhost:3306/aliyun?characterEncoding=utf8" 
+    	connectionURL="jdbc:mysql://localhost:3306/micro-union?characterEncoding=utf8" 
     	userId="root" password="123456"/>
     	
     <javaTypeResolver>  
@@ -34,11 +34,57 @@
     <javaClientGenerator targetPackage="com.certus.dao" targetProject="micro-union" type="XMLMAPPER" />
     
 
-   <table schema="aliyun" tableName="cloud_vm_group" domainObjectName="CloudVMGroup" 
+   <table schema="micro-union" tableName="detects" domainObjectName="Detects" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">
-    </table> 
+    </table>
+    <table schema="micro-union" tableName="detect_result" domainObjectName="DetectResult" 
+    	enableCountByExample="false" enableDeleteByExample="false" 
+    	enableSelectByExample="false" enableUpdateByExample="false" 
+    	selectByExampleQueryId="false">
+    </table>
+    <table schema="micro-union" tableName="detect_result_rel" domainObjectName="DetectResultRel" 
+    	enableCountByExample="false" enableDeleteByExample="false" 
+    	enableSelectByExample="false" enableUpdateByExample="false" 
+    	selectByExampleQueryId="false">
+    </table>
+    <table schema="micro-union" tableName="detect_type" domainObjectName="DetectType" 
+    	enableCountByExample="false" enableDeleteByExample="false" 
+    	enableSelectByExample="false" enableUpdateByExample="false" 
+    	selectByExampleQueryId="false">
+    </table>
+    <table schema="micro-union" tableName="remarks" domainObjectName="Remarks" 
+    	enableCountByExample="false" enableDeleteByExample="false" 
+    	enableSelectByExample="false" enableUpdateByExample="false" 
+    	selectByExampleQueryId="false">
+    </table>
+    <table schema="micro-union" tableName="samples" domainObjectName="Samples" 
+    	enableCountByExample="false" enableDeleteByExample="false" 
+    	enableSelectByExample="false" enableUpdateByExample="false" 
+    	selectByExampleQueryId="false">
+    </table>
+    <table schema="micro-union" tableName="sample_remark_rel" domainObjectName="SampleRemarkRel" 
+    	enableCountByExample="false" enableDeleteByExample="false" 
+    	enableSelectByExample="false" enableUpdateByExample="false" 
+    	selectByExampleQueryId="false">
+    </table>
+    <table schema="micro-union" tableName="sample_type" domainObjectName="SampleType" 
+    	enableCountByExample="false" enableDeleteByExample="false" 
+    	enableSelectByExample="false" enableUpdateByExample="false" 
+    	selectByExampleQueryId="false">
+    </table>
+    <table schema="micro-union" tableName="users" domainObjectName="Users" 
+    	enableCountByExample="false" enableDeleteByExample="false" 
+    	enableSelectByExample="false" enableUpdateByExample="false" 
+    	selectByExampleQueryId="false">
+    </table>
+    <table schema="micro-union" tableName="user_logs" domainObjectName="UserLogs" 
+    	enableCountByExample="false" enableDeleteByExample="false" 
+    	enableSelectByExample="false" enableUpdateByExample="false" 
+    	selectByExampleQueryId="false">
+    </table>
+     
 
   </context>
 </generatorConfiguration>

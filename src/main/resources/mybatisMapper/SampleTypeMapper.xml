@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.certus.dao.SampleTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.certus.dao.SampleType" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sample_type" property="sampleType" jdbcType="VARCHAR" />
+    <result column="if_bottomcode" property="ifBottomcode" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sample_type, if_bottomcode
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sample_type
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sample_type
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.certus.dao.SampleType" >
+    insert into sample_type (id, sample_type, if_bottomcode
+      )
+    values (#{id,jdbcType=INTEGER}, #{sampleType,jdbcType=VARCHAR}, #{ifBottomcode,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.certus.dao.SampleType" >
+    insert into sample_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sampleType != null" >
+        sample_type,
+      </if>
+      <if test="ifBottomcode != null" >
+        if_bottomcode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sampleType != null" >
+        #{sampleType,jdbcType=VARCHAR},
+      </if>
+      <if test="ifBottomcode != null" >
+        #{ifBottomcode,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.certus.dao.SampleType" >
+    update sample_type
+    <set >
+      <if test="sampleType != null" >
+        sample_type = #{sampleType,jdbcType=VARCHAR},
+      </if>
+      <if test="ifBottomcode != null" >
+        if_bottomcode = #{ifBottomcode,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.certus.dao.SampleType" >
+    update sample_type
+    set sample_type = #{sampleType,jdbcType=VARCHAR},
+      if_bottomcode = #{ifBottomcode,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

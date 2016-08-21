@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.certus.dao.DetectTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.certus.dao.DetectType" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sample_type_id" property="sampleTypeId" jdbcType="INTEGER" />
+    <result column="detect_method" property="detectMethod" jdbcType="VARCHAR" />
+    <result column="detect_type" property="detectType" jdbcType="VARCHAR" />
+    <result column="print_prefix" property="printPrefix" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sample_type_id, detect_method, detect_type, print_prefix
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from detect_type
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from detect_type
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.certus.dao.DetectType" >
+    insert into detect_type (id, sample_type_id, detect_method, 
+      detect_type, print_prefix)
+    values (#{id,jdbcType=INTEGER}, #{sampleTypeId,jdbcType=INTEGER}, #{detectMethod,jdbcType=VARCHAR}, 
+      #{detectType,jdbcType=VARCHAR}, #{printPrefix,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.certus.dao.DetectType" >
+    insert into detect_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sampleTypeId != null" >
+        sample_type_id,
+      </if>
+      <if test="detectMethod != null" >
+        detect_method,
+      </if>
+      <if test="detectType != null" >
+        detect_type,
+      </if>
+      <if test="printPrefix != null" >
+        print_prefix,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sampleTypeId != null" >
+        #{sampleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="detectMethod != null" >
+        #{detectMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="detectType != null" >
+        #{detectType,jdbcType=VARCHAR},
+      </if>
+      <if test="printPrefix != null" >
+        #{printPrefix,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.certus.dao.DetectType" >
+    update detect_type
+    <set >
+      <if test="sampleTypeId != null" >
+        sample_type_id = #{sampleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="detectMethod != null" >
+        detect_method = #{detectMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="detectType != null" >
+        detect_type = #{detectType,jdbcType=VARCHAR},
+      </if>
+      <if test="printPrefix != null" >
+        print_prefix = #{printPrefix,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.certus.dao.DetectType" >
+    update detect_type
+    set sample_type_id = #{sampleTypeId,jdbcType=INTEGER},
+      detect_method = #{detectMethod,jdbcType=VARCHAR},
+      detect_type = #{detectType,jdbcType=VARCHAR},
+      print_prefix = #{printPrefix,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
