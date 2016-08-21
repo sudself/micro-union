@@ -2,7 +2,7 @@ package com.certus.dao;
 
 import com.certus.dao.Detects;
 
-public interface DetectsMapper {
+public interface DetectsMapper extends BaseDao{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Detects record);

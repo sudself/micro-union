@@ -12,7 +12,7 @@
     </commentGenerator> 
     
     <jdbcConnection driverClass="com.mysql.jdbc.Driver" 
-    	connectionURL="jdbc:mysql://localhost:3306/micro-union?characterEncoding=utf8" 
+    	connectionURL="jdbc:mysql://localhost:3306/micro_union?characterEncoding=utf8" 
     	userId="root" password="123456"/>
     	
     <javaTypeResolver>  
@@ -34,52 +34,52 @@
     <javaClientGenerator targetPackage="com.certus.dao" targetProject="micro-union" type="XMLMAPPER" />
     
 
-   <table schema="micro-union" tableName="detects" domainObjectName="Detects" 
+   <table schema="micro_union" tableName="detects" domainObjectName="Detects" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">
     </table>
-    <table schema="micro-union" tableName="detect_result" domainObjectName="DetectResult" 
+    <table schema="micro_union" tableName="detect_result" domainObjectName="DetectResult" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">
     </table>
-    <table schema="micro-union" tableName="detect_result_rel" domainObjectName="DetectResultRel" 
+    <table schema="micro_union" tableName="detect_result_rel" domainObjectName="DetectResultRel" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">
     </table>
-    <table schema="micro-union" tableName="detect_type" domainObjectName="DetectType" 
+    <table schema="micro_union" tableName="detect_type" domainObjectName="DetectType" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">
     </table>
-    <table schema="micro-union" tableName="remarks" domainObjectName="Remarks" 
+    <table schema="micro_union" tableName="remarks" domainObjectName="Remarks" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">
     </table>
-    <table schema="micro-union" tableName="samples" domainObjectName="Samples" 
+    <table schema="micro_union" tableName="samples" domainObjectName="Samples" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">
     </table>
-    <table schema="micro-union" tableName="sample_remark_rel" domainObjectName="SampleRemarkRel" 
+    <table schema="micro_union" tableName="sample_remark_rel" domainObjectName="SampleRemarkRel" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">
     </table>
-    <table schema="micro-union" tableName="sample_type" domainObjectName="SampleType" 
+    <table schema="micro_union" tableName="sample_type" domainObjectName="SampleType" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">
     </table>
-    <table schema="micro-union" tableName="users" domainObjectName="Users" 
+    <table schema="micro_union" tableName="users" domainObjectName="Users" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">
     </table>
-    <table schema="micro-union" tableName="user_logs" domainObjectName="UserLogs" 
+    <table schema="micro_union" tableName="user_logs" domainObjectName="UserLogs" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">

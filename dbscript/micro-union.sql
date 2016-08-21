@@ -15,6 +15,10 @@ Date: 2016-08-21 16:43:25
 
 SET FOREIGN_KEY_CHECKS=0;
 
+drop database if exists micro_union;
+create database micro_union character set utf8;
+use micro_union;
+
 -- ----------------------------
 -- Table structure for detects
 -- ----------------------------

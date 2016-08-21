@@ -2,7 +2,7 @@ package com.certus.dao;
 
 import com.certus.dao.SampleRemarkRel;
 
-public interface SampleRemarkRelMapper {
+public interface SampleRemarkRelMapper extends BaseDao{
     int deleteByPrimaryKey(Integer id);
 
     int insert(SampleRemarkRel record);

@@ -2,7 +2,7 @@ package com.certus.dao;
 
 import com.certus.dao.DetectResultRel;
 
-public interface DetectResultRelMapper {
+public interface DetectResultRelMapper extends BaseDao{
     int deleteByPrimaryKey(Integer id);
 
     int insert(DetectResultRel record);

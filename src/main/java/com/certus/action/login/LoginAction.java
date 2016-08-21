@@ -7,13 +7,13 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.certus.action.BaseAction;
-import com.certus.service.CloudUserService;
-import com.certus.vo.CloudUser;
+import com.certus.dao.Users;
+import com.certus.service.UsersService;
 
 public class LoginAction extends BaseAction {
     private static final long serialVersionUID = -4749945630269273002L;
     @Autowired
-    CloudUserService cus;
+    UsersService cus;
     
     @Action(value="/loginAction/index",results={ 
             @Result(name = "index", location = "/WEB-INF/index.jsp")})
@@ -25,7 +25,7 @@ public class LoginAction extends BaseAction {
     public void login(){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        CloudUser cu = cus.getCloudUser(username);
+        Users cu = cus.getUserByName(username);
         HttpSession session = request.getSession();
         session.setAttribute("loginName", username);
         if (cu==null) {

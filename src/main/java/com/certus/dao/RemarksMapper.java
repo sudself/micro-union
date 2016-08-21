@@ -2,7 +2,7 @@ package com.certus.dao;
 
 import com.certus.dao.Remarks;
 
-public interface RemarksMapper {
+public interface RemarksMapper extends BaseDao{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Remarks record);

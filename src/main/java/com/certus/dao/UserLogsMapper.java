@@ -2,7 +2,7 @@ package com.certus.dao;
 
 import com.certus.dao.UserLogs;
 
-public interface UserLogsMapper {
+public interface UserLogsMapper extends BaseDao{
     int deleteByPrimaryKey(Integer id);
 
     int insert(UserLogs record);

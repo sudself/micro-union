@@ -20,8 +20,8 @@
     http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd">
 	<context:annotation-config />
 
-	<context:component-scan base-package="com.certus.aliyun.service,com.certus.aliyun.action,com.certus.action,com.certus.service,com.certus.dao" />
-	<!-- <context:component-scan base-package="com.certus" /> -->
+	<context:component-scan base-package="com.certus.action,com.certus.service,com.certus.dao" />
+	
 	<bean id="propertyConfig"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">

@@ -21,6 +21,11 @@
     from users
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="getUserByName" resultMap="BaseResultMap" >
+    select * from users where username = #{name}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from users
     where id = #{id,jdbcType=INTEGER}

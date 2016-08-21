@@ -2,7 +2,7 @@ package com.certus.dao;
 
 import com.certus.dao.SampleType;
 
-public interface SampleTypeMapper {
+public interface SampleTypeMapper extends BaseDao{
     int deleteByPrimaryKey(Integer id);
 
     int insert(SampleType record);
