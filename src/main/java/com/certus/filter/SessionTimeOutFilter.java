@@ -33,10 +33,10 @@ public class SessionTimeOutFilter implements Filter {
 		HttpServletResponse response = (HttpServletResponse) arg1;
 		String url = request.getRequestURL().toString();
 		HttpSession session = request.getSession();
-		String loginName=String.valueOf(session.getAttribute("loginName"));
+		String loginName=String.valueOf(session.getAttribute("user"));
 		String xmlhttprequest = request.getHeader("X-Requested-With");
-		if( !url.contains("loginAction/index")//排除登录
-				&&!url.contains("loginAction/login")
+		if( //排除登录
+				!url.contains("loginAction/login")
 				&& "null".endsWith(loginName)
 				&& "XMLHttpRequest".equalsIgnoreCase(xmlhttprequest)) { // ajax request	
 			// 判断是否是session过期，如果是执行下边的代码
@@ -58,7 +58,7 @@ public class SessionTimeOutFilter implements Filter {
 				&& !"XMLHttpRequest".equalsIgnoreCase(xmlhttprequest)
 				) {
 			logger.info(classPath+"session time out 重新登录");
-			response.getWriter().write("<script type=\"text/javascript\">window.top.location.href ='"+request.getContextPath()+"/loginAction/index.action';</script>");
+			response.getWriter().write("<script type=\"text/javascript\">window.top.location.href ='"+request.getContextPath()+"/login.jsp';</script>");
 			return;
 		} 
 		arg2.doFilter(arg0, arg1);

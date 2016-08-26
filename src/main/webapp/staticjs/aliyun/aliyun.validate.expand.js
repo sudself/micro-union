@@ -18,13 +18,11 @@
 
 }());
 
-/*验证必须为数字且小于100   创建虚机的  要创建的虚机数量字段*/
 jQuery.validator.addMethod("virtualNumInput", function(value, element) {   
     var r = /^[1-9][0-9]?$/;
     return this.optional(element) || (r.test(value));
 }, "虚机数量必须为小于100的整数");
 
-/*验证必须为数字且小于100   创建虚机的  要创建的虚机数量字段*/
 jQuery.validator.addMethod("selectType", function(value, element) {   
 	if (value != -1) {
 		return true;

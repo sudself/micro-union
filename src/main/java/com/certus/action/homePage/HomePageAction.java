@@ -9,8 +9,7 @@ public class HomePageAction extends BaseAction {
     
     private static final long serialVersionUID = -4749945630269273002L;
     
-    @Action(value="/homePage/index",results={ 
-            @Result(name = "index", location = "/WEB-INF/homePage/homePage.jsp")})
+    @Action(value="/homePage/index",results={@Result(name = "index", location = "/WEB-INF/microUnion/index.jsp")})
     public String Index(){
         return "index";
     }
