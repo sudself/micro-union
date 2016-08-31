@@ -15,6 +15,7 @@
 	<decorator name="default" page="default.jsp"> 
 	     <!--首页 -->
 		<pattern>/homePage/index.action</pattern> 
+		<pattern>/sampleInput/sampleType/index.action</pattern> 
 	</decorator> 
 	
 	<decorator name="common" page="default_new.jsp">

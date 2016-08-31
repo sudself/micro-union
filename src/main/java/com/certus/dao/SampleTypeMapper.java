@@ -1,5 +1,7 @@
 package com.certus.dao;
 
+import java.util.List;
+
 import com.certus.dao.SampleType;
 
 public interface SampleTypeMapper extends BaseDao{
@@ -14,4 +16,6 @@ public interface SampleTypeMapper extends BaseDao{
     int updateByPrimaryKeySelective(SampleType record);
 
     int updateByPrimaryKey(SampleType record);
+    
+    List<SampleType> querySamplesTypes();
 }

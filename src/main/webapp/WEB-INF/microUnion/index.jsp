@@ -19,7 +19,7 @@
 
   <div class="row"> 
     <div class="col-xs-12 col-sm-6 col-md-6"> 
-        <a href="#" class="thumbnail"> 
+        <a href="${basePath }/sampleInput/sampleType/index.action" class="thumbnail"> 
             <img src="${basePath }/images/micro/IndexPage1.jpg"  class="img-responsive"
                  alt="标本录入" title="标本录入"> 
         </a> 

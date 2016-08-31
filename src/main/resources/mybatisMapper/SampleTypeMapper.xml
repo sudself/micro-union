@@ -68,4 +68,10 @@
       if_bottomcode = #{ifBottomcode,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+    <select id="querySamplesTypes" resultType="hashmap">
+    select 
+    <include refid="Base_Column_List" />
+    from sample_type
+  </select>
 </mapper>
