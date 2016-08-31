@@ -136,8 +136,7 @@ display: block; color:#fff}
 .content-wrapper {
 min-height: 100%;
 background-color: #f7f7f8;
-
-margin-left: 200px; 
+margin-left: 0.5%; 
 z-index: 800;
 }
 .content-header {

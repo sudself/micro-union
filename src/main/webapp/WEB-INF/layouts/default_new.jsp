@@ -19,11 +19,15 @@
         window.basePath = "${basePath}";
     });
 </script>
-<div >
-     <section> 
+
+
+<div class="content-wrapper">
+     <section class="content"> 
         <sitemesh:body />
     </section>
 </div>
+
+
 <div id="loaddiv" class="loaddiv" style="display: none;"></div>
 <div id="loadbg" class="loadbg" style="display: none;"></div>
 <div class="modal fade"  id="waitWarningModel" tabindex="-1" role="dialog" aria-labelledby="waitWarningModelLabel" aria-hidden="true">
