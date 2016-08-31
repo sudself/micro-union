@@ -13,7 +13,7 @@
 
 </head>
 <body >
-<div style="background-color:  rgba(76, 194, 196, 0.81);">
+<div >
 <div class="pageSizeFormat homeIndex">
 <div class="container">
 

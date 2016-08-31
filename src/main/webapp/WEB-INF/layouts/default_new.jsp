@@ -21,8 +21,8 @@
 </script>
 
 
-<div class="content-wrapper">
-     <section class="content"> 
+<div class="content">
+     <section > 
         <sitemesh:body />
     </section>
 </div>
