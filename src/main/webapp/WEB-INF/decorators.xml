@@ -16,4 +16,9 @@
 	     <!--首页 -->
 		<pattern>/homePage/index.action</pattern> 
 	</decorator> 
+	
+	<decorator name="common" page="default_new.jsp">
+	     <pattern>/experiment/index.action</pattern> 
+	</decorator>
+	
 </decorators>

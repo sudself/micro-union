@@ -25,7 +25,7 @@
         </a> 
     </div> 
     <div class="col-xs-12 col-sm-6 col-md-6"> 
-        <a href="#" class="thumbnail"> 
+        <a href="${basePath}/experiment/index.action" class="thumbnail"> 
             <img src="${basePath }/images/micro/IndexPage2.jpg" class="img-responsive"
                  alt="标本处理" title="标本处理"> 
         </a> 
