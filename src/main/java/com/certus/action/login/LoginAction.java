@@ -3,6 +3,7 @@ package com.certus.action.login;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.certus.action.BaseAction;
@@ -40,6 +41,12 @@ public class LoginAction extends BaseAction {
             session.invalidate();
         }
         writeJson("success");
+    }
+    
+    
+    @Action(value="/loginAction/logout",results={@Result(name = "index", location = "/WEB-INF/login.jsp")})
+    public String Index(){
+        return "index";
     }
 }
 

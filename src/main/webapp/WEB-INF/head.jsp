@@ -3,27 +3,24 @@
 <c:set var="basePath" value="${pageContext.request.contextPath}" />
 <link href="${basePath}/css/common.css" rel="stylesheet"  type="text/css"/>
 <link href="${basePath}/css/main.css" rel="stylesheet"  type="text/css"/>
-<div class="top" style="height:62px">
-	<div class="notice_box" style="display:none">
-		<div class="notice" >
-			<div class="news"></div>
-			<div class="login_box">
-				<a href=''>管理控制台</a> 
-			</div>
-		</div>
-	</div>
+<div class="top" >
 	<div class="boby_head_box">
 		<div class="boby_head">
 			<div class="logo">
-				 <img style="margin-top: 9px;" src="${basePath}/images/logo_top_flexmall.png" /> 
+				 <img style="margin-top: -5px;margin-left: -3px;" src="${basePath}/images/logo_top_flexmall.png" /> 
 			</div>
-			<div class="nav" style="float:right">
+			
+			<div class="nav" onclick="butLoginOut();">
+                 <img src="${basePath}/images/logo_right.png" /> 
+            </div>
+			
+			<%-- <div class="nav" style="float:right">
 				<div id="login_msg">
 						<div class="left"></div>
 						<div class="con">欢迎：<%=session.getAttribute("loginName")%></div>
 						<div onclick="butLoginOut();"  class="nav_on" style="height: 20px;width: 28px;float: left;margin-top:8px;"></div>
 				</div>
-			</div>
+			</div> --%>
 		</div>
 	</div>
 </div>
@@ -39,7 +36,7 @@
 			async : false,
 			dataType : 'json',
 			success : function(data) {
-				window.location = "${basePath}/homeAction/index.action"
+				window.location = "${basePath}/loginAction/logout.action"
 			}
 		});
 	}

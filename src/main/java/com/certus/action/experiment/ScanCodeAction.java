@@ -6,7 +6,7 @@ import org.apache.struts2.convention.annotation.Result;
 import com.certus.action.BaseAction;
 
 
-/**实验跟进**/
+/**实验跟进---标本处理**/
 public class ScanCodeAction extends BaseAction {
 
     private static final long serialVersionUID = 1L;

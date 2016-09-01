@@ -20,7 +20,7 @@ a { color:#fff; text-decoration:none;}
 }
 .top{
 	width:100%;
-	height:90px;
+	height:62px;
 }
 .top .notice_box{
 	background:#343743;
@@ -61,7 +61,6 @@ a { color:#fff; text-decoration:none;}
 	background:#264455;
 }
 .top .boby_head{
-	/* width:1200px; */
 	height:62px;
 	margin:0 auto;	
 }
@@ -72,12 +71,13 @@ a { color:#fff; text-decoration:none;}
 }
 .top .boby_head .nav{
 	width:auto;
-	float:left;
-	font-size:14px;
-	line-height:36px;
+	float:right;
 	color:#fff;
-	margin-left:100px;
-	margin-top:13px;
+	margin-top:2px;
+	/* margin-left:100px;
+	line-height:36px;
+	font-size:14px;
+	 */
 }
 .top .boby_head .nav a{
 	width:15px;
