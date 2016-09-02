@@ -6,9 +6,10 @@
     <result column="sample_type_id" property="sampleTypeId" jdbcType="INTEGER" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="index" property="index" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, sample_type_id, content, index
+    id, sample_type_id, content, index,type
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -22,9 +23,9 @@
   </delete>
   <insert id="insert" parameterType="com.certus.dao.Remarks" >
     insert into remarks (id, sample_type_id, content, 
-      index)
+      index,type)
     values (#{id,jdbcType=INTEGER}, #{sampleTypeId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, 
-      #{index,jdbcType=INTEGER})
+      #{index,jdbcType=INTEGER},#{type,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.certus.dao.Remarks" >
     insert into remarks
@@ -41,6 +42,9 @@
       <if test="index != null" >
         index,
       </if>
+      <if test="type != null" >
+        type,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -54,6 +58,9 @@
       </if>
       <if test="index != null" >
         #{index,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -69,6 +76,9 @@
       <if test="index != null" >
         index = #{index,jdbcType=INTEGER},
       </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -76,7 +86,7 @@
     update remarks
     set sample_type_id = #{sampleTypeId,jdbcType=INTEGER},
       content = #{content,jdbcType=VARCHAR},
-      index = #{index,jdbcType=INTEGER}
+      index = #{index,jdbcType=INTEGER},type=#{type,jdbcType=TINYINT} 
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

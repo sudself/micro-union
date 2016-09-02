@@ -9,7 +9,17 @@ public class Remarks {
 
     private Integer index;
 
-    public Integer getId() {
+    private Byte type;
+    
+    public Byte getType() {
+		return type;
+	}
+
+	public void setType(Byte type) {
+		this.type = type;
+	}
+
+	public Integer getId() {
         return id;
     }
 

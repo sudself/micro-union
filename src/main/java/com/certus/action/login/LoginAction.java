@@ -14,8 +14,7 @@ public class LoginAction extends BaseAction {
     private static final long serialVersionUID = -4749945630269273002L;
     @Autowired
     UsersService cus;
-   
-    
+       
     @Action(value="/loginAction/login")
     public void login(){
         String username = request.getParameter("username");

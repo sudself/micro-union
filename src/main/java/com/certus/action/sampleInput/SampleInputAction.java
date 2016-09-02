@@ -24,4 +24,9 @@ public class SampleInputAction  extends BaseAction{
     public void querySamplesTypes(){
     	writeJson(sampleInputService.querySamplesTypes());
     }
+    
+    @Action(value="/sampleInput/sampleScan/scanIndex",results={@Result(name = "scanIndex", location = "/WEB-INF/microUnion/sampleScan.jsp")})
+    public String scanIndex(){
+        return "scanIndex";
+    }
 }
