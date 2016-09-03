@@ -126,4 +126,61 @@
       userid = #{userid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="querySamplesList" parameterType="com.certus.bo.SampleBo" resultType="hashmap">
+    select ss.id,ss.hospital_code,ss.bottle_code,ss.patient_info,ss.receive_time,ss.status,ss.userid,ss.sample_type_name, group_concat(ss.content) sample_content
+FROM (
+select 
+    s.*,t.sample_type sample_type_name,r.content
+    from samples s,sample_type t,sample_remark_rel srr,remarks r
+    where s.sample_type=t.id and s.id=srr.sample_id and srr.remark_id=r.id
+UNION
+select 
+    s.*,t.sample_type sample_type_name,null
+    from samples s,sample_type t
+    where s.sample_type=t.id
+) ss
+    where 1=1 
+        <if test="hospitalCode != null and hospitalCode != ''">
+            and ss.hospital_code = #{hospitalCode,jdbcType=VARCHAR}
+        </if>
+        
+        <if test="bottleCode != null and bottleCode != ''">
+            and ss.sample_type &lt;= #{bottleCode,jdbcType=VARCHAR}
+        </if>
+        
+        <if test="sampleType != null and sampleType != ''">
+            and ss.sample_type=#{sampleType,jdbcType=INTEGER}
+        </if>
+    GROUP BY ss.id,ss.hospital_code,ss.bottle_code,ss.patient_info,ss.receive_time,ss.status,ss.userid,ss.sample_type_name 
+    order by ss.receive_time desc 
+    <if test="rows != 0">
+     limit #{rows,jdbcType=INTEGER} offset #{start,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="countSamplesList" parameterType="com.certus.bo.SampleBo" resultType="java.lang.Integer">
+    select count(distinct ss.id)
+FROM (
+select 
+    s.*,t.sample_type sample_type_name,r.content
+    from samples s,sample_type t,sample_remark_rel srr,remarks r
+    where s.sample_type=t.id and s.id=srr.sample_id and srr.remark_id=r.id
+UNION
+select 
+    s.*,t.sample_type sample_type_name,''
+    from samples s,sample_type t
+    where s.sample_type=t.id
+) ss 
+	where 1=1  
+        <if test="hospitalCode != null and hospitalCode != ''">
+            and ss.hospital_code = #{hospitalCode,jdbcType=VARCHAR}
+        </if>
+        
+        <if test="bottleCode != null and bottleCode != ''">
+            and ss.sample_type &lt;= #{bottleCode,jdbcType=VARCHAR}
+        </if>
+        
+        <if test="sampleType != null and sampleType != ''">
+            and ss.sample_type=#{sampleType,jdbcType=INTEGER}
+        </if>
+  </select>
 </mapper>

@@ -21,6 +21,7 @@
 	     <pattern>/experiment/index.action</pattern> 
 	     <pattern>/sampleInput/sampleType/index.action</pattern> 
 	     <pattern>/sampleInput/sampleScan/scanIndex.action</pattern> 
+	     <pattern>/analysisAction/index.action</pattern> 
 	</decorator>
 	
 </decorators>

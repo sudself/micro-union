@@ -1,6 +1,10 @@
 package com.certus.dao;
 
-import com.certus.dao.Samples;
+import java.util.List;
+import java.util.Map;
+
+import com.certus.bo.SampleBo;
+
 
 public interface SamplesMapper extends BaseDao{
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +18,8 @@ public interface SamplesMapper extends BaseDao{
     int updateByPrimaryKeySelective(Samples record);
 
     int updateByPrimaryKey(Samples record);
+    
+    List<Map<String,Object>> querySamplesList(SampleBo sampleBo);
+    
+    int countSamplesList(SampleBo sampleBo);
 }
