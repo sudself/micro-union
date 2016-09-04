@@ -18,7 +18,14 @@
 	</decorator> 
 	
 	<decorator name="common" page="default_new.jsp">
+	     <!--样本处理 -->
 	     <pattern>/experiment/index.action</pattern> 
+	     <pattern>/experiment/sampleHander.action</pattern> 
+	     <pattern>/experiment/jingjian.action</pattern> 
+	     <pattern>/experiment/pingban.action</pattern> 
+	     <pattern>/experiment/jianding.action</pattern> 
+	     
+	     
 	     <pattern>/sampleInput/sampleType/index.action</pattern> 
 	     <pattern>/sampleInput/sampleScan/scanIndex.action</pattern> 
 	     <pattern>/analysisAction/index.action</pattern> 

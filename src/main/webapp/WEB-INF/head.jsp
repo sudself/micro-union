@@ -3,6 +3,12 @@
 <c:set var="basePath" value="${pageContext.request.contextPath}" />
 <link href="${basePath}/css/common.css" rel="stylesheet"  type="text/css"/>
 <link href="${basePath}/css/main.css" rel="stylesheet"  type="text/css"/>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+</head>
+
 <div class="top" >
 	<div class="boby_head_box">
 		<div class="boby_head">
@@ -10,7 +16,7 @@
 				 <img style="margin-top: -5px;margin-left: -3px;" src="${basePath}/images/logo_top_flexmall.png" /> 
 			</div>
 			
-			<div class="nav" onclick="butLoginOut();">
+			<div class="nav" onclick="homePage();">
                  <img src="${basePath}/images/logo_right.png" /> 
             </div>
 			
@@ -25,20 +31,9 @@
 	</div>
 </div>
 <script type="text/javascript">
-	/* $(".nav > a").click(function(){
-		$(this).attr("class", "nav_on");
-	}); */
-	function butLoginOut() {
-		var url1 = "${basePath}/homeAction/loginOut.action";
-		$.ajax({
-			type : 'post',
-			url : url1,
-			async : false,
-			dataType : 'json',
-			success : function(data) {
-				window.location = "${basePath}/loginAction/logout.action"
-			}
-		});
+
+	function homePage() {
+		window.location = "${basePath}/homePage/index.action"
 	}
 	
 	function changeBackground(obj) {
