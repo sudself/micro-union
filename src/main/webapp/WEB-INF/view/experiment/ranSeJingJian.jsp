@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="basePath" value="${pageContext.request.contextPath}" />
+<c:set var="codeName" value='<%=request.getParameter("codeName")%>' />
 
 <script type="text/javascript"> 
-<%-- var codeName = "<%=request.getParameter("codeName")%>"; --%>
-var codeName="123456789";
 var basepath= "${basePath}";
 </script>
 
@@ -43,7 +42,7 @@ var basepath= "${basePath}";
     <div class="col-md-4 col-sm-3 col-xs-2">
     </div>
     <div class="col-md-4 col-sm-6 col-xs-8">
-         <button type="button" style="width:100%;font-weight:bold;font-size:25px;padding: 8px;">医院条码：123456789</button>
+         <button type="button" style="width:100%;font-weight:bold;font-size:25px;padding: 8px;">医院条码：${codeName}</button>
     </div>
 
 </div>

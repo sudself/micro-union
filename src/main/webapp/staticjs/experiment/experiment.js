@@ -20,7 +20,7 @@ var handerNext= function (){
 		return ;
 	}
 	
-	window.location = sampleHanderUrl+"?codeName='"+$("#codeName").val()+"'";
+	window.location = sampleHanderUrl+"?codeName="+$("#codeName").val()+"";
 	
 	/*var params ={
 			codeName:	$("#codeName").val();
