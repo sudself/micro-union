@@ -79,12 +79,26 @@ var basepath= "${basePath}";
     <div class="col-md-3 col-sm-4 col-xs-4">
     </div>
     
+    <div class="col-md-3 col-sm-4 col-xs-4">
+       <div class="tuPianDiv">痰液涂片</div>
+    </div>
+    
     <div class="col-md-3 col-sm-4 col-xs-4" >
        <div class="tuPianDiv">结核分枝杆菌涂片-04</div>
     </div>
     
     <div class="col-md-3 col-sm-4 col-xs-4">
         <div class="tuPianDiv">放线菌及诺卡菌涂片-05</div>
+    </div>
+    
+</div>
+
+</br>
+</br>
+
+<div class="row" >
+
+    <div class="col-md-3 col-sm-4 col-xs-4">
     </div>
     
      <div class="col-md-3 col-sm-4 col-xs-4">
@@ -101,19 +115,19 @@ var basepath= "${basePath}";
 <div class="row" >
 
     <div class="col-md-3 col-sm-4 col-xs-4">
-        <div class="handlerButton">确认并打印条码</div>
+        <div class="handlerButton" onclick="printCode()">确认并打印条码</div>
     </div>
     
     <div class="col-md-3 col-sm-4 col-xs-4" >
-       <div class="handlerButton">染色镜检</div>
+       <div class="handlerButton"  onclick="ranSeJingJian()">染色镜检</div>
     </div>
     
     <div class="col-md-3 col-sm-4 col-xs-4">
-        <div class="handlerButton">继续处理其他标本</div>
+        <div class="handlerButton" onclick="dealOtherSample()">继续处理其他标本</div>
     </div>
     
      <div class="col-md-3 col-sm-4 col-xs-4">
-       <div class="handlerButton">同时接种培养皿</div>
+       <div class="handlerButton" onclick="peiYangMin()" >同时接种培养皿</div>
     </div>
 
 </div>
