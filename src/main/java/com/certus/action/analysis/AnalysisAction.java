@@ -48,7 +48,7 @@ public class AnalysisAction extends BaseAction {
             sampleBo.setRows(rows);
             
             writeJson(analysisService.getSamplesList(sampleBo));
-            logger.info("listClusters success");
+            logger.info("listSamplesList success");
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(),e);
@@ -60,6 +60,33 @@ public class AnalysisAction extends BaseAction {
             logger.info("end:listSamplesList");
         }
     }   
+    
+    @Action(value="/analysisAction/sampleDetail")
+    public void sampleDetail(){
+        BoResult bor = new BoResult();
+        try {
+            logger.info("begin:sampleDetail");
+            String sampleId = request.getParameter("sampleId");
+            if(StringUtils.isEmpty(sampleId) && !StringUtils.isNumeric(sampleId) ){
+                bor.code = -1;
+                bor.msg = "sampleId参数异常";
+                writeJson(bor);
+                return;
+            }
+            writeJson(analysisService.getSamplesDetailById(Integer.parseInt(sampleId)));
+            logger.info("sampleDetail success");
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage(),e);
+            bor.code = -1;
+            bor.msg = e.getMessage();
+            writeJson(bor);
+        } 
+        finally{
+            logger.info("end:sampleDetail");
+        }
+    }  
+    
     /*@Action(value="/HostListAction/queryHost")
     public void getHost(){
         BoResult bor = new BoResult();

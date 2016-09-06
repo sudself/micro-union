@@ -28,6 +28,12 @@ public class AnalysisServiceImpl implements AnalysisService {
     	List<Map<String,Object>> mapList = samplesMapper.querySamplesList(sampleBo);
         return CommonUtil.buildPageModel(sampleBo.getPage(), sampleBo.getRows(),samplesMapper.countSamplesList(sampleBo), mapList);
     }
+
+	@Override
+	public PaginationModel getSamplesDetailById(Integer sampleId) {
+		List<Map<String,Object>> mapList = samplesMapper.getSamplesDetailById(sampleId);
+        return CommonUtil.buildPageModel(1, 30,mapList.size(), mapList);
+	}
     
    /* @Override
     public PaginationModel getHost(HostBo hostBo) {
