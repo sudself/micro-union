@@ -45,6 +45,11 @@ public class LoginAction extends BaseAction {
     
     @Action(value="/loginAction/logout",results={@Result(name = "index", location = "/WEB-INF/login.jsp")})
     public String Index(){
+    	HttpSession session = request.getSession();
+        String username = String.valueOf(session.getAttribute("loginName"));
+        if (!"null".equals(username)||username != null) {
+            session.invalidate();
+        }
         return "index";
     }
 }

@@ -1,7 +1,8 @@
 package com.certus.dao;
 
-import com.certus.dao.SampleRemarkRel;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 public interface SampleRemarkRelMapper extends BaseDao{
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +15,6 @@ public interface SampleRemarkRelMapper extends BaseDao{
     int updateByPrimaryKeySelective(SampleRemarkRel record);
 
     int updateByPrimaryKey(SampleRemarkRel record);
+    
+    void addSampleRemarkRelBatch(@Param("sampleId") Integer sampleId,@Param("list") List<Integer> list);
 }

@@ -1,36 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="basePath" value="${pageContext.request.contextPath}" />
-<c:set var="sampleTypeId" value='<%=Integer.parseInt(request.getParameter("id"))%>' />
+<c:set var="bottomcode" value='<%=Integer.parseInt(request.getParameter("bottomcode"))%>' />
+<c:set var="typeId" value='<%=Integer.parseInt(request.getParameter("id"))%>' />
 <script type="text/javascript">
 	var basepath = "${basePath}";
+	var bottomcode="${bottomcode}";
+	var typeId="${typeId}";
 </script>
 <div class="container">
 	<form class="form-horizontal" role="form"> 
 	<div id="sampleInputData">
+	<div class="form-group"> 
+        <label for="hospitalCode" class="col-xs-5 col-sm-4 col-md-3 control-label"><h3>标本录入</h3></label> 
+        <div class="col-xs-7 col-sm-8 col-md-6"> 
+        </div> 
+    </div> 
     <div class="form-group"> 
-        <label for="hospitalCode" class="col-xs-3 col-sm-3 col-md-2 control-label">扫描条码</label> 
+        <label for="hospitalCode" class="col-xs-5 col-sm-4 col-md-3 control-label">扫描条码</label> 
         <div class="col-xs-7 col-sm-8 col-md-6"> 
             <input type="text" class="form-control" id="hospitalCode" placeholder="扫描条码"> 
         </div> 
     </div> 
-    <c:if test="${sampleTypeId==1}">
+    <c:if test="${bottomcode==1}">
     <div class="form-group"> 
-        <label for="lastname" class="col-xs-3 col-sm-3 col-md-2 control-label">扫描瓶身条码(血，脑，体）</label> 
+        <label for="lastname" class="col-xs-5 col-sm-4 col-md-3 control-label">扫描瓶身条码(血，脑，体）</label> 
         <div class="col-xs-7 col-sm-8 col-md-6"> 
             <input type="text" class="form-control" id="bottleCode" placeholder="扫描瓶身条码(血，脑，体）">
         </div> 
     </div> 
     </c:if>
     <div class="form-group"> 
-        <label class="col-xs-3 col-sm-3 col-md-2 control-label"></label> 
+        <label class="col-xs-5 col-sm-4 col-md-3 control-label"></label> 
         <div class="col-xs-7 col-sm-8 col-md-6"> 
-            <button type="submit" class="btn btn-info">添加备注信息</button> 
+            <button type="button" class="btn btn-info" onclick="queryRmarksList()">添加备注信息</button> 
         </div> 
     </div> 
     </div>
-    <div id="sampleInputNote">
-        
+    <div id="sampleInputNote" style="display:none;">
+    	<div class="form-group"> 
+        	<label for="hospitalCode" class="col-xs-6"><h3>标注备注信息</h3></label> 
+    	</div> 
+       <div class="form-group"> 
+        <div class="col-xs-6 dangerNote" >
+            <label for="name">拒收血培养标本“□”</label>
+            <div id="dangerNote"></div> 
+        </div>
+        <div class="col-xs-6 infoNote" >
+        <label for="name">标注信息“□”</label>
+        <div id="infoNote"></div>
+        </div>
+        </div>
+        <div class="form-group"> 
+        <label class="col-xs-6 control-label"></label> 
+        <div class="col-xs-6"> 
+            <button type="button" class="btn btn-info" onclick="addRmark()">完成备注</button> 
+        </div> 
+    </div> 
     </div>
 </form>
 </div>

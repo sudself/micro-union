@@ -1,5 +1,7 @@
 package com.certus.dao;
 
+import java.util.List;
+
 import com.certus.dao.Remarks;
 
 public interface RemarksMapper extends BaseDao{
@@ -14,4 +16,6 @@ public interface RemarksMapper extends BaseDao{
     int updateByPrimaryKeySelective(Remarks record);
 
     int updateByPrimaryKey(Remarks record);
+    
+    List<Remarks>  queryRmarksList(int sampleTypeId);
 }

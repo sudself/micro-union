@@ -2335,93 +2335,7 @@ table th .checkbox label {
 .star input[type=checkbox]:checked + label:before {
 	color:#ffd200;
 }
-.checkbox label:before {
-	content: "";
-	display: inline-block;
-	width: 17px;
-	height: 17px;
-	margin-right: 10px;
-	position: absolute;
-	left: 0px;
-	top: 1.4px;
-	background-color: #fff;
-	border:1px solid #c2c6cb;
-	border-radius: 3px;
-	transition: border 0.2s linear 0s, color 0.2s linear 0s;
-}
- .checkbox label::after {
- display: inline-block;
- width: 16px;
- height: 16px;
- position: absolute;
- left:3.2px;
- top:0px;
- font-size:11px;
- transition: border 0.2s linear 0s, color 0.2s linear 0s;
-}
-.checkbox input[type=checkbox] {
-	display: none;
-}
-.checkbox label {
-	margin-bottom: 10px;
-}
-.checkbox label:after {
-	border-radius: 3px;
-}
-.checkbox.checkbox-circle label:after {
-	border-radius: 99px;
-}
-.checkbox.checkbox-circle label:before {
-	border-radius: 99px;
-}
- .checkbox input[type=checkbox]:checked + label::after {
- font-family: 'FontAwesome';
- content: "\F00C";
-}
-.checkbox input[type=checkbox]:checked + label {
-	color: #4d5056;
-}
-.checkbox input[type=checkbox][disabled]+ label {
-	opacity: 0.65;
-}
-.checkbox input[type=checkbox][disabled]+ label:before {
-	background-color:#eceff3;
-}
-.checkbox.check-success input[type=checkbox]:checked + label:before {
-	background-color:#0090D9;
-	border:1px solid #0090D9;
-}
-.checkbox.check-success input[type=checkbox]:checked + label::after {
- color:#fff;
-}
-.checkbox.check-primary input[type=checkbox]:checked + label:before {
-	background-color:#0AA699;
-	border:1px solid #0AA699;
-}
-.checkbox.check-primary input[type=checkbox]:checked + label::after {
- color:#fff;
-}
-.checkbox.check-info input[type=checkbox]:checked + label:before {
-	background-color:#1F3853;
-	border:1px solid #1F3853;
-}
-.checkbox.check-info input[type=checkbox]:checked + label::after {
- color:#fff;
-}
-.checkbox.check-warning input[type=checkbox]:checked + label:before {
-	background-color:#FDD01C;
-	border:1px solid #FDD01C;
-}
-.checkbox.check-warning input[type=checkbox]:checked + label::after {
- color:#fff;
-}
-.checkbox.check-danger input[type=checkbox]:checked + label:before {
-	background-color:#F35958;
-	border:1px solid #F35958;
-}
-.checkbox.check-danger input[type=checkbox]:checked + label::after {
- color:#fff;
-}
+
 select.xsmall {
 	width: 64px !important;
 }
@@ -4480,7 +4394,7 @@ code:hover {
 	position:relative;
 	top: 8px;
 }
-.alert .close {
+/* .alert .close {
 	background: url("../img/icon/noti-cross.png") no-repeat scroll 0 0 transparent;
 	background-position: -9px -10px;
 	width: 10px;
@@ -4492,7 +4406,7 @@ code:hover {
 }
 .alert .close:hover {
 	opacity: 1;
-}
+} */
 .alert-success .close {
 	background-position:  -38px -10px !important;
 }
@@ -7938,11 +7852,16 @@ ul.task li {
 	color: #0090d9;
 }
 
+input[type=checkbox], input[type=radio] {
+    margin: 4px 0 0;
+    margin-top: 1px\9;
+    line-height: normal;
+}
 
+.dangerNote label{
+	color:red;
+}
 
-
-
-
-
-
-
+.infoNote label{
+	color:rgba(76, 194, 196, 0.81);
+}

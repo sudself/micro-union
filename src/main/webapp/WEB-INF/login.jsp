@@ -21,7 +21,7 @@
 <script src="${basePath }/staticjs/jslib/jquery.validate.js"></script>
 <script src="${basePath }/staticjs/aliyun/aliyun.validate.expand.js"></script>
 <script src="${basePath }/staticjs/aliyun/aliyun.validate.expand.messages_cn.js"></script>
-
+<script type="text/javascript" src="${basePath}/staticjs/bootstrap.min.js"></script>
 <style type="text/css">
 html,body {
 	height: 100%;
@@ -156,7 +156,8 @@ html,body {
 	</div>
 	</form>
 </div>
-
+<div id="alertModel" style="float:right;" >
+</div>
 </body>
 	<script type="text/javascript">
 		function keyLogin() {
@@ -183,7 +184,14 @@ html,body {
 		    	//$('#addVirtualModel').modal('hide');
 		    }
 		}); 
-		
+		function alertModel(type,popHtml){
+			//type类型  success  warning danger
+			type="alert-"+type;
+			var model='<div class="alert '+type+'"><a class="close" data-dismiss="alert">&times;</a>'+popHtml+'</div>';
+		    $("#alertModel").html(model);
+		    $("#alertModel").fadeIn();
+		    $("#alertModel").fadeOut(5000);
+		}
 		function butOnclick() {
 			var url1 = "${basePath}/loginAction/login.action";
 			var username = $("#username").val();
@@ -203,7 +211,7 @@ html,body {
 					if (data == "success") {
 						window.location = "${basePath}/homePage/index.action"
 					} else {
-						$(".help").text("用户名或者密码错误！")
+						alertModel("danger","用户名或密码错误！");
 					}
 				}
 			});

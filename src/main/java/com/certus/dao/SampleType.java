@@ -1,5 +1,6 @@
 package com.certus.dao;
 
+
 public class SampleType {
     private Integer id;
 

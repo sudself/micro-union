@@ -19,13 +19,13 @@
     delete from sample_remark_rel
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.certus.dao.SampleRemarkRel" >
+  <insert id="insert"  useGeneratedKeys="true" keyProperty="id" parameterType="com.certus.dao.SampleRemarkRel" >
     insert into sample_remark_rel (id, sample_id, remark_id
       )
     values (#{id,jdbcType=INTEGER}, #{sampleId,jdbcType=INTEGER}, #{remarkId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.certus.dao.SampleRemarkRel" >
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.certus.dao.SampleRemarkRel" >
     insert into sample_remark_rel
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -68,4 +68,11 @@
       remark_id = #{remarkId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+<insert id="addSampleRemarkRelBatch" >
+insert into sample_remark_rel (sample_id,remark_id) values 
+  <foreach collection="list" item="item" index="index" separator=",">
+	(#{sampleId},#{item})
+  </foreach>
+</insert>
 </mapper>

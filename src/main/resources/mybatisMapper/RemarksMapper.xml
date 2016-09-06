@@ -9,7 +9,7 @@
     <result column="type" property="type" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, sample_type_id, content, index,type
+    id, sample_type_id, content, `index`,type
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -89,4 +89,11 @@
       index = #{index,jdbcType=INTEGER},type=#{type,jdbcType=TINYINT} 
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+    <select id="queryRmarksList" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from remarks 
+    where  sample_type_id = #{sampleTypeId,jdbcType=INTEGER} order by type,`index`
+  </select>
 </mapper>
