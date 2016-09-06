@@ -90,10 +90,10 @@ function initSamplesTable() {
 	    datatype : "json",
 	    autoheight:true,
 	    width : gridWidth,
-	    height: 300,
+	    height: 350,
 	    shrinkToFit : jqGridWidthFit(gridWidth,120),
 	    forceFit:true,
-	   // rownumbers : true,
+	    rownumbers : true,
 	    colModel : [{
 	        label : '医院条码',
 	        name : 'hospital_code',
@@ -146,6 +146,11 @@ function initSamplesTable() {
 	    },
 	    gridComplete : function() {        
 	        jqGridpaper();
+	        var grid = $("#datagrid");
+	        var ids = grid.getDataIDs();
+	        for (var i = 0; i < ids.length; i++) {
+	         grid.setRowData ( ids[i], false, {height: 30} );
+	        }
 	    }
 	});	
 	function showChildGrid(parentRowID, parentRowKey) {
@@ -172,7 +177,7 @@ function initSamplesTable() {
                 { label: '状态', name: 'status', width: 100 }
             ],
 			loadonce: true,
-            width: gridWidth-50,
+            width: gridWidth-100,
             height:  "auto",
             jsonReader : {
      	        repeatitems : false

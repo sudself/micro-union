@@ -8,7 +8,6 @@
 		$.jgrid.defaults.responsive = true;
 		$.jgrid.defaults.styleUI = 'Bootstrap';
 </script>
-<div style="background-color:  rgba(76, 194, 196, 0.81);">
 <div class="container">
 
   <div class="row"> 
@@ -20,7 +19,6 @@
 		    </div>
 		</div>
     </div> 
-</div>
 </div>
 </div>
 <script src="${basePath}/staticjs/micro/analysis.js?t=<%=Math.random() %>"></script>
