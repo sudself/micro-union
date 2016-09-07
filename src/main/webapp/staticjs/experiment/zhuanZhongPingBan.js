@@ -2,6 +2,11 @@ $(document).ready(function() {
     initRow();
 });
 
+/**是否选中**/
+function divSelected(div){
+     $(div).toggleClass("toggleClassBackG");
+}
+
 /**初始化页面**/
 function initRow(){
     var url=basePath+"/experiment/getDetectTypeList.action";
@@ -25,13 +30,13 @@ function initRow(){
                     }
                     htmlStr+='</div>';
                     
-                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div class="tuPianDiv">'+data[i].detect_type+'</div></div>';
+                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
                     
                 }else if((i+1)%3==0){//第三个
-                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div class="tuPianDiv">'+data[i].detect_type+'</div></div>';
+                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
                     htmlStr+='</div> </br> </br>';
                 }else{//第二个
-                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div class="tuPianDiv">'+data[i].detect_type+'</div></div>';
+                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
                 }
                 
                 if(i==data.length-1 && (i+1)%3!=0){

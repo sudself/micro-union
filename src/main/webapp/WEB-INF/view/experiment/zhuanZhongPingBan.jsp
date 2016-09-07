@@ -20,6 +20,10 @@ var detectMothod= "${detectMothod}";
     margin-left: auto;
 }
 
+.toggleClassBackG{
+    background-color:#0000CC;
+}
+
 .tuPianDiv{
   padding: 9px;
   border:1px solid #0000FF;

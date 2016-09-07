@@ -29,6 +29,10 @@ var detectMothod= "${detectMothod}";
   border-radius: 10px;
 }
 
+.toggleClassBackG{
+    background-color:#0000CC;
+}
+
 .handlerButton{
   background:#66ccff; 
   padding: 9px;
