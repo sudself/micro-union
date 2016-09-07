@@ -1,6 +1,6 @@
 package com.certus.dao;
 
-import com.certus.dao.DetectType;
+import java.util.List;
 
 public interface DetectTypeMapper extends BaseDao{
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +14,6 @@ public interface DetectTypeMapper extends BaseDao{
     int updateByPrimaryKeySelective(DetectType record);
 
     int updateByPrimaryKey(DetectType record);
+    
+    List<DetectType> getDetectTypeList(DetectType detectType);
 }

@@ -17,6 +17,27 @@
     from detect_type
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="getDetectTypeList" parameterType="com.certus.dao.DetectType" resultType="hashmap" >
+     select
+     <include refid="Base_Column_List"/>
+     from detect_type
+     where 1=1
+     <if test="sampleTypeId != null">
+            and sample_type_id = #{sampleTypeId,jdbcType=INTEGER}
+     </if>
+     
+     <if test="detectMethod != null and detectMethod != ''">
+            and detect_method = #{detectMethod,jdbcType=VARCHAR}
+     </if>
+     
+     <if test="detectMethod != null and detectMethod != ''">
+            and detect_method = #{detectMethod,jdbcType=VARCHAR}
+     </if>
+  
+  </select>
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from detect_type
     where id = #{id,jdbcType=INTEGER}
@@ -90,4 +111,5 @@
       print_prefix = #{printPrefix,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
 </mapper>

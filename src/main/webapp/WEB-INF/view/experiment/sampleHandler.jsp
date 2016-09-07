@@ -43,7 +43,7 @@ var basepath= "${basePath}";
     
     <div class="col-md-3 col-sm-6 col-xs-6">
        
-       <a href="${basePath}/experiment/jingjian.action?codeName=${codeName}" class="thumbnail"> 
+       <a href="${basePath}/experiment/jingjian.action?codeName=${codeName}&sampleTypeId=1&detectMothod=1" class="thumbnail"> 
             <img src="${basePath }/images/sampleHandler/jingjian.png" class="img-responsive"
                  alt="染色镜检" title="染色镜检"> 
        </a> 
@@ -51,7 +51,7 @@ var basepath= "${basePath}";
     </div>
     
     <div class="col-md-3 col-sm-6 col-xs-6">
-        <a href="${basePath}/experiment/pingban.action?codeName=${codeName}" class="thumbnail"> 
+        <a href="${basePath}/experiment/pingban.action?codeName=${codeName}&sampleTypeId=1&detectMothod=2" class="thumbnail"> 
             <img src="${basePath }/images/sampleHandler/pingban.png" class="img-responsive"
                  alt="转钟平板" title="转钟平板"> 
        </a>
@@ -60,7 +60,7 @@ var basepath= "${basePath}";
     
      <div class="col-md-3 col-sm-6 col-xs-6">
      
-        <a href="${basePath}/experiment/jianding.action?codeName=${codeName}" class="thumbnail"> 
+        <a href="${basePath}/experiment/jianding.action?codeName=${codeName}&sampleTypeId=1&detectMothod=3" class="thumbnail"> 
             <img src="${basePath }/images/sampleHandler/jianding.png" class="img-responsive"
                  alt="直接鉴定" title="直接鉴定"> 
        </a>

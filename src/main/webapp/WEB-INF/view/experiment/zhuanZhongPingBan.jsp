@@ -2,9 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="basePath" value="${pageContext.request.contextPath}" />
 <c:set var="codeName" value='<%=request.getParameter("codeName")%>' />
+<c:set var="sampleTypeId" value='<%=request.getParameter("sampleTypeId")%>' />
+<c:set var="detectMothod" value='<%=request.getParameter("detectMothod")%>' />
 
 <script type="text/javascript"> 
 var basepath= "${basePath}";
+var codeName= "${codeName}";
+var sampleTypeId= "${sampleTypeId}";
+var detectMothod= "${detectMothod}";
 </script>
 
 <style type="text/css">
@@ -50,64 +55,10 @@ var basepath= "${basePath}";
 </br>
 </br>
 
-<div class="row">
-
-    <div class="col-md-3 col-sm-4 col-xs-4">
-     <h4>转种平板</h4>
-    </div>
-    
-    <div class="col-md-3 col-sm-4 col-xs-4" >
-       <div class="tuPianDiv">BA</div>
-    </div>
-    
-    <div class="col-md-3 col-sm-4 col-xs-4">
-        <div class="tuPianDiv">CA</div>
-    </div>
-    
-     <div class="col-md-3 col-sm-4 col-xs-4">
-       <div class="tuPianDiv">MAC</div>
-    </div>
+<div id="rowContainer">
 
 </div>
 
-</br>
-</br>
-
-<div class="row" >
-
-    <div class="col-md-3 col-sm-4 col-xs-4">
-    </div>
-    
-    <div class="col-md-3 col-sm-4 col-xs-4">
-       <div class="tuPianDiv">MH</div>
-    </div>
-    
-    <div class="col-md-3 col-sm-4 col-xs-4" >
-       <div class="tuPianDiv">SS</div>
-    </div>
-    
-    <div class="col-md-3 col-sm-4 col-xs-4">
-        <div class="tuPianDiv">CBA</div>
-    </div>
-    
-</div>
-
-</br>
-</br>
-
-<div class="row" >
-
-    <div class="col-md-3 col-sm-4 col-xs-4">
-    </div>
-    
-     <div class="col-md-3 col-sm-4 col-xs-4">
-       <div class="tuPianDiv">ANA</div>
-    </div>
-
-</div>
-
-</br>
-</br>
 </br>
 
 <div class="row" >

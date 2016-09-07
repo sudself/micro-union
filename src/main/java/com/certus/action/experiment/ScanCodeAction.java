@@ -1,15 +1,23 @@
 package com.certus.action.experiment;
 
+import java.util.List;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.certus.action.BaseAction;
+import com.certus.dao.DetectType;
+import com.certus.service.ShiYanChuLiService;
 
 
 /**实验跟进---标本处理**/
 public class ScanCodeAction extends BaseAction {
 
     private static final long serialVersionUID = 1L;
+    
+    @Autowired
+    private ShiYanChuLiService shiYanChuLiService;
     
     @Action(value="/experiment/index",results={@Result(name = "index", location = "/WEB-INF/view/experiment/experiIndex.jsp")})
     public String Index(){
@@ -23,7 +31,6 @@ public class ScanCodeAction extends BaseAction {
         
         String codeName = request.getParameter("codeName");
         System.out.println(codeName);
-        
         return "sampleHander";
     }
     
@@ -31,11 +38,18 @@ public class ScanCodeAction extends BaseAction {
     /**染色镜检**/
     @Action(value="/experiment/jingjian",results={@Result(name = "jingjian", location = "/WEB-INF/view/experiment/ranSeJingJian.jsp")})
     public String jingjian(){
-        
-        String codeName = request.getParameter("codeName");
-        System.out.println(codeName);
-        
+//        String codeName = request.getParameter("codeName");
         return "jingjian";
+    }
+    
+    /**获取镜检或平板的类型列表**/
+    @Action(value="/experiment/getDetectTypeList")
+    public void getDetectTypeList(){
+        String sampleTypeId = request.getParameter("sampleTypeId");
+        String detectMothod = request.getParameter("detectMothod");
+        
+        List<DetectType> resultList = shiYanChuLiService.getDetectType(sampleTypeId, detectMothod, null);
+        writeJson(resultList);
     }
     
     /**转种平板**/

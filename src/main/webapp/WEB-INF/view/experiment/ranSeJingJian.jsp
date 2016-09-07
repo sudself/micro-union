@@ -2,9 +2,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="basePath" value="${pageContext.request.contextPath}" />
 <c:set var="codeName" value='<%=request.getParameter("codeName")%>' />
+<c:set var="sampleTypeId" value='<%=request.getParameter("sampleTypeId")%>' />
+<c:set var="detectMothod" value='<%=request.getParameter("detectMothod")%>' />
 
 <script type="text/javascript"> 
 var basepath= "${basePath}";
+var codeName= "${codeName}";
+var sampleTypeId= "${sampleTypeId}";
+var detectMothod= "${detectMothod}";
+
 </script>
 
 <style type="text/css">
@@ -46,69 +52,14 @@ var basepath= "${basePath}";
     </div>
 
 </div>
-
 </br>
 </br>
 
-<div class="row">
-
-    <div class="col-md-3 col-sm-4 col-xs-4">
-     <h4>涂片类型选择</h4>
-    </div>
-    
-    <div class="col-md-3 col-sm-4 col-xs-4" >
-       <div class="tuPianDiv">一般细菌涂片-01</div>
-    </div>
-    
-    <div class="col-md-3 col-sm-4 col-xs-4">
-        <div class="tuPianDiv">真菌涂片-02</div>
-    </div>
-    
-     <div class="col-md-3 col-sm-4 col-xs-4">
-       <div class="tuPianDiv">淋球菌涂片-03</div>
-    </div>
-
-</div>
-
-</br>
-</br>
-
-<div class="row" >
-
-    <div class="col-md-3 col-sm-4 col-xs-4">
-    </div>
-    
-    <div class="col-md-3 col-sm-4 col-xs-4">
-       <div class="tuPianDiv">痰液涂片</div>
-    </div>
-    
-    <div class="col-md-3 col-sm-4 col-xs-4" >
-       <div class="tuPianDiv">结核分枝杆菌涂片-04</div>
-    </div>
-    
-    <div class="col-md-3 col-sm-4 col-xs-4">
-        <div class="tuPianDiv">放线菌及诺卡菌涂片-05</div>
-    </div>
-    
-</div>
-
-</br>
-</br>
-
-<div class="row" >
-
-    <div class="col-md-3 col-sm-4 col-xs-4">
-    </div>
-    
-     <div class="col-md-3 col-sm-4 col-xs-4">
-       <div class="tuPianDiv">寄生虫涂片-06</div>
-    </div>
+<div id="rowContainer">
 
 </div>
 
 
-</br>
-</br>
 </br>
 
 <div class="row" >
@@ -134,5 +85,6 @@ var basepath= "${basePath}";
 
 </div>
 
-<script src="${basePath}/staticjs/experiment/ranSeJingJian.js?t=<%=Math.random() %>"></script>
+<%-- <script src="${basePath}/staticjs/experiment/ranSeJingJian.js?t=<%=Math.random() %>"></script> --%>
+<script src="${basePath}/staticjs/experiment/ranSeJingJian.js"></script>
 
