@@ -3,7 +3,7 @@
 <c:set var="basePath" value="${pageContext.request.contextPath}" />
 
 <body >
-<link type="text/css" rel="stylesheet" href="${basePath }/staticjs/jslib/jqgrid/ui.jqgrid-bootstrap.css"></link>
+
 <script>
 		$.jgrid.defaults.responsive = true;
 		$.jgrid.defaults.styleUI = 'Bootstrap';

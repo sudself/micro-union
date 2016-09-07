@@ -7865,3 +7865,27 @@ input[type=checkbox], input[type=radio] {
 .infoNote label{
 	color:rgba(76, 194, 196, 0.81);
 }
+
+.ui-icon{
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+} 
+
+.ui-icon-plus:before {
+    margin-left: -35px;
+    content: "\002b";
+    cursor: pointer;
+}
+
+.ui-icon-minus:before {
+	margin-left: -35px;
+    content: "\2212";
+    cursor: pointer;
+}
