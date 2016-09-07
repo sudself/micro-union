@@ -99,6 +99,7 @@ CREATE TABLE `remarks` (
   `sample_type_id` int(11) DEFAULT NULL COMMENT '标本类型ID ',
   `content` varchar(100) DEFAULT NULL COMMENT '备注内容',
   `index` int(11) DEFAULT NULL COMMENT 'Index排序号',
+  `type` tinyint(3) unsigned zerofill DEFAULT NULL COMMENT '备注类型,0：红色 1：黄色',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

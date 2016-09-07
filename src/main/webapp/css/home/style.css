@@ -7852,16 +7852,25 @@ ul.task li {
 	color: #0090d9;
 }
 
-input[type=checkbox], input[type=radio] {
+#sampleInputNote input[type=checkbox], input[type=radio] {
     margin: 4px 0 0;
     margin-top: 1px\9;
     line-height: normal;
+    visibility: hidden;
 }
-
+#sampleInputNote label{
+	text-shadow: none;
+    box-shadow: none;
+    padding-left:0px;
+    transition: all 0.12s linear 0s !important;
+    font-family: 'Open Sans', "Microsoft Yahei", "微软雅黑";
+}
 .dangerNote label{
 	color:red;
 }
-
+#sampleInputNote .checkbox{
+	padding-left:20px;
+}
 .infoNote label{
 	color:rgba(76, 194, 196, 0.81);
 }

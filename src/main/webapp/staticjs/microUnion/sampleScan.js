@@ -20,9 +20,9 @@ var queryRmarksList=function(){
 			var infoStr="";
 			for(var i=0;i<data.length;i++){ 
 				if(data[i].type==0){
-					dangerStr+='<div class="checkbox"><label><input type="checkbox" name="dangerNote" value="'+data[i].id+'">'+data[i].content+'</label></div>';
+					dangerStr+='<div class="checkbox"><label><i class="icon-check-empty"></i><input type="checkbox" name="dangerNote" value="'+data[i].id+'">&nbsp;'+data[i].content+'</label></div>';
 				}else if(data[i].type==1){
-					infoStr+='<div class="checkbox"><label><input type="checkbox" name="infoNote" value="'+data[i].id+'">'+data[i].content+'</label></div>';
+					infoStr+='<div class="checkbox"><label><i class="icon-check-empty"></i><input type="checkbox" name="infoNote" value="'+data[i].id+'">&nbsp;'+data[i].content+'</label></div>';
 				}
 			}
 			$("#dangerNote").html(dangerStr);
@@ -31,10 +31,16 @@ var queryRmarksList=function(){
 			$("#sampleInputNote").show();
 			
 			$('input[name="dangerNote"]').click(function(){ 
+				var classStyle=$(this).is(':checked')==true?"icon-check":"icon-check-empty";
+				$(this).prev().removeClass().addClass(classStyle);
+				$("#infoNote i").removeClass().addClass("icon-check-empty"); 
 				$("input[name='infoNote']").removeAttr("checked");
 			}); 
 
-			$('input[name="infoNote"]').click(function(){ 
+			$('input[name="infoNote"]').click(function(){
+				var classStyle=$(this).is(':checked')==true?"icon-check":"icon-check-empty";
+				$(this).prev().removeClass().addClass(classStyle);
+				$("#dangerNote i").removeClass().addClass("icon-check-empty");
 				$("input[name='dangerNote']").removeAttr("checked");
 			}); 
 		},error: function(e) { 
@@ -52,6 +58,7 @@ var addRmark=function(){
 	
 	var chk_value=[];
 	$('input[name="dangerNote"]:checked').each(function(){ 
+		
 		chk_value.push($(this).val()); 
 	}); 
 	if(chk_value.length==0){
@@ -62,7 +69,6 @@ var addRmark=function(){
 	if(chk_value.length>0){
 		params.chkValue=chk_value.toString();
 	}
-    console.info(params);
     var requUrl=basepath+"/sampleInput/sampleScan/addSample.action";
     $.ajax({
 		type : 'post',

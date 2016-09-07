@@ -43,18 +43,18 @@
     	</div> 
        <div class="form-group"> 
         <div class="col-xs-6 dangerNote" >
-            <label for="name">拒收血培养标本“□”</label>
+            <h4><label for="name">拒收血培养标本“<i class="icon-check-empty"></i>”</label></h4>
             <div id="dangerNote"></div> 
         </div>
         <div class="col-xs-6 infoNote" >
-        <label for="name">标注信息“□”</label>
+        <h4><label for="name">标注信息“<i class="icon-check-empty"></i>”</label></h4>
         <div id="infoNote"></div>
         </div>
         </div>
         <div class="form-group"> 
         <label class="col-xs-6 control-label"></label> 
-        <div class="col-xs-6"> 
-            <button type="button" class="btn btn-info" onclick="addRmark()">完成备注</button> 
+        <div class="col-xs-6" > 
+            <button type="button" style="margin-left:20px" class="btn btn-info" onclick="addRmark()">完成备注</button> 
         </div> 
     </div> 
     </div>
