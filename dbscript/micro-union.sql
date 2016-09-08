@@ -194,3 +194,17 @@ CREATE TABLE `user_logs` (
 -- ----------------------------
 -- Records of user_logs
 -- ----------------------------
+DROP TABLE IF EXISTS `jing_jian_type`;
+CREATE TABLE `jing_jian_type` (
+  `id` int(11) NOT NULL,
+  `detect_type_id` int(11) DEFAULT NULL COMMENT 'detect_type的主键',
+  `jing_jian_type` varchar(50) DEFAULT NULL COMMENT '镜检小类型',
+  `extra1` varchar(50) DEFAULT NULL COMMENT '扩展',
+  `extra2` varchar(50) DEFAULT NULL COMMENT '扩展',
+  `extra3` varchar(50) DEFAULT NULL COMMENT '扩展',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
