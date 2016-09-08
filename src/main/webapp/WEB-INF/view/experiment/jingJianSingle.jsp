@@ -19,6 +19,15 @@ var detectMothod= "${detectMothod}";
     margin-left: auto;
 }
 
+.handlerButton{
+  background:#66ccff; 
+  padding: 4px;
+  border:1px solid #0000FF;
+  font-size:14px;
+  text-align: center; 
+  border-radius: 12px;
+}
+
 </style>
 
 
@@ -36,32 +45,27 @@ var detectMothod= "${detectMothod}";
 
 <div class="row"> 
     <div class="col-md-6 col-sm-6 col-xs-8">
-       <h3>一般细菌涂片： 根据革兰氏染色镜检结果勾选  </h3>
+       <h4>一般细菌涂片： 根据革兰氏染色镜检结果勾选  </h4>
     </div>
 </div>
 <br>
 <br>
 
-
 <div id="rowContainer">
-	<div class="row" style="padding: 5px;font-size:">
-		<div class="col-md-6 col-sm-6 col-xs-6"><label><input type="checkbox" >G+球菌，成堆，可疑为葡萄球菌</label></div>
-		<div class="col-md-6 col-sm-6 col-xs-6"><label><input type="checkbox" >G+球菌，成链或成对，可疑为链球菌</label></div>
-		<div class="col-md-6 col-sm-6 col-xs-6"><label><input type="checkbox" >可疑为G+杆菌</label></div>
+	<div id="rowContainerDiv" class="row" style="padding: 5px;font-size:12px">
 	</div>
-	
 </div>
 
 
 </br>
 <div class="row" >
 
-    <div class="col-md-6 col-sm-4 col-xs-4">
-        <div class="handlerButton" "></div>
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <div></div>
     </div>
     
-    <div class="col-md-6 col-sm-8 col-xs-8">
-        <div class="handlerButton" onclick="dealOtherSample()">继续处理其他标本</div>
+    <div class="col-md-2 col-sm-4 col-xs-4">
+        <div class="handlerButton" onclick="saveAndDealOther()">继续处理其他标本</div>
     </div>
 
 </div>
