@@ -53,45 +53,6 @@ public class CommonUtil {
 		return sb.toString();
 	}
 
-	public static String getStatus(String status) {
-		
-		switch (status) {
-		case "stopped":
-			status = "关机";
-			break;
-		case "active":
-			status = "运行中";
-			break;
-		case "building":
-			status = "创建中";
-			break;
-		case "reboot":
-			status = "重新启动";
-			break;
-		case "deleted":
-			status = "删除";
-			break;
-		case "error":
-			status = "错误";
-			break;
-		case "shutoff":
-			status = "关机";
-			break;
-		case "unknown":
-			status = "未知";
-			break;
-		case "paused":
-			status = "暂停";
-			break;
-		case "migrating":
-			status = "迁移";
-			break;
-		default:
-			status = "未知";
-			break;
-		}
-		return status;
-	}
 
 	public static void main(String args[]) {
 		for (int i = 0; i < 10; i++) {
