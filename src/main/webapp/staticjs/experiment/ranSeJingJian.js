@@ -2,9 +2,26 @@ $(document).ready(function() {
     initRow();
 });
 
+//选中的类型id
+var selectIds = new Array();
+
 /**是否选中**/
 function divSelected(div){
      $(div).toggleClass("toggleClassBackG");
+     
+     var detectTypeId = $(div).attr('id');
+     
+     if( $(div).hasClass("toggleClassBackG")){
+         selectIds.push(detectTypeId);//选中
+     }else{
+         //删除
+         for(var i=0;i<selectIds.length;i++){
+             if(selectIds[i] == detectTypeId){
+                 selectIds.splice(i, 1);
+                 break;
+             }
+         }
+     }
 }
 
 /**初始化页面**/
@@ -52,23 +69,36 @@ function initRow(){
     
 }
 
-
 /**打印条码**/
 function printCode(){
-    alert("处理打印条码");
+    if(selectIds.length <1){
+        alert("请选择涂片类型");
+        return;
+    }else{
+        alert(selectIds.toString());
+    }
+    
 }
 
-/**染色镜检**/
+/**染色之后并镜检**/
 function ranSeJingJian(){
-    alert("处理染色镜检");
+    /**更新染色记录到数据库*/   
+    
+    /**跳转到镜检页面**/
+    window.location = basePath+"/experiment/jingJianSingle.action?codeName="+codeName+"&sampleTypeId="+sampleTypeId+"&detectMothod=4";
 }
 
 /**继续处理**/
 function dealOtherSample(){
+    /**更新染色记录到数据库*/   
+    
     window.location = basePath+"/experiment/index.action";
 }
 
 /**同时接种培养皿**/
 function peiYangMin(){
-    alert("接种培养皿");
+    /**更新染色记录到数据库*/   
+    
+    //跳转至转种平板页面
+    window.location = basePath+"/experiment/pingban.action?codeName="+codeName+"&sampleTypeId=1&detectMothod=2";
 }

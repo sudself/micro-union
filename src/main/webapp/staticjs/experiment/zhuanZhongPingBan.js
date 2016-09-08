@@ -2,9 +2,26 @@ $(document).ready(function() {
     initRow();
 });
 
+//选中的类型id
+var selectIds = new Array();
+
 /**是否选中**/
 function divSelected(div){
      $(div).toggleClass("toggleClassBackG");
+     
+     var detectTypeId = $(div).attr('id');
+     
+     if( $(div).hasClass("toggleClassBackG")){
+         selectIds.push(detectTypeId);//选中
+     }else{
+         //删除
+         for(var i=0;i<selectIds.length;i++){
+             if(selectIds[i] == detectTypeId){
+                 selectIds.splice(i, 1);
+                 break;
+             }
+         }
+     }
 }
 
 /**初始化页面**/
@@ -55,15 +72,25 @@ function initRow(){
 
 /**确认打印条码**/
 function okPrintCode(){
-    alert("打印条码");
+    if(selectIds.length <1){
+        alert("请选择涂片类型");
+        return;
+    }else{
+        alert(selectIds.toString());
+    }
 }
 
-/**转种平板**/
+/**染色**/
 function zhuanZhongPingban(){
-    alert("转种平板"); 
+    /**更新转种平板记录到数据库*/   
+    
+    //跳转至转染色页面
+    window.location = basePath+"/experiment/jingjian.action?codeName="+codeName+"&sampleTypeId=1&detectMothod=1";
 }
 
 /**处理其他标本**/
 function backForward(){
+    /**更新转种平板记录到数据库*/   
+    
     window.location = basePath+"/experiment/index.action";
 }

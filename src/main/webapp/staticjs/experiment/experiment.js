@@ -7,31 +7,24 @@ var sampleHanderUrl = basePath+"/experiment/sampleHander.action";
 
 /**获得条码**/
 function handerScanCode(){
-	
-	$("#codeName").val("123456789");
+    var code = "123456789";
+    
+    if(code == "undefined"|| code==""){
+        alert("医院条码为空");
+        return ;
+    }
+	$("#codeName").val(code);
+	jumpByCode(code);
+}
+
+/**根据code类型跳转到**/
+function jumpByCode(code){
+    if(code != null){
+        //样本处理页面
+        window.location = sampleHanderUrl+"?codeName="+$("#codeName").val()+"";
+    }else{
+        
+    }
 }
 
 
-/**跳转到处理页面**/
-var handerNext= function (){
-	
-	if($("#codeName").val() == "undefined"|| $("#codeName").val()==""){
-		alert("医院条码为空");
-		return ;
-	}
-	
-	window.location = sampleHanderUrl+"?codeName="+$("#codeName").val()+"";
-	
-	/*var params ={
-			codeName:	$("#codeName").val();
-	}
-	$.ajax({
-		type : 'post',
-		url : sampleHanderUrl,
-		data : params,
-		dataType : 'json',
-		success : function(data) {
-			
-		}
-	});*/
-}

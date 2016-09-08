@@ -75,7 +75,7 @@ var detectMothod= "${detectMothod}";
     </div>
     
     <div class="col-md-3 col-sm-4 col-xs-4">
-        <div class="handlerButton"  onclick="zhuanZhongPingban()" >转种平板</div>
+        <div class="handlerButton"  onclick="zhuanZhongPingban()" >染色</div>
     </div>
     
      <div class="col-md-3 col-sm-4 col-xs-4">

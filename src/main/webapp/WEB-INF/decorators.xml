@@ -24,6 +24,7 @@
 	     <pattern>/experiment/jingjian.action</pattern> 
 	     <pattern>/experiment/pingban.action</pattern> 
 	     <pattern>/experiment/jianding.action</pattern> 
+	     <pattern>/experiment/jingJianSingle.action</pattern> 
 	     
 	     
 	     <pattern>/sampleInput/sampleType/index.action</pattern> 

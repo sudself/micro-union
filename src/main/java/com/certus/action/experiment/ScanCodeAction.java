@@ -29,8 +29,6 @@ public class ScanCodeAction extends BaseAction {
     @Action(value="/experiment/sampleHander",results={@Result(name = "sampleHander", location = "/WEB-INF/view/experiment/sampleHandler.jsp")})
     public String sampleHander(){
         
-        String codeName = request.getParameter("codeName");
-        System.out.println(codeName);
         return "sampleHander";
     }
     
@@ -38,9 +36,17 @@ public class ScanCodeAction extends BaseAction {
     /**染色镜检**/
     @Action(value="/experiment/jingjian",results={@Result(name = "jingjian", location = "/WEB-INF/view/experiment/ranSeJingJian.jsp")})
     public String jingjian(){
-//        String codeName = request.getParameter("codeName");
         return "jingjian";
     }
+    
+    
+    //单独的镜检页面
+    @Action(value="/experiment/jingJianSingle",results={@Result(name = "jingJianSingle", location = "/WEB-INF/view/experiment/jingJianSingle.jsp")})
+    public String jingJianSingle(){
+        
+        return "jingJianSingle";
+    }
+    
     
     /**获取镜检或平板的类型列表**/
     @Action(value="/experiment/getDetectTypeList")
@@ -55,10 +61,6 @@ public class ScanCodeAction extends BaseAction {
     /**转种平板**/
     @Action(value="/experiment/pingban",results={@Result(name = "pingban", location = "/WEB-INF/view/experiment/zhuanZhongPingBan.jsp")})
     public String pingban(){
-        
-        String codeName = request.getParameter("codeName");
-        System.out.println(codeName);
-        
         return "pingban";
     }
     
@@ -66,10 +68,6 @@ public class ScanCodeAction extends BaseAction {
     /**直接鉴定**/
     @Action(value="/experiment/jianding",results={@Result(name = "jianding", location = "/WEB-INF/view/experiment/zhiJieJianDing.jsp")})
     public String jianding(){
-        
-        String codeName = request.getParameter("codeName");
-        System.out.println(codeName);
-        
         return "jianding";
     }
     

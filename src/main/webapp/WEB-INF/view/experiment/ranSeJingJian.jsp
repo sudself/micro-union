@@ -73,7 +73,7 @@ var detectMothod= "${detectMothod}";
     </div>
     
     <div class="col-md-3 col-sm-4 col-xs-4" >
-       <div class="handlerButton"  onclick="ranSeJingJian()">染色镜检</div>
+       <div class="handlerButton"  onclick="ranSeJingJian()">镜检</div>
     </div>
     
     <div class="col-md-3 col-sm-4 col-xs-4">

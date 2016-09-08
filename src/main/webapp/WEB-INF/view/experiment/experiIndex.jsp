@@ -29,7 +29,7 @@ var basepath= "${basePath}";
     </div>
     
     <div class="col-md-12 col-sm-8 col-md-4">
-      <input type="text" id="codeName" name="codeName" onclick="handerNext();" style="width:100%;border:1px solid #33CCFF" />
+      <input type="text" id="codeName" name="codeName" style="width:100%;border:1px solid #33CCFF" />
     </div>
 </div>
 
