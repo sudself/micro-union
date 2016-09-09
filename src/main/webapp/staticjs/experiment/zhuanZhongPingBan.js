@@ -47,13 +47,13 @@ function initRow(){
                     }
                     htmlStr+='</div>';
                     
-                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
+                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'##'+ data[i].print_prefix +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
                     
                 }else if((i+1)%3==0){//第三个
-                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
+                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'##'+ data[i].print_prefix +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
                     htmlStr+='</div> </br> </br>';
                 }else{//第二个
-                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
+                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'##'+ data[i].print_prefix +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
                 }
                 
                 if(i==data.length-1 && (i+1)%3!=0){
@@ -76,21 +76,42 @@ function okPrintCode(){
         alert("请选择涂片类型");
         return;
     }else{
-        alert(selectIds.toString());
+    	for(var i=0;i<selectIds.length;i++){
+	    	//打印条码
+    		var selectStr = selectIds[i].split("##");
+    		var detectTypeId = selectStr[0];
+    		var print_prefix = selectStr[1];
+    		var printCode = codeName+print_prefix;  //后续按条码算法需要更新
+	    	alert(printCode);
+	    	//
+	    	var params={
+	    			"detectTypeId":detectTypeId,
+	    			"printCode":printCode,
+	    			"codeName":codeName,
+	    			"sampleTypeId":sampleTypeId
+	    	};
+	    	$.ajax({
+	            type : 'post',
+	            url : basePath+"/experiment/handle.action",
+	            data:params,
+	            dataType : 'json',
+	            success : function(data) {
+	            	alert("打印成功！");
+	            },error: function(e) { 
+	                alert("打印异常！");
+	            } 
+	        });
+    	}
     }
 }
 
 /**染色**/
 function zhuanZhongPingban(){
-    /**更新转种平板记录到数据库*/   
-    
     //跳转至转染色页面
     window.location = basePath+"/experiment/jingjian.action?codeName="+codeName+"&sampleTypeId=1&detectMothod=1";
 }
 
 /**处理其他标本**/
 function backForward(){
-    /**更新转种平板记录到数据库*/   
-    
     window.location = basePath+"/experiment/index.action";
 }

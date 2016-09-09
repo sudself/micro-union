@@ -189,4 +189,10 @@ from samples s,sample_type t,detects d,detect_type dt
 where s.sample_type=t.id and d.sample_id=s.id and d.detect_type_id=dt.id and s.id=#{sampleId,jdbcType=INTEGER} 
            order by d.deal_time desc 
   </select>
+  <select id="getSampleByCode" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    <include refid="Base_Column_List" />
+    from samples
+    where hospital_code = #{code,jdbcType=VARCHAR}
+  </select>
 </mapper>

@@ -85,7 +85,7 @@ function initSamplesTable() {
          //pager: "#pager"
      });*/
 	$("#datagrid").jqGrid({
-	    url : "list.action",
+	    url : basePath+"/analysisAction/list.action",
 	    postData : getParams(), //发送数据  
 	    datatype : "json",
 	    autoheight:true,

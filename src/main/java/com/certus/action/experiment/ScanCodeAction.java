@@ -1,6 +1,9 @@
 package com.certus.action.experiment;
 
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
@@ -8,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.certus.action.BaseAction;
 import com.certus.dao.DetectType;
+import com.certus.dao.Detects;
+import com.certus.dao.Samples;
+import com.certus.dao.Users;
 import com.certus.service.ShiYanChuLiService;
 
 
@@ -56,6 +62,32 @@ public class ScanCodeAction extends BaseAction {
         
         List<DetectType> resultList = shiYanChuLiService.getDetectType(sampleTypeId, detectMothod, null);
         writeJson(resultList);
+    }
+    
+    @Action(value="/experiment/handle")
+    public void addSample(){
+    	HttpSession session = request.getSession();
+    	Users user=(Users) session.getAttribute("user");
+    	
+    	String detectTypeId = request.getParameter("detectTypeId");
+        String codeName = request.getParameter("codeName");
+        String printCode = request.getParameter("printCode");
+        String sampleTypeId = request.getParameter("sampleTypeId");
+        
+        String hCode = codeName;//后续要根据code算法，截取hospitalCode的部分
+        Samples sample = shiYanChuLiService.getSampleByCode(hCode);
+        Detects detect = new Detects();
+        detect.setSampleId(sample.getId());
+        detect.setSampleTypeId(Integer.parseInt(sampleTypeId));
+        detect.setDetectTypeId(Integer.parseInt(detectTypeId));
+        detect.setPrintTime(new Date());
+        detect.setPrintUserId(user.getId());
+        detect.setCodeNo(printCode); //这里用的是printCode，不是codeName
+        detect.setDealTime(new Date());
+        detect.setDealUserId(user.getId());
+        detect.setStatus("打印条码完成");
+        //后续还有判断是否要加childId
+    	writeJson(shiYanChuLiService.addDetect(detect));
     }
     
     /**转种平板**/
