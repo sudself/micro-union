@@ -7,13 +7,12 @@ var sampleHanderUrl = basePath+"/experiment/sampleHander.action";
 
 /**获得条码**/
 function handerScanCode(){
-    var code = "123456789";
+    var code = $("#codeName").val();;
     
     if(code == "undefined"|| code==""){
         alert("医院条码为空");
         return ;
     }
-	$("#codeName").val(code);
 	jumpByCode(code);
 }
 

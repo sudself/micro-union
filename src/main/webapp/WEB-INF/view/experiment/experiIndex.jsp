@@ -24,7 +24,7 @@ var basepath= "${basePath}";
 </div>
 
 <div class="row"> 
-    <div class="col-md-6 col-sm-4 col-md-3" onclick="handerScanCode()">
+    <div class="col-md-6 col-sm-4 col-md-3" >
       <button type="button" onclick="handerScanCode()" style="width:90%;font-weight:bold;font-size:25px;padding: 8px;">扫描条码</button>
     </div>
     
