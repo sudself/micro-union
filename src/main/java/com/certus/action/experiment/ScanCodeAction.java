@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.certus.action.BaseAction;
 import com.certus.dao.DetectType;
 import com.certus.dao.Detects;
+import com.certus.dao.JingJianType;
 import com.certus.dao.Samples;
 import com.certus.dao.Users;
 import com.certus.service.ShiYanChuLiService;
@@ -63,6 +64,17 @@ public class ScanCodeAction extends BaseAction {
         List<DetectType> resultList = shiYanChuLiService.getDetectType(sampleTypeId, detectMothod, null);
         writeJson(resultList);
     }
+    
+    
+    /**获取镜检小类型列表**/
+    @Action(value="/experiment/getJingJianTypeList")
+    public void getJingJianTypeList(){
+        String sampleTypeId = request.getParameter("sampleTypeId");
+        
+        List<JingJianType> resultList = shiYanChuLiService.getJingJianType(sampleTypeId);
+        writeJson(resultList);
+    }
+    
     
     @Action(value="/experiment/handle")
     public void addSample(){

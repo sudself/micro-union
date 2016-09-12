@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.certus.dao.JingJianTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.certus.dao.JingJianType" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="detect_type_id" property="detectTypeId" jdbcType="INTEGER" />
+    <result column="jing_jian_type" property="jingJianType" jdbcType="VARCHAR" />
+    <result column="extra1" property="extra1" jdbcType="VARCHAR" />
+    <result column="extra2" property="extra2" jdbcType="VARCHAR" />
+    <result column="extra3" property="extra3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, detect_type_id, jing_jian_type, extra1, extra2, extra3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jing_jian_type
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getTypeByDetectType" resultType="hashmap" >
+    select
+     <include refid="Base_Column_List"/>
+     from jing_jian_type
+     where detect_type_id= #{detectTypeId,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jing_jian_type
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.certus.dao.JingJianType" >
+    insert into jing_jian_type (id, detect_type_id, jing_jian_type, 
+      extra1, extra2, extra3
+      )
+    values (#{id,jdbcType=INTEGER}, #{detectTypeId,jdbcType=INTEGER}, #{jingJianType,jdbcType=VARCHAR}, 
+      #{extra1,jdbcType=VARCHAR}, #{extra2,jdbcType=VARCHAR}, #{extra3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.certus.dao.JingJianType" >
+    insert into jing_jian_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="detectTypeId != null" >
+        detect_type_id,
+      </if>
+      <if test="jingJianType != null" >
+        jing_jian_type,
+      </if>
+      <if test="extra1 != null" >
+        extra1,
+      </if>
+      <if test="extra2 != null" >
+        extra2,
+      </if>
+      <if test="extra3 != null" >
+        extra3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="detectTypeId != null" >
+        #{detectTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="jingJianType != null" >
+        #{jingJianType,jdbcType=VARCHAR},
+      </if>
+      <if test="extra1 != null" >
+        #{extra1,jdbcType=VARCHAR},
+      </if>
+      <if test="extra2 != null" >
+        #{extra2,jdbcType=VARCHAR},
+      </if>
+      <if test="extra3 != null" >
+        #{extra3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.certus.dao.JingJianType" >
+    update jing_jian_type
+    <set >
+      <if test="detectTypeId != null" >
+        detect_type_id = #{detectTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="jingJianType != null" >
+        jing_jian_type = #{jingJianType,jdbcType=VARCHAR},
+      </if>
+      <if test="extra1 != null" >
+        extra1 = #{extra1,jdbcType=VARCHAR},
+      </if>
+      <if test="extra2 != null" >
+        extra2 = #{extra2,jdbcType=VARCHAR},
+      </if>
+      <if test="extra3 != null" >
+        extra3 = #{extra3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.certus.dao.JingJianType" >
+    update jing_jian_type
+    set detect_type_id = #{detectTypeId,jdbcType=INTEGER},
+      jing_jian_type = #{jingJianType,jdbcType=VARCHAR},
+      extra1 = #{extra1,jdbcType=VARCHAR},
+      extra2 = #{extra2,jdbcType=VARCHAR},
+      extra3 = #{extra3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -3,7 +3,6 @@ package com.certus.service.impl;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +10,8 @@ import com.certus.dao.DetectType;
 import com.certus.dao.DetectTypeMapper;
 import com.certus.dao.Detects;
 import com.certus.dao.DetectsMapper;
+import com.certus.dao.JingJianType;
+import com.certus.dao.JingJianTypeMapper;
 import com.certus.dao.Samples;
 import com.certus.dao.SamplesMapper;
 import com.certus.service.ShiYanChuLiService;
@@ -18,7 +19,7 @@ import com.certus.service.ShiYanChuLiService;
 @Service(value="shiyanchuli")
 public class ShiYanChuLiServiceImpl implements ShiYanChuLiService{
     
-    private static final Logger log = Logger.getLogger(ShiYanChuLiServiceImpl.class);
+//    private static final Logger log = Logger.getLogger(ShiYanChuLiServiceImpl.class);
     
     @Autowired
     private DetectTypeMapper detectTypeMapper;
@@ -28,6 +29,9 @@ public class ShiYanChuLiServiceImpl implements ShiYanChuLiService{
 
     @Autowired
 	private DetectsMapper detectsMapper;
+    
+    @Autowired
+    private JingJianTypeMapper jingJianTypeMapper;
     
     @Override
     public List<DetectType> getDetectType(String sampleTypeId,String detectMothod,String pre) {
@@ -52,5 +56,11 @@ public class ShiYanChuLiServiceImpl implements ShiYanChuLiService{
 		int res = detectsMapper.insert(detect);
 		return res>0;
 	}
+
+    @Override
+    public List<JingJianType> getJingJianType(String detectTypeId) {
+        List<JingJianType> resultList = jingJianTypeMapper.getTypeByDetectType(detectTypeId);
+        return resultList;
+    }
 
 }
