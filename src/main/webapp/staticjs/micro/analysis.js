@@ -170,8 +170,26 @@ function initSamplesTable() {
             //page: 1,
             colModel: [
                 { label: '条形码', name: 'code_no', key: true, width: 100 },
-                { label: '类型', name: 'detect_method', width: 100 },
-                { label: '操作', name: 'detect_type', width: 100 },
+                { label: '类型', name: 'detect_method', width: 100,
+                	formatter : function(v, opt, rec) {
+        				switch (v) {
+        				case '1':
+        					v = "染色镜检";
+        					break;
+        				case '2':
+        					v = "转种平板";
+        					break;		
+        				case '3':
+        					v = "直接鉴定";
+        					break;
+        				default:
+        					v = "未知";
+        					break;
+        				}
+        				return v;
+        			}	      	
+                 },
+                { label: '操作', name: 'detect_type', width: 100},
                 { label: '打印时间', name: 'print_time', width: 100 },
                 { label: '处理时间', name: 'deal_time', width: 100 },
                 { label: '状态', name: 'status', width: 100 }

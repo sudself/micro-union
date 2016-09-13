@@ -81,7 +81,7 @@ function okPrintCode(){
     		var selectStr = selectIds[i].split("##");
     		var detectTypeId = selectStr[0];
     		var print_prefix = selectStr[1];
-    		var printCode = codeName+print_prefix;  //后续按条码算法需要更新
+    		var printCode = codeName+detectMothod+print_prefix;  //后续按条码算法需要更新
 	    	alert(printCode);
 	    	//
 	    	var params={

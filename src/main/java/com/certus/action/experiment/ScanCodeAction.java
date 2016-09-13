@@ -77,7 +77,7 @@ public class ScanCodeAction extends BaseAction {
     
     
     @Action(value="/experiment/handle")
-    public void addSample(){
+    public void handleSample(){
     	HttpSession session = request.getSession();
     	Users user=(Users) session.getAttribute("user");
     	
