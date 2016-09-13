@@ -9,6 +9,7 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.alibaba.fastjson.JSONObject;
 import com.certus.action.BaseAction;
 import com.certus.dao.DetectType;
 import com.certus.dao.Detects;
@@ -69,10 +70,17 @@ public class ScanCodeAction extends BaseAction {
     /**获取镜检小类型列表**/
     @Action(value="/experiment/getJingJianTypeList")
     public void getJingJianTypeList(){
-        String sampleTypeId = request.getParameter("sampleTypeId");
+        String detectTypeId = request.getParameter("detectTypeId");
         
-        List<JingJianType> resultList = shiYanChuLiService.getJingJianType(sampleTypeId);
-        writeJson(resultList);
+        List<JingJianType> resultList = shiYanChuLiService.getJingJianType(detectTypeId);
+        JSONObject json = new JSONObject();
+        json.put("resultList", resultList);
+        DetectType detectType = shiYanChuLiService.selectByPrimaryKey(detectTypeId);
+        if(detectType != null){
+            json.put("name", detectType.getDetectType());
+        }
+        
+        writeJson(json);
     }
     
     

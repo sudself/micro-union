@@ -33,19 +33,21 @@ var detectMothod= "${detectMothod}";
 
 <div class="container">
 
+
 <div class="row"> 
-
-	<div class="col-md-4 col-sm-3 col-xs-2">
-	</div>
-	<div class="col-md-4 col-sm-6 col-xs-8">
-	     <button type="button" style="width:100%;font-weight:bold;font-size:25px;padding: 8px;">扫描玻片条码：${codeName} </button>
-	</div>
-
+    <div class="col-md-4 col-sm-4 col-xs-4" onclick="scanCode()" style="text-align:right;font-weight:bold;">
+      <!-- <button type="button" onclick="scanCode()" style="width:90%;font-weight:bold;font-size:25px;padding: 8px;">扫描玻片条码:</button> -->
+       <h3>扫描玻片条码: </h3>
+    </div>
+    
+    <div class="col-md-6 col-sm-8 col-xs-8">
+      <input type="text" id="codeName" name="codeName" style="border:1px solid #33CCFF" />
+    </div>
 </div>
 
 <div class="row"> 
     <div class="col-md-6 col-sm-6 col-xs-8">
-       <h4>一般细菌涂片： 根据革兰氏染色镜检结果勾选  </h4>
+       <h4 id="h4id"></h4>
     </div>
 </div>
 <br>

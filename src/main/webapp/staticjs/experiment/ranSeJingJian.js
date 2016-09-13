@@ -40,7 +40,10 @@ function initRow(){
         success : function(data) {
             var htmlStr="";
             for(var i=0;i<data.length;i++){
-                if((i+1)%3==1){//每行三个  第一个
+                
+                htmlStr+='<div class="col-md-3 col-sm-4 col-xs-6" >  <div id="'+data[i].id +'##'+ data[i].print_prefix +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
+                
+               /* if((i+1)%3==1){//每行三个  第一个
                     htmlStr+= '<div class="row">  <div class="col-md-3 col-sm-4 col-xs-4">';
                     if(i==0){
                         htmlStr+= '<h4>涂片类型选择</h4>';
@@ -58,7 +61,7 @@ function initRow(){
                 
                 if(i==data.length-1 && (i+1)%3!=0){
                     htmlStr+='</div> </br> </br>';
-                }
+                }*/
             }
             $("#rowContainer").html(htmlStr);
             

@@ -27,6 +27,7 @@ var detectMothod= "${detectMothod}";
   font-size:20px;
   text-align: center;  
   border-radius: 10px;
+  margin-top:15px;
 }
 
 .toggleClassBackG{
@@ -40,6 +41,7 @@ var detectMothod= "${detectMothod}";
   font-size:17px;
   text-align: center; 
   border-radius: 15px;
+  margin-top:10px;
 }
 
 </style>
@@ -59,7 +61,14 @@ var detectMothod= "${detectMothod}";
 </br>
 </br>
 
-<div id="rowContainer">
+<div class="row"> 
+    <div class="col-md-4 col-sm-6 col-xs-8">
+       <h3>涂片类型选择：</h3>
+    </div>
+</div>
+
+
+<div id="rowContainer" class="row" >
 
 </div>
 
@@ -68,19 +77,19 @@ var detectMothod= "${detectMothod}";
 
 <div class="row" >
 
-    <div class="col-md-3 col-sm-4 col-xs-4">
+    <div class="col-md-3 col-sm-4 col-xs-6">
         <div class="handlerButton" onclick="printCode()">确认并打印条码</div>
     </div>
     
-    <div class="col-md-3 col-sm-4 col-xs-4" >
+    <div class="col-md-3 col-sm-4 col-xs-6" >
        <div class="handlerButton"  onclick="ranSeJingJian()">镜检</div>
     </div>
     
-    <div class="col-md-3 col-sm-4 col-xs-4">
+    <div class="col-md-3 col-sm-4 col-xs-6">
         <div class="handlerButton" onclick="dealOtherSample()">继续处理其他标本</div>
     </div>
     
-     <div class="col-md-3 col-sm-4 col-xs-4">
+     <div class="col-md-3 col-sm-4 col-xs-6">
        <div class="handlerButton" onclick="peiYangMin()" >同时接种培养皿</div>
     </div>
 
