@@ -30,6 +30,7 @@ var detectMothod= "${detectMothod}";
   font-size:20px;
   text-align: center;  
   border-radius: 10px;
+  margin-top:15px;
 }
 
 .handlerButton{
@@ -39,6 +40,7 @@ var detectMothod= "${detectMothod}";
   font-size:17px;
   text-align: center; 
   border-radius: 15px;
+  margin-top:10px;
 }
 
 </style>
@@ -55,11 +57,17 @@ var detectMothod= "${detectMothod}";
     </div>
 
 </div>
-
 </br>
 </br>
 
-<div id="rowContainer">
+<div class="row"> 
+    <div class="col-md-4 col-sm-6 col-xs-8">
+       <h3>转种平板：</h3>
+    </div>
+</div>
+
+
+<div id="rowContainer" class="row">
 
 </div>
 
@@ -67,18 +75,15 @@ var detectMothod= "${detectMothod}";
 
 <div class="row" >
 
-    <div class="col-md-3 col-sm-4 col-xs-4">
-    </div>
-    
-    <div class="col-md-3 col-sm-4 col-xs-4" >
+    <div class="col-md-3 col-sm-4 col-xs-6" >
        <div class="handlerButton" onclick="okPrintCode()">确认并打印条码</div>
     </div>
     
-    <div class="col-md-3 col-sm-4 col-xs-4">
+    <div class="col-md-3 col-sm-4 col-xs-6">
         <div class="handlerButton"  onclick="zhuanZhongPingban()" >染色</div>
     </div>
     
-     <div class="col-md-3 col-sm-4 col-xs-4">
+     <div class="col-md-3 col-sm-4 col-xs-6">
        <div class="handlerButton" onclick="backForward()">继续处理其他标本</div>
     </div>
 

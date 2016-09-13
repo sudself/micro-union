@@ -56,11 +56,16 @@ public class ShiYanChuLiServiceImpl implements ShiYanChuLiService{
 		int res = detectsMapper.insert(detect);
 		return res>0;
 	}
-
+	
     @Override
     public List<JingJianType> getJingJianType(String detectTypeId) {
         List<JingJianType> resultList = jingJianTypeMapper.getTypeByDetectType(detectTypeId);
         return resultList;
+    }
+
+    @Override
+    public DetectType selectByPrimaryKey(String id) {
+        return detectTypeMapper.selectByPrimaryKey(Integer.valueOf(id));
     }
 
 }

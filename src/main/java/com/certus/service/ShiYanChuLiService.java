@@ -16,4 +16,6 @@ public interface ShiYanChuLiService {
 	public boolean addDetect(Detects detect);
 	
 	public List<JingJianType> getJingJianType(String detectTypeId);
+	
+	public DetectType selectByPrimaryKey(String id);
 }

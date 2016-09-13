@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    init();
+//    init();
 });
 
 //选中的类型id
@@ -23,15 +23,22 @@ function selectTypeE(ip){
     }
 }
 
+/**扫码之后，根据类型渲染页面**/
+function scanCode(){
+    var code = "123456789";
+    
+    $("#codeName").val(code);
+    getTypes(code);
+}
+
 
 /**获取细菌涂片类型**/
-function init(){
+function getTypes(code){
     
-    var url=basePath+"/experiment/getDetectTypeList.action";
-    
+    var url=basePath+"/experiment/getJingJianTypeList.action";
+    //需要根据code计算出涂片类型字段
     var params={
-            sampleTypeId:sampleTypeId,
-            detectMothod:4
+            detectTypeId:1
     };
     
     $.ajax({
@@ -41,9 +48,11 @@ function init(){
         dataType : 'json',
         success : function(data) {
             $("#rowContainerDiv").html("");
+            $("#h4id").html(data.name);
+            var typeList = data.resultList;
             var htmlStr="";
-            for(var i=0;i<data.length;i++){
-                htmlStr+='<div class="col-md-6 col-sm-6 col-xs-6"><label><input type="checkbox" onclick="selectTypeE(this)" id="'+data[i].id+'">'+data[i].detect_type+'</label></div>';
+            for(var i=0;i<typeList.length;i++){
+                htmlStr+='<div class="col-md-6 col-sm-6 col-xs-6"><label><input type="checkbox" onclick="selectTypeE(this)" id="'+typeList[i].id+'">'+typeList[i].jing_jian_type+'</label></div>';
             }
             $("#rowContainerDiv").html(htmlStr);
             
@@ -56,8 +65,6 @@ function init(){
 /**保存结果**/
 function saveAndDealOther(){
     /**数据入库操作**/
-    
-    
     
     window.location = basePath+"/experiment/index.action";
 }
