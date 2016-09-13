@@ -43,11 +43,11 @@
     	</div> 
        <div class="form-group"> 
         <div class="col-xs-6 dangerNote" >
-            <h4><label for="name">拒收血培养标本“<i class="icon-check-empty"></i>”</label></h4>
+            <h4><label for="name" style="font-weight:bold;font-size: 14px;">拒收血培养标本 <i class="icon-check-empty"></i></label></h4>
             <div id="dangerNote"></div> 
         </div>
         <div class="col-xs-6 infoNote" >
-        <h4><label for="name">标注信息“<i class="icon-check-empty"></i>”</label></h4>
+        <h4><label for="name" style="font-weight:bold;font-size: 14px;">标注信息 <i class="icon-check-empty"></i></label></h4>
         <div id="infoNote"></div>
         </div>
         </div>

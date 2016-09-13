@@ -26,20 +26,20 @@ filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=
 			<span class="icon-bar"></span>
 		</button>
 		 <a  class="navbar-brand" style="line-height: 70px;height: 70px;padding:0px;" href="#" >
-            <img src="${basePath}/images/logo_top_flexmall.png" height="70px;margin:0px;" >
+            <img src="${basePath}/images/logo_right.png" height="70px;margin:0px;" >
         </a>
+        
     </div>
     <div class="collapse navbar-collapse" id="example-navbar-collapse">
         <ul class="nav navbar-nav navbar-right"> 
-            <li class="dropdown" style="float:right;">
+            <li  class="dropdown" style="float:right;">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <span class="glyphicon glyphicon-user"></span> 用户信息 <b class="caret"></b>
                 </a>
             <ul class="dropdown-menu">
-                <li><a href="#" onclick="gotoLogin();" style="text-align:center;">退出</a></li>
+                <li ><a href="#" onclick="gotoLogin();" style="text-align:center;">退出</a></li>
             </ul>
           </li>
-          <li style="float:right;"><a href="#" onclick="homePage();"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
         </ul> 
     </div>
     </div>

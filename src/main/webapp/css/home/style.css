@@ -1,66 +1,71 @@
-
-@media screen and (max-width:300px){
-	.pageSizeFormat {
-		position: absolute;
-	}
-
-}	
-
-@media screen and (min-width:301px){
-	.pageSizeFormat {
-	position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-	}
-}	
-
-@media screen and (min-width:768px){
-.pageSizeFormat {
-		position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    margin-top:10px;
-}
+.navbar-default1 .navbar-nav>li>a {
+    color: #777;
 }
 
-@media screen and (min-width:992px){
-	
-.pageSizeFormat {
-	position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-}
-.pageSizeFormat .container{
-	width:800px;
+.navbar-default1 {
+	background-color:inherit;
 }
 
+.navbar-default1 .navbar-brand {
+    color: #777;
+}
+.navbar-default1 .navbar-toggle {
+    border-color: rgba(86, 194, 196, 0.81);
+}
+
+.navbar {
+    margin-bottom: 0;
+    margin-left: 0px;
+    border: none;
+    min-height: 70px;
+    border-radius: 0;
+}
 .homeIndex a{
-	width:328px;
-	height:220px;
-	margin-top:30px;
-}
-}
-
-@media screen and (min-width:1200px){
-.pageSizeFormat {
-	position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
+	max-width:320px;
+	min-width:100px;
+	margin:0 auto;
 }
 
-.pageSizeFormat  .container{
-	width:850px;
+.navbar-default1 .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+.navbar-toggle .icon-bar+.icon-bar {
+    margin-top: 4px;
+}
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+.navbar-nav>li {
+    float: left;
+    position: relative;
+    border-right: 0px solid #4079c5; 
+    padding: 0px;
 }
 
-.homeIndex a{
-	width:328px;
-	height:220px;
+.homeIndex div{
+	margin-bottom:20px;
 }
+@media screen and (max-width:400px){
+	.homeIndex .col-xs-offset-1{
+       margin-left:0px;
+    }
+    .homeIndex .col-xs-5{
+       clear: both;
+       width:80%;
+       margin-left:10%;
+    }
 }
+
+@media screen and (mix-width:401px){
+	.container {
+    	padding-left: 15x; 
+    	padding-right: 15px;
+    }
+}
+
 .vertical-center{
   position: absolute;
   top: 30%;
@@ -70,63 +75,7 @@
 .loginBg{
 	background-image: url("../../images/micro/loginBg.jpg");
 }
-/***
-Page header
-***/
-.navbar, .navbar-inverse {
-    background-color: #264455;
-	background-image:none;
-	border:none;
-	border-radius:0px;
-	border-bottom:rgba(0, 0, 0, 0.1) 1px solid;
-}
-.navbar .nav > li > .dropdown-menu::before {
- position: absolute;
- top: -7px;
- right: 9px;
- display: inline-block;
- border-right: 7px solid transparent;
- border-bottom: 7px solid #CCC;
- border-left: 7px solid transparent;
- border-bottom-color: rgba(0, 0, 0, 0.2);
- content: '';
-}
- .navbar .nav > li > .dropdown-menu::after {
- position: absolute;
- top: -6px;
- right: 10px;
- display: inline-block;
- border-right: 6px solid transparent;
- border-bottom: 6px solid white;
- border-left: 6px solid transparent;
- content: '';
-}
-.header-seperation {
-/*background-color:#f7f7f7;*/
-	
-}
-.header .navbar-inner {
-	filter:none !important;
-	background-image: none !important;
-	background-color: #ffffff !important;
-}
-.header .btn-navbar {
-	background-color: #1f1f1f !important;
-}
-.header .nav .dropdown-toggle:hover, .header .nav .dropdown.open .dropdown-toggle {
-}
-.header .nav li.dropdown .dropdown-toggle i {
-	color: #eff4f8 !important;
-}
-.navbar .notifications {
-	background-color: #1B1E24;
-	display: block;
-	float: left;
-	left: 0;
-	margin: 0 10px 0 0;
-	padding-top: 5px;
-	position: relative;
-}
+
 /***
 Page sidebar
 ***/
@@ -479,9 +428,7 @@ hr {
 .fa-7x {
 	font-size: 7em;
 }
- [class^="icon-"], [class*=" icon-"], [class^="icon-"]:hover, [class*=" icon-"]:hover {
- background: none !important;
-}
+ 
 .color-bands {
 	display:inline-block;
 	width:80px;
@@ -7868,11 +7815,12 @@ ul.task li {
 .dangerNote label{
 	color:red;
 }
-#sampleInputNote .checkbox{
-	padding-left:20px;
+#sampleInputNote h4{
+	
+	/*padding-left:20px;*/
 }
 .infoNote label{
-	color:rgba(76, 194, 196, 0.81);
+	color:yellow;
 }
 
 .ui-icon{
@@ -7888,13 +7836,15 @@ ul.task li {
 } 
 
 .ui-icon-plus:before {
-    margin-left: -35px;
     content: "\002b";
     cursor: pointer;
 }
 
 .ui-icon-minus:before {
-	margin-left: -35px;
     content: "\2212";
     cursor: pointer;
+}
+
+#alertModel{
+	position:absolute;z-index:1000;right:0px;
 }

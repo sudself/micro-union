@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="basePath" value="${pageContext.request.contextPath}" />
-<script src="${basePath }/staticjs/jslib/jquery-1.10.2.js"></script>
+<script src="${basePath }/staticjs/jslib/jquery.min.js"></script>
 
 <script src="${basePath }/staticjs/jslib/jqgrid/jquery.jqGrid.min.js"></script>
 <script src="${basePath }/staticjs/jslib/jqgrid/jqGrid-fixed.js"></script>
