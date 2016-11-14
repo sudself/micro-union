@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	setNavigationBar("标本处理1.png",basepath+"/experiment/index.action","标本处理");
     initRow();
 });
 
@@ -26,7 +27,7 @@ function divSelected(div){
 
 /**初始化页面**/
 function initRow(){
-    var url=basePath+"/experiment/getDetectTypeList.action";
+    var url=basepath+"/experiment/getDetectTypeList.action";
     var params={
             sampleTypeId:sampleTypeId,
             detectMothod:detectMothod
@@ -95,7 +96,7 @@ function okPrintCode(){
 	    	};
 	    	$.ajax({
 	            type : 'post',
-	            url : basePath+"/experiment/handle.action",
+	            url : basepath+"/experiment/handle.action",
 	            data:params,
 	            dataType : 'json',
 	            success : function(data) {
@@ -111,10 +112,10 @@ function okPrintCode(){
 /**染色**/
 function zhuanZhongPingban(){
     //跳转至转染色页面
-    window.location = basePath+"/experiment/jingjian.action?codeName="+codeName+"&sampleTypeId=1&detectMothod=1";
+    window.location = basepath+"/experiment/jingjian.action?codeName="+codeName+"&sampleTypeId=1&detectMothod=1";
 }
 
 /**处理其他标本**/
 function backForward(){
-    window.location = basePath+"/experiment/index.action";
+    window.location = basepath+"/experiment/index.action";
 }

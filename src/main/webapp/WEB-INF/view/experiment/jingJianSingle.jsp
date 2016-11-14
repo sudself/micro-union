@@ -27,7 +27,9 @@ var detectMothod= "${detectMothod}";
   text-align: center; 
   border-radius: 12px;
 }
-
+.radio + .radio, .checkbox + .checkbox{
+margin-top:5px;
+}
 </style>
 
 
@@ -35,13 +37,13 @@ var detectMothod= "${detectMothod}";
 
 
 <div class="row"> 
-    <div class="col-md-4 col-sm-4 col-xs-4" onclick="scanCode()" style="text-align:right;font-weight:bold;">
+    <div class="col-md-2 col-sm-4 col-xs-4" onclick="scanCode()" style="font-weight:bold;">
       <!-- <button type="button" onclick="scanCode()" style="width:90%;font-weight:bold;font-size:25px;padding: 8px;">扫描玻片条码:</button> -->
-       <h3>扫描玻片条码: </h3>
+       <h3>玻片条码: </h3>
     </div>
     
-    <div class="col-md-6 col-sm-8 col-xs-8">
-      <input type="text" id="codeName" name="codeName" style="border:1px solid #33CCFF" />
+    <div class="col-md-10 col-sm-8 col-xs-8">
+      <input type="text" id="codeName" class="form-control" name="codeName" style="max-width:300px;" />
     </div>
 </div>
 
@@ -50,26 +52,21 @@ var detectMothod= "${detectMothod}";
        <h4 id="h4id"></h4>
     </div>
 </div>
-<br>
-<br>
-
+<div class="row"> 
 <div id="rowContainer">
-	<div id="rowContainerDiv" class="row" style="padding: 5px;font-size:12px">
+	<div id="sampleInputNote" class="row sampleInputNote" style="padding-left:30px;">
 	</div>
 </div>
-
+</div>
 
 </br>
 <div class="row" >
-
-    <div class="col-md-6 col-sm-6 col-xs-6">
-        <div></div>
+     <div class="form-group"> 
+        <label class="col-xs-6 control-label"></label> 
+        <div class="col-xs-6" > 
+            <button type="button" style="margin-left:20px" class="btn btn-info" onclick="saveAndDealOther()">继续处理其他标本</button> 
+        </div> 
     </div>
-    
-    <div class="col-md-2 col-sm-4 col-xs-4">
-        <div class="handlerButton" onclick="saveAndDealOther()">继续处理其他标本</div>
-    </div>
-
 </div>
 </div>
 

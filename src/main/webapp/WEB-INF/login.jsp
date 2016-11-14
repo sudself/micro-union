@@ -36,15 +36,10 @@ html,body {
 }
 
 .box {
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(76, 194, 196, 0.81)',endColorstr='rgba(76, 194, 196, 0.81)'); /*  IE
-	background-image:linear-gradient(bottom, rgba(76, 194, 196, 0.81) 0%, rgba(76, 194, 196, 0.81) 100%);
-	background-image:-o-linear-gradient(bottom, rgba(76, 194, 196, 0.81) 0%, rgba(76, 194, 196, 0.81) 100%);
-	background-image:-moz-linear-gradient(bottom, rgba(76, 194, 196, 0.81) 0%, rgba(76, 194, 196, 0.81) 100%);
-	background-image:-webkit-linear-gradient(bottom, rgba(76, 194, 196, 0.81) 0%, rgba(76, 194, 196, 0.81) 100%);
-	background-image:-ms-linear-gradient(bottom, rgba(76, 194, 196, 0.81) 0%, rgba(76, 194, 196, 0.81) 100%); */
+	background-image:url("/micro-union/images/bg.jpg");
 	height: 100%;
 	border-radius: inherit;
-	border: 1px solid rgba(76, 194, 196, 0.81);
+	/*border: 1px solid rgba(76, 194, 196, 0.81);*/
 	padding: 0px;
 	max-width:500px; 
 	min-height:400px;
@@ -86,7 +81,7 @@ html,body {
 }
 
 .login-title {
-	background-color: rgba(76, 194, 196, 0.81);
+	/*background-color: rgba(76, 194, 196, 0.81);*/
 	padding: 20px 10px;
 }
 
@@ -95,9 +90,9 @@ html,body {
 }
 
 .login-title small {
-	font-size: 60%;
+	font-size: 80%;
 	font-weight: 100;
-	color: #fff;
+	color: #6f7b8a;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, "Microsoft Yahei", "微软雅黑";
 }
 
@@ -109,6 +104,10 @@ html,body {
 .btn-sm {
 	padding: 8px 24px !important;
 	font-size: 16px !important;
+}
+.flright{
+float:right;
+margin-right:40px;
 }
 </style>
 
@@ -150,7 +149,7 @@ html,body {
 						</div>
 						<div class="form-group">
 							<div class="col-xs-6 col-xs-offset-6">
-								<button type="submit" class="btn btn-sm btn-info" id="btn">
+								<button type="submit" class="btn btn-sm btn-info flright" id="btn">
 									<span class="glyphicon glyphicon-off"></span> 登录
 								</button>
 							</div>

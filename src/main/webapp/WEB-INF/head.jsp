@@ -5,19 +5,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <style type="text/css">
-.jianbian{ 
-FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=rgba(86, 194, 196, 0.81),endColorStr=rgba(76, 194, 196, 0.81)); /*IE*/ 
-background:-moz-linear-gradient(top,rgba(86, 194, 196, 0.81),rgba(76, 194, 196, 0.81));/*火狐*/ 
-background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(rgba(86, 194, 196, 0.81)), to(rgba(76, 194, 196, 0.81)));/*谷歌*/ 
-background-image: -webkit-gradient(linear,left bottom,left top,color-start(0, rgba(86, 194, 196, 0.81)),color-stop(1, rgba(76, 194, 196, 0.81)));/* Safari & Chrome*/ 
-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=rgba(86, 194, 196, 0.81), endColorstr=rgba(76, 194, 196, 0.81)); /*IE6 & IE7*/ 
--ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=rgba(86, 194, 196, 0.81), endColorstr=rgba(76, 194, 196, 0.81))"; /* IE8 */ 
-} 
 </style>
 </head>
 
-<nav class="navbar navbar-default1 " role="navigation">
-    <div class="container-fluid" style="border-bottom: 1px solid rgba(86, 194, 196, 0.81);" >
+<nav class="navbar navbar-default1" role="navigation">
+    <div class="container-fluid" style="border-bottom: 1px solid rgba(168,195,216, 0.99);" >
     <div class="navbar-header">
        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse" >
 			<span class="sr-only">切换导航</span>
@@ -25,8 +17,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		 <a  class="navbar-brand" style="line-height: 70px;height: 70px;padding:0px;" href="#" >
-            <img src="${basePath}/images/logo_top_flexmall.png" height="70px;margin:0px;" >
+		 <a  class="navbar-brand" style="line-height: 70px;height: 70px;padding:0px;" id="navigationBar" href="#" >
+            
         </a>
     </div>
     <div class="collapse navbar-collapse" id="example-navbar-collapse">
@@ -39,7 +31,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=
                 <li><a href="#" onclick="gotoLogin();" style="text-align:center;">退出</a></li>
             </ul>
           </li>
-          <li style="float:right;"><a href="#" onclick="homePage();"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+          <li style="float:right;"><a href="#" onclick="homePage();"  ><span class="glyphicon glyphicon-home"></span> 首页</a></li>
         </ul> 
     </div>
     </div>

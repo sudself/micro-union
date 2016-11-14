@@ -17,7 +17,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=
 </head>
 
 <nav class="navbar navbar-default1 " role="navigation">
-    <div class="container-fluid" style="border-bottom: 1px solid rgba(86, 194, 196, 0.81);" >
+    <div class="container-fluid" style="border-bottom: 1px solid rgba(168,195,216, 0.99);" >
     <div class="navbar-header">
        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse" >
 			<span class="sr-only">切换导航</span>
@@ -26,7 +26,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=
 			<span class="icon-bar"></span>
 		</button>
 		 <a  class="navbar-brand" style="line-height: 70px;height: 70px;padding:0px;" href="#" >
-            <img src="${basePath}/images/logo_right.png" height="70px;margin:0px;" >
+            <img src="${basePath}/images/logo.jpg" height="70px;margin:0px;" >
         </a>
         
     </div>

@@ -4,9 +4,10 @@
 
 <body >
 
-<script>
+<script type="text/javascript">
 		$.jgrid.defaults.responsive = true;
 		$.jgrid.defaults.styleUI = 'Bootstrap';
+		var basepath= "${basePath}";
 </script>
 <div class="container">
 

@@ -3,6 +3,7 @@ var currentPage=1;
 var rownum=10;
 var myInterval ;
 $(document).ready(function() {
+	setNavigationBar("统计分析1.png",basepath+"/analysisAction/index.action","统计分析");
 	gridWidth = $("#samples-list").width();
 	initAll();
 });
@@ -85,7 +86,7 @@ function initSamplesTable() {
          //pager: "#pager"
      });*/
 	$("#datagrid").jqGrid({
-	    url : basePath+"/analysisAction/list.action",
+	    url : basepath+"/analysisAction/list.action",
 	    postData : getParams(), //发送数据  
 	    datatype : "json",
 	    autoheight:true,

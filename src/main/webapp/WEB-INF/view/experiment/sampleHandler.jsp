@@ -16,9 +16,38 @@ var basepath= "${basePath}";
 }
 
 </style>
-
-
 <div class="container">
+<div class="row showType"> 
+
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 " >
+         <button type="button" class="btn btn-default btn-lg btn-block" >医院条码：${codeName}</button>
+    </div>
+
+</div>
+		<div class="form-group"> 
+        <label for="hospitalCode" class="col-xs-12 control-label"><h3>标本类型</h3></label> 
+        </div>
+        <div class="col-xs-12" style="height:2%;"> </div> 
+        <div class="form-group"> 
+        	<div class="col-xs-offset-0 col-xs-6  col-sm-4 col-md-3">
+        	   <a href="${basePath}/experiment/jingjian.action?codeName=${codeName}&sampleTypeId=1&detectMothod=1" class="thumbnail"> 
+            	<img src="${basePath }/images/micro/染色镜检1.png" class="img-responsive" alt="染色镜检" title="染色镜检"> 
+               </a> 
+			</div>
+			<div class="col-xs-6 col-sm-offset-0 col-sm-4  col-md-3">
+        	   <a href="${basePath}/experiment/pingban.action?codeName=${codeName}&sampleTypeId=1&detectMothod=2" class="thumbnail"> 
+               <img src="${basePath }/images/micro/转种平板1.png" class="img-responsive" alt="转种平板" title="转种平板"> 
+       		   </a> 
+			</div>
+			<div class="col-xs-6 col-sm-4 col-md-3">
+        	   <a href="${basePath}/experiment/jianding.action?codeName=${codeName}&sampleTypeId=1&detectMothod=3" class="thumbnail"> 
+            	<img src="${basePath }/images/micro/直接鉴定1.png" class="img-responsive" alt="直接鉴定" title="直接鉴定"> 
+       		   </a> 
+			</div>
+   		</div>
+ 
+</div>
+<!-- <div class="container">
 
 <div class="row"> 
 
@@ -44,7 +73,7 @@ var basepath= "${basePath}";
     <div class="col-md-3 col-sm-6 col-xs-6">
        
        <a href="${basePath}/experiment/jingjian.action?codeName=${codeName}&sampleTypeId=1&detectMothod=1" class="thumbnail"> 
-            <img src="${basePath }/images/sampleHandler/jingjian.png" class="img-responsive"
+            <img src="${basePath }/images/micro/染色镜检1.png" class="img-responsive"
                  alt="染色镜检" title="染色镜检"> 
        </a> 
     
@@ -52,8 +81,8 @@ var basepath= "${basePath}";
     
     <div class="col-md-3 col-sm-6 col-xs-6">
         <a href="${basePath}/experiment/pingban.action?codeName=${codeName}&sampleTypeId=1&detectMothod=2" class="thumbnail"> 
-            <img src="${basePath }/images/sampleHandler/pingban.png" class="img-responsive"
-                 alt="转钟平板" title="转钟平板"> 
+            <img src="${basePath }/images/micro/转种平板1.png" class="img-responsive"
+                 alt="转种平板" title="转种平板"> 
        </a>
     
     </div>
@@ -61,7 +90,7 @@ var basepath= "${basePath}";
      <div class="col-md-3 col-sm-6 col-xs-6">
      
         <a href="${basePath}/experiment/jianding.action?codeName=${codeName}&sampleTypeId=1&detectMothod=3" class="thumbnail"> 
-            <img src="${basePath }/images/sampleHandler/jianding.png" class="img-responsive"
+            <img src="${basePath }/images/micro/直接鉴定1.png" class="img-responsive"
                  alt="直接鉴定" title="直接鉴定"> 
        </a>
       
@@ -70,6 +99,6 @@ var basepath= "${basePath}";
 </div>
 
 </div>
-
+ -->
 <script src="${basePath}/staticjs/experiment/sampleHandler.js?t=<%=Math.random() %>"></script>
 

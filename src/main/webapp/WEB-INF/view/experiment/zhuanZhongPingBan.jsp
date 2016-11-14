@@ -47,21 +47,16 @@ var detectMothod= "${detectMothod}";
 
 
 <div class="container">
+<div class="row showType"> 
 
-<div class="row"> 
-
-    <div class="col-md-4 col-sm-3 col-xs-2">
-    </div>
-    <div class="col-md-4 col-sm-6 col-xs-8">
-         <button type="button" style="width:100%;font-weight:bold;font-size:25px;padding: 8px;">医院条码：${codeName}</button>
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 " >
+         <button type="button" class="btn btn-default btn-lg btn-block" >医院条码：${codeName}</button>
     </div>
 
 </div>
-</br>
-</br>
 
-<div class="row"> 
-    <div class="col-md-4 col-sm-6 col-xs-8">
+<div class="row showType"> 
+    <div class="col-md-4 col-sm-6 col-xs-8 ">
        <h3>转种平板：</h3>
     </div>
 </div>

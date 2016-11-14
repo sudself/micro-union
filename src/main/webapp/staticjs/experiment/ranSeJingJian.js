@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	setNavigationBar("标本处理1.png",basepath+"/experiment/index.action","标本处理");
     initRow();
 });
 
@@ -26,7 +27,7 @@ function divSelected(div){
 
 /**初始化页面**/
 function initRow(){
-    var url=basePath+"/experiment/getDetectTypeList.action";
+    var url=basepath+"/experiment/getDetectTypeList.action";
     var params={
             sampleTypeId:sampleTypeId,
             detectMothod:detectMothod
@@ -94,7 +95,7 @@ function printCode(){
 	    	};
 	    	$.ajax({
 	            type : 'post',
-	            url : basePath+"/experiment/handle.action",
+	            url : basepath+"/experiment/handle.action",
 	            data:params,
 	            dataType : 'json',
 	            success : function(data) {
@@ -113,14 +114,14 @@ function ranSeJingJian(){
     /**更新染色记录到数据库*/   
     
     /**跳转到镜检页面**/
-    window.location = basePath+"/experiment/jingJianSingle.action?codeName="+codeName+"&sampleTypeId="+sampleTypeId+"&detectMothod=4";
+    window.location = basepath+"/experiment/jingJianSingle.action?codeName="+codeName+"&sampleTypeId="+sampleTypeId+"&detectMothod=4";
 }
 
 /**继续处理**/
 function dealOtherSample(){
     /**更新染色记录到数据库*/   
     
-    window.location = basePath+"/experiment/index.action";
+    window.location = basepath+"/experiment/index.action";
 }
 
 /**同时接种培养皿**/
@@ -128,5 +129,5 @@ function peiYangMin(){
     /**更新染色记录到数据库*/   
     
     //跳转至转种平板页面
-    window.location = basePath+"/experiment/pingban.action?codeName="+codeName+"&sampleTypeId=1&detectMothod=2";
+    window.location = basepath+"/experiment/pingban.action?codeName="+codeName+"&sampleTypeId=1&detectMothod=2";
 }

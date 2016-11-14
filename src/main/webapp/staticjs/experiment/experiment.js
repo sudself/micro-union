@@ -1,9 +1,9 @@
 $(document).ready(function() {
-	
+	setNavigationBar("标本处理1.png",basepath+"/experiment/index.action","标本处理");
 });
 
 
-var sampleHanderUrl = basePath+"/experiment/sampleHander.action";
+var sampleHanderUrl = basepath+"/experiment/sampleHander.action";
 
 /**获得条码**/
 function handerScanCode(){

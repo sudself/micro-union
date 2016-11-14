@@ -12,13 +12,14 @@
 <style type="text/css">
 .linear{ 
 overflow-x:hidden;
-FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=rgba(76, 194, 196, 0.81),endColorStr=#fafafa); /*IE*/ 
-background:-moz-linear-gradient(top,rgba(76, 194, 196, 0.81),#fafafa);/*火狐*/ 
-background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(rgba(76, 194, 196, 0.81)), to(#fafafa));/*谷歌*/ 
-background-image: -webkit-gradient(linear,left bottom,left top,color-start(0, rgba(76, 194, 196, 0.81)),color-stop(1, #fafafa));/* Safari & Chrome*/ 
-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=rgba(76, 194, 196, 0.81), endColorstr='#fafafa'); /*IE6 & IE7*/ 
--ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=rgba(76, 194, 196, 0.81), endColorstr='#fafafa')"; /* IE8 */ 
+background-image:url("/micro-union/images/bg.jpg");
 } 
+ /*FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=rgba(76, 194, 196, 0.81),endColorStr=#fafafa); /*IE*/ 
+/*background:-moz-linear-gradient(top,rgba(76, 194, 196, 0.81),#fafafa);/*火狐*/ 
+/*background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(rgba(76, 194, 196, 0.81)), to(#fafafa));/*谷歌*/ 
+/*background-image: -webkit-gradient(linear,left bottom,left top,color-start(0, rgba(76, 194, 196, 0.81)),color-stop(1, #fafafa));/* Safari & Chrome*/ 
+/*filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=rgba(76, 194, 196, 0.81), endColorstr='#fafafa'); /*IE6 & IE7*/ 
+/*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=rgba(76, 194, 196, 0.81), endColorstr='#fafafa')"; /* IE8 */ 
 </style>
 <jsp:include page="/WEB-INF/common.jsp" />
 
@@ -27,10 +28,17 @@ filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=
 
 <jsp:include page="/WEB-INF/head.jsp" />
 <script type="text/javascript">
-    var basePath = '${basePath }';
+    var mybasePath = '${basePath }';
     $(function() {
-        window.basePath = "${basePath}";
+        
     });
+
+    function setNavigationBar(imgUrl,actionUrl,title){
+        var img='<img src="${basePath}/images/micro/'+imgUrl+'" height="70px;margin:0px;" >';
+       $("#navigationBar").attr("href",actionUrl);
+       $("#navigationBar").html(img);
+       $("#navigationBar").attr("title",title);
+    }
 </script>
 <jsp:include page="/WEB-INF/layouts/commonAlert.jsp" />
 <div class="content">

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-//    init();
+	setNavigationBar("标本处理1.png",basepath+"/experiment/index.action","标本处理");
 });
 
 //选中的类型id
@@ -35,7 +35,7 @@ function scanCode(){
 /**获取细菌涂片类型**/
 function getTypes(code){
     
-    var url=basePath+"/experiment/getJingJianTypeList.action";
+    var url=basepath+"/experiment/getJingJianTypeList.action";
     //需要根据code计算出涂片类型字段
     var params={
             detectTypeId:1
@@ -47,15 +47,21 @@ function getTypes(code){
         data:params,
         dataType : 'json',
         success : function(data) {
-            $("#rowContainerDiv").html("");
+            $("#sampleInputNote").html("");
             $("#h4id").html(data.name);
             var typeList = data.resultList;
             var htmlStr="";
             for(var i=0;i<typeList.length;i++){
-                htmlStr+='<div class="col-md-6 col-sm-6 col-xs-6"><label><input type="checkbox" onclick="selectTypeE(this)" id="'+typeList[i].id+'">'+typeList[i].jing_jian_type+'</label></div>';
+                htmlStr+='<div class="col-md-6 col-sm-6 col-xs-6 checkbox" ><label><i class="icon-check-empty"></i><input type="checkbox" name="infoNote" onclick="selectTypeE(this)" id="'+typeList[i].id+'">&nbsp;'+typeList[i].jing_jian_type+'</label></div>';
             }
-            $("#rowContainerDiv").html(htmlStr);
-            
+            $("#sampleInputNote").html(htmlStr);
+
+			$('input[name="infoNote"]').click(function(){
+				var classStyle=$(this).is(':checked')==true?"icon-check":"icon-check-empty";
+				$(this).prev().removeClass().addClass(classStyle);
+				$("#dangerNote i").removeClass().addClass("icon-check-empty");
+				$("input[name='dangerNote']").removeAttr("checked");
+			}); 
         },error: function(e) { 
             
         } 
@@ -66,7 +72,7 @@ function getTypes(code){
 function saveAndDealOther(){
     /**数据入库操作**/
     
-    window.location = basePath+"/experiment/index.action";
+    window.location = basepath+"/experiment/index.action";
 }
 
 

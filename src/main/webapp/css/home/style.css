@@ -3,14 +3,14 @@
 }
 
 .navbar-default1 {
-	background-color:inherit;
+	/*background-color:inherit;*/
 }
 
 .navbar-default1 .navbar-brand {
     color: #777;
 }
 .navbar-default1 .navbar-toggle {
-    border-color: rgba(86, 194, 196, 0.81);
+    border-color: rgba(168,195,216, 0.99);
 }
 
 .navbar {
@@ -3729,6 +3729,7 @@ div.DTTT_print_info p {
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
+	background-color:rgba(168,195,216, 0.99);
 	background-color: #d1dade;
  *border: 0;
 	-webkit-border-radius: 3px;
@@ -3788,7 +3789,8 @@ div.DTTT_print_info p {
 }
 .btn-info {
 	color: #fff;
-	background-color:  rgba(76, 194, 196, 0.81);
+	background-color:  rgba(168,195,216, 0.99);
+	background-image:url("/micro-union/images/bg.jpg");
 }
 .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled] {
 	background-color: #152639;
@@ -7813,14 +7815,14 @@ ul.task li {
     font-family: 'Open Sans', "Microsoft Yahei", "微软雅黑";
 }
 .dangerNote label{
-	color:red;
+	/*color:red;*/
 }
 #sampleInputNote h4{
 	
 	/*padding-left:20px;*/
 }
 .infoNote label{
-	color:yellow;
+	/*color:yellow;*/
 }
 
 .ui-icon{
