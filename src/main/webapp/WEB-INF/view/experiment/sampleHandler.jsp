@@ -29,21 +29,24 @@ var basepath= "${basePath}";
         </div>
         <div class="col-xs-12" style="height:2%;"> </div> 
         <div class="form-group"> 
-        	<div class="col-xs-offset-0 col-xs-6  col-sm-4 col-md-3">
-        	   <a href="${basePath}/experiment/jingjian.action?codeName=${codeName}&sampleTypeId=1&detectMothod=1" class="thumbnail"> 
-            	<img src="${basePath }/images/micro/染色镜检1.png" class="img-responsive" alt="染色镜检" title="染色镜检"> 
-               </a> 
-			</div>
-			<div class="col-xs-6 col-sm-offset-0 col-sm-4  col-md-3">
-        	   <a href="${basePath}/experiment/pingban.action?codeName=${codeName}&sampleTypeId=1&detectMothod=2" class="thumbnail"> 
-               <img src="${basePath }/images/micro/转种平板1.png" class="img-responsive" alt="转种平板" title="转种平板"> 
+        	<div class="col-xs-6 col-sm-offset-0 col-sm-4  col-md-3">
+        	   <a href="${basePath}/experiment/pingban.action?codeName=${codeName}&sampleTypeId=1&detectMothod=2" > 
+               <img src="${basePath }/images/micro/转种平板1.png" onmouseover="chooseImgClass(this,0);" onmouseout="chooseImgClass(this,1);" class="img-responsive" alt="接种平板" title="接种平板"> 
        		   </a> 
+       		    <div class="caption img-responsive" style="color:#6f7b8a;text-align:center;max-width:250px;">接种平板</div>
 			</div>
-			<div class="col-xs-6 col-sm-4 col-md-3">
+        	<div class="col-xs-offset-0 col-xs-6  col-sm-4 col-md-3">
+        	   <a href="${basePath}/experiment/jingjian.action?codeName=${codeName}&sampleTypeId=1&detectMothod=1" > 
+            	<img src="${basePath }/images/micro/染色镜检1.png" onmouseover="chooseImgClass(this,0);" onmouseout="chooseImgClass(this,1);" class="img-responsive" alt="染色镜检" title="染色镜检"> 
+               </a> 
+                <div class="caption img-responsive" style="color:#6f7b8a;text-align:center;max-width:250px;">染色镜检</div>
+			</div>
+			
+			<!-- <div class="col-xs-6 col-sm-4 col-md-3">
         	   <a href="${basePath}/experiment/jianding.action?codeName=${codeName}&sampleTypeId=1&detectMothod=3" class="thumbnail"> 
             	<img src="${basePath }/images/micro/直接鉴定1.png" class="img-responsive" alt="直接鉴定" title="直接鉴定"> 
        		   </a> 
-			</div>
+			</div> -->
    		</div>
  
 </div>

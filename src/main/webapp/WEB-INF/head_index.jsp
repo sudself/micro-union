@@ -1,5 +1,8 @@
 <%@page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+String username = String.valueOf(session.getAttribute("loginName"));  
+%>
 <c:set var="basePath" value="${pageContext.request.contextPath}" />
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,20 +20,26 @@ filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=
 </head>
 
 <nav class="navbar navbar-default1 " role="navigation">
-    <div class="container-fluid" style="border-bottom: 1px solid rgba(168,195,216, 0.99);" >
+    <div class="container-fluid" style="border-bottom: 1px solid rgba(168,195,216, 0.99);background-color:rgb(21,105,151);color:#fff;" >
     <div class="navbar-header">
-       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse" >
+<!--        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse" >
 			<span class="sr-only">切换导航</span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
-		</button>
+		</button> -->
 		 <a  class="navbar-brand" style="line-height: 70px;height: 70px;padding:0px;" href="#" >
             <img src="${basePath}/images/logo.jpg" height="70px;margin:0px;" >
         </a>
         
     </div>
-    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+    <ul class="nav navbar-nav navbar-right" style="z-index:100;position:absolute;float:right;top:0px;right:20px;"> 
+            <li ><a href="#" ><span class="glyphicon glyphicon-user"></span> <%=username %></b></a>
+            </li>
+            <li ><a onclick="gotoLogin();" style="cursor:pointer;"><span class="icon-signout"></span> 退出</b></a>
+            </li>
+   </ul> 
+    <!-- <div class="collapse navbar-collapse" id="example-navbar-collapse">
         <ul class="nav navbar-nav navbar-right"> 
             <li  class="dropdown" style="float:right;">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -41,7 +50,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=
             </ul>
           </li>
         </ul> 
-    </div>
+    </div> -->
     </div>
 </nav>
 

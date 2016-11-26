@@ -71,15 +71,15 @@ var detectMothod= "${detectMothod}";
 <div class="row" >
 
     <div class="col-md-3 col-sm-4 col-xs-6" >
-       <div class="handlerButton" onclick="okPrintCode()">确认并打印条码</div>
+       <div class="handlerButton" onclick="okPrintCode()" style="cursor:pointer;">确认并打印条码</div>
     </div>
     
     <div class="col-md-3 col-sm-4 col-xs-6">
-        <div class="handlerButton"  onclick="zhuanZhongPingban()" >染色</div>
+        <div class="handlerButton"  onclick="zhuanZhongPingban()" style="cursor:pointer;">染色</div>
     </div>
     
      <div class="col-md-3 col-sm-4 col-xs-6">
-       <div class="handlerButton" onclick="backForward()">继续处理其他标本</div>
+       <div class="handlerButton" onclick="backForward()" style="cursor:pointer;">继续处理其他标本</div>
     </div>
 
 </div>

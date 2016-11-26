@@ -229,7 +229,7 @@ margin-right:40px;
 			dataType : 'json',
 			success : function(data) {
 				if (data == "success") {
-					window.location = "${basePath}/homePage/index.action"
+					window.location = "${basePath}/homePage/index.action";
 				} else {
 					alertModel("danger", "用户名或密码错误！");
 				}

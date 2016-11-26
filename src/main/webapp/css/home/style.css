@@ -1,5 +1,5 @@
 .navbar-default1 .navbar-nav>li>a {
-    color: #777;
+    color: #fff;
 }
 
 .navbar-default1 {
@@ -4197,7 +4197,8 @@ code:hover {
 }
 .nav>li>a:hover, .nav>li>a:focus {
 	background-color: transparent;
-	color:#505458;
+	color:#fff;
+	/*color:#505458;*/
 }
 .nav .tools {
 	float:right;
@@ -7849,4 +7850,10 @@ ul.task li {
 
 #alertModel{
 	position:absolute;z-index:1000;right:0px;
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 20px 6px;
 }

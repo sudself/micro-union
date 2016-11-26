@@ -9,19 +9,17 @@
 </head>
 
 <nav class="navbar navbar-default1" role="navigation">
-    <div class="container-fluid" style="border-bottom: 1px solid rgba(168,195,216, 0.99);" >
+    <div class="container-fluid" style="border-bottom: 1px solid rgba(168,195,216, 0.99);background-color:rgb(21,105,151);color:#fff;" >
     <div class="navbar-header">
-       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse" >
-			<span class="sr-only">切换导航</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-		 <a  class="navbar-brand" style="line-height: 70px;height: 70px;padding:0px;" id="navigationBar" href="#" >
-            
-        </a>
+		 <a  class="navbar-brand" style="line-height: 70px;height: 70px;padding:0px;" id="navigationBar" href="#" ></a>
     </div>
-    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+    <ul class="nav navbar-nav navbar-right" style="z-index:100;position:absolute;float:right;top:0px;right:20px;"> 
+            <li ><a href="#" onclick="homePage();"  ><span class="glyphicon glyphicon-home"></span> 首页</a></a>
+            </li>
+            <li ><a onclick="gotoLogin();" style="cursor:pointer;"><span class="icon-signout"></span> 退出</b></a>
+            </li>
+   </ul> 
+<!--     <div class="collapse navbar-collapse" id="example-navbar-collapse">
         <ul class="nav navbar-nav navbar-right"> 
             <li class="dropdown" style="float:right;">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -33,7 +31,7 @@
           </li>
           <li style="float:right;"><a href="#" onclick="homePage();"  ><span class="glyphicon glyphicon-home"></span> 首页</a></li>
         </ul> 
-    </div>
+    </div> -->
     </div>
 </nav>
 

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	setNavigationBar("标本处理1.png",basepath+"/experiment/index.action","标本处理");
+	setNavigationBar("标本处理.png",basepath+"/experiment/index.action","标本处理");
     initRow();
 });
 
@@ -42,7 +42,7 @@ function initRow(){
             var htmlStr="";
             for(var i=0;i<data.length;i++){
                 
-                htmlStr+='<div class="col-md-3 col-sm-4 col-xs-6" >  <div id="'+data[i].id +'##'+ data[i].print_prefix +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
+                htmlStr+='<div class="col-md-3 col-sm-4 col-xs-6" >  <div id="'+data[i].id +'##'+ data[i].print_prefix +'" onclick="divSelected(this)" class="tuPianDiv" style="cursor:pointer;">'+data[i].detect_type+'</div></div>';
                 
                /* if((i+1)%3==1){//每行三个  第一个
                     htmlStr+= '<div class="row">  <div class="col-md-3 col-sm-4 col-xs-4">';

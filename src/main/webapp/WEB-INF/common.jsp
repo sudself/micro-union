@@ -21,5 +21,6 @@
 <link href="${basePath }/css/bootstrap/bootstrap-theme.css" rel="stylesheet" type="text/css" />
 <link href="${basePath }/css/home/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${basePath}/staticjs/bootstrap.min.js"></script>
+<script type="text/javascript" src="${basePath}/staticjs/common.js"></script>
 
 

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	setNavigationBar("标本录入1.png",basepath+"/sampleInput/sampleType/index.action","标本录入");
+	setNavigationBar("标本录入.png",basepath+"/sampleInput/sampleType/index.action","标本录入");
 });
 
 var queryRmarksList=function(){

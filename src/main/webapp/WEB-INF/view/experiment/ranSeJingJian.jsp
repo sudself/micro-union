@@ -93,19 +93,19 @@ var detectMothod= "${detectMothod}";
 <div class="row showType "  >
 
     <div class="col-md-3 col-sm-4 col-xs-6">
-        <div class="handlerButton" onclick="printCode()">确认并打印条码</div>
+        <div class="handlerButton" onclick="printCode()" style="cursor:pointer;">确认并打印条码</div>
     </div>
     
     <div class="col-md-3 col-sm-4 col-xs-6" >
-       <div class="handlerButton"  onclick="ranSeJingJian()">镜检</div>
+       <div class="handlerButton"  onclick="ranSeJingJian()" style="cursor:pointer;">镜检</div>
     </div>
     
     <div class="col-md-3 col-sm-4 col-xs-6">
-        <div class="handlerButton" onclick="dealOtherSample()">继续处理其他标本</div>
+        <div class="handlerButton" onclick="dealOtherSample()" style="cursor:pointer;">继续处理其他标本</div>
     </div>
     
      <div class="col-md-3 col-sm-4 col-xs-6">
-       <div class="handlerButton" onclick="peiYangMin()" >同时接种培养皿</div>
+       <div class="handlerButton" onclick="peiYangMin()" style="cursor:pointer;">同时接种培养皿</div>
     </div>
 
 </div>
