@@ -35,6 +35,12 @@ public class AnalysisServiceImpl implements AnalysisService {
         return CommonUtil.buildPageModel(1, 30,mapList.size(), mapList);
 	}
     
+	@Override
+	public PaginationModel getDetectsByParentId(Integer parentId) {
+		List<Map<String,Object>> mapList = samplesMapper.getDetectsByParentId(parentId);
+        return CommonUtil.buildPageModel(1, 30,mapList.size(), mapList);
+	}
+	
    /* @Override
     public PaginationModel getHost(HostBo hostBo) {
         // TODO Auto-generated method stub

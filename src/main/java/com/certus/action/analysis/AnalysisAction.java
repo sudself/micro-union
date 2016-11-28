@@ -87,6 +87,32 @@ public class AnalysisAction extends BaseAction {
         }
     }  
     
+    @Action(value="/analysisAction/detectsDetail")
+    public void detectsDetail(){
+        BoResult bor = new BoResult();
+        try {
+            logger.info("detectsDetail");
+            String parentId = request.getParameter("parentId");
+            if(StringUtils.isEmpty(parentId) && !StringUtils.isNumeric(parentId) ){
+                bor.code = -1;
+                bor.msg = "parentId参数异常";
+                writeJson(bor);
+                return;
+            }
+            writeJson(analysisService.getDetectsByParentId(Integer.parseInt(parentId)));
+            logger.info("detectsDetail success");
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage(),e);
+            bor.code = -1;
+            bor.msg = e.getMessage();
+            writeJson(bor);
+        } 
+        finally{
+            logger.info("end:detectsDetail");
+        }
+    }
+    
     /*@Action(value="/HostListAction/queryHost")
     public void getHost(){
         BoResult bor = new BoResult();

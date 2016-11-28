@@ -25,5 +25,7 @@ public interface SamplesMapper extends BaseDao{
 
 	List<Map<String, Object>> getSamplesDetailById(Integer sampleId);
 	
+	List<Map<String, Object>> getDetectsByParentId(Integer parentId);
+	
 	Samples getSampleByCode(String code);
 }

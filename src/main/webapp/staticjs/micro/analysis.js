@@ -170,7 +170,8 @@ function initSamplesTable() {
             datatype: "json",
             //page: 1,
             colModel: [
-                { label: '条形码', name: 'code_no', key: true, width: 100 },
+                { label: 'sn', name: 'id', key: true, hidden: true },
+                { label: '条形码', name: 'code_no', width: 100 },
                 { label: '类型', name: 'detect_method', width: 100,
                 	formatter : function(v, opt, rec) {
         				switch (v) {
@@ -198,6 +199,61 @@ function initSamplesTable() {
 			loadonce: true,
             width: gridWidth-100,
             height:  "auto",
+            subGrid: true,
+    	    subGridRowExpanded: showChildDetects,
+            jsonReader : {
+     	        repeatitems : false
+     	    }
+            //pager: "#" + childGridPagerID
+        });
+	}
+	function showChildDetects(parentRowID, parentRowKey) {
+        var childGridID = parentRowID + "_table";
+        var childGridPagerID = parentRowID + "_pager";
+        var widthchind = $('#' + parentRowID).width()-25;
+        // send the parent row primary key to the server so that we know which grid to show
+        var childGridURL = 'detectsDetail.action?parentId='+parentRowKey;
+
+        // add a table and pager HTML elements to the parent grid row - we will render the child grid here
+        $('#' + parentRowID).append('<table id=' + childGridID + '></table><div id=' + childGridPagerID + ' class=scroll></div>');
+
+        $("#" + childGridID).jqGrid({
+            url: childGridURL,
+            mtype: "GET",
+            datatype: "json",
+            //page: 1,
+            colModel: [
+                { label: 'sn', name: 'id', key: true, hidden: true },
+                { label: '条形码', name: 'code_no', key: true, width: 100 },
+                { label: '类型', name: 'detect_method', width: 100,
+                	formatter : function(v, opt, rec) {
+        				switch (v) {
+        				case '1':
+        					v = "染色镜检";
+        					break;
+        				case '2':
+        					v = "转种平板";
+        					break;		
+        				case '3':
+        					v = "直接鉴定";
+        					break;
+        				default:
+        					v = "未知";
+        					break;
+        				}
+        				return v;
+        			}	      	
+                 },
+                { label: '操作', name: 'detect_type', width: 100},
+                { label: '打印时间', name: 'print_time', width: 100 },
+                { label: '处理时间', name: 'deal_time', width: 100 },
+                { label: '状态', name: 'status', width: 100 }
+            ],
+			loadonce: true,
+            width: widthchind,
+            height:  "auto",
+            subGrid: true,
+    	    subGridRowExpanded: showChildDetects,
             jsonReader : {
      	        repeatitems : false
      	    }

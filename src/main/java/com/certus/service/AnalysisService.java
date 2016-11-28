@@ -17,5 +17,7 @@ public interface AnalysisService {
      * @return
      */
    // public PaginationModel getHost(SampleBo sampleBo);
+
+	PaginationModel getDetectsByParentId(Integer parentId);
     
 }

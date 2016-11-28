@@ -184,10 +184,16 @@ select
         </if>
   </select>
     <select id="getSamplesDetailById" parameterType="java.lang.Integer" resultType="hashmap">
-    select d.code_no,d.print_time,d.deal_time  ,d.`status`,dt.detect_method,dt.detect_type
-from samples s,sample_type t,detects d,detect_type dt
-where s.sample_type=t.id and d.sample_id=s.id and d.detect_type_id=dt.id and s.id=#{sampleId,jdbcType=INTEGER} 
-           order by d.deal_time desc 
+    select d.id,d.code_no,d.print_time,d.deal_time  ,d.`status`,dt.detect_method,dt.detect_type
+from detects d,detect_type dt
+where d.detect_type_id=dt.id  and d.parent_id is NULL 
+and d.sample_id =#{sampleId,jdbcType=INTEGER} order by d.deal_time desc 
+  </select>
+  <select id="getDetectsByParentId" parameterType="java.lang.Integer" resultType="hashmap">
+    select d.id,d.code_no,d.print_time,d.deal_time  ,d.`status`,dt.detect_method,dt.detect_type
+from detects d,detect_type dt
+where d.detect_type_id=dt.id  and d.parent_id =#{parentId,jdbcType=INTEGER} 
+ order by d.deal_time desc 
   </select>
   <select id="getSampleByCode" resultMap="BaseResultMap" parameterType="string" >
     select 
