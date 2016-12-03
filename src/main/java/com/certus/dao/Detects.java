@@ -3,15 +3,15 @@ package com.certus.dao;
 import java.util.Date;
 
 public class Detects {
-    private Integer id;
+    public Integer id;
 
-    private Integer sampleId;
+    public Integer sampleId;
 
-    private Integer sampleTypeId;
+    public Integer sampleTypeId;
 
-    private Integer detectTypeId;
+    public Integer detectTypeId;
 
-    private Date printTime;
+    public Date printTime;
 
     private Integer printUserId;
 
@@ -24,6 +24,10 @@ public class Detects {
     private String status;
 
     private Integer childId;
+
+    private String extra1;
+
+    private Integer parentId;
 
     public Integer getId() {
         return id;
@@ -111,5 +115,21 @@ public class Detects {
 
     public void setChildId(Integer childId) {
         this.childId = childId;
+    }
+
+    public String getExtra1() {
+        return extra1;
+    }
+
+    public void setExtra1(String extra1) {
+        this.extra1 = extra1 == null ? null : extra1.trim();
+    }
+
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
     }
 }

@@ -157,6 +157,11 @@ select
      limit #{rows,jdbcType=INTEGER} offset #{start,jdbcType=INTEGER}
     </if>
   </select>
+  
+  <select id="getCountByHospitalCode" resultType="java.lang.Integer" parameterType="string">
+     select count(*) from samples where hospital_code = #{code,jdbcType=VARCHAR}
+  </select>
+  
   <select id="countSamplesList" parameterType="com.certus.bo.SampleBo" resultType="java.lang.Integer">
     select count(distinct ss.id)
 FROM (

@@ -12,11 +12,13 @@
     <result column="deal_time" property="dealTime" jdbcType="TIMESTAMP" />
     <result column="deal_user_id" property="dealUserId" jdbcType="INTEGER" />
     <result column="status" property="status" jdbcType="VARCHAR" />
-    <result column="child_id" property="childId" jdbcType="INTEGER" />
+    <result column="child_id" property="childId" jdbcType="VARCHAR" />
+    <result column="extra1" property="extra1" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, sample_id, sample_type_id, detect_type_id, print_time, print_user_id, code_no, 
-    deal_time, deal_user_id, status, child_id
+    deal_time, deal_user_id, status, child_id, extra1, parent_id
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -24,6 +26,40 @@
     from detects
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="queryDetectsByCode" resultType="hashmap">
+		  select
+		    d.id,
+		    d.sample_id,
+		    d.sample_type_id,
+		    d.detect_type_id,
+		    d.print_time,
+		    d.print_user_id,
+		    d.code_no,
+		    d.deal_time,
+		    d.deal_user_id,
+		    d.status,
+		    d.child_id,
+		    d.extra1,
+		    d.parent_id,
+		  t.id as detect_type_key_id,
+		  t.detect_method,
+		  t.detect_type,
+		  t.print_prefix
+		FROM
+		    detects d
+		LEFT JOIN detect_type t ON t.id = d.sample_type_id
+     where d.code_no= #{code,jdbcType=VARCHAR} and d.child_id = #{childCode,jdbcType=INTEGER}
+  </select>
+  
+  
+   <select id="getDetectsByCode" resultMap="BaseResultMap" >
+    select
+     <include refid="Base_Column_List"/>
+     from detects
+     where code_no= #{code,jdbcType=VARCHAR} order by child_id desc
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from detects
     where id = #{id,jdbcType=INTEGER}
@@ -32,11 +68,13 @@
     insert into detects (id, sample_id, sample_type_id, 
       detect_type_id, print_time, print_user_id, 
       code_no, deal_time, deal_user_id, 
-      status, child_id)
+      status, child_id, extra1, 
+      parent_id)
     values (#{id,jdbcType=INTEGER}, #{sampleId,jdbcType=INTEGER}, #{sampleTypeId,jdbcType=INTEGER}, 
       #{detectTypeId,jdbcType=INTEGER}, #{printTime,jdbcType=TIMESTAMP}, #{printUserId,jdbcType=INTEGER}, 
       #{codeNo,jdbcType=VARCHAR}, #{dealTime,jdbcType=TIMESTAMP}, #{dealUserId,jdbcType=INTEGER}, 
-      #{status,jdbcType=VARCHAR}, #{childId,jdbcType=INTEGER})
+      #{status,jdbcType=VARCHAR}, #{childId,jdbcType=VARCHAR}, #{extra1,jdbcType=VARCHAR}, 
+      #{parentId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.certus.dao.Detects" >
     insert into detects
@@ -74,6 +112,12 @@
       <if test="childId != null" >
         child_id,
       </if>
+      <if test="extra1 != null" >
+        extra1,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -107,7 +151,13 @@
         #{status,jdbcType=VARCHAR},
       </if>
       <if test="childId != null" >
-        #{childId,jdbcType=INTEGER},
+        #{childId,jdbcType=VARCHAR},
+      </if>
+      <if test="extra1 != null" >
+        #{extra1,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -142,7 +192,13 @@
         status = #{status,jdbcType=VARCHAR},
       </if>
       <if test="childId != null" >
-        child_id = #{childId,jdbcType=INTEGER},
+        child_id = #{childId,jdbcType=VARCHAR},
+      </if>
+      <if test="extra1 != null" >
+        extra1 = #{extra1,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -158,7 +214,9 @@
       deal_time = #{dealTime,jdbcType=TIMESTAMP},
       deal_user_id = #{dealUserId,jdbcType=INTEGER},
       status = #{status,jdbcType=VARCHAR},
-      child_id = #{childId,jdbcType=INTEGER}
+      child_id = #{childId,jdbcType=VARCHAR},
+      extra1 = #{extra1,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

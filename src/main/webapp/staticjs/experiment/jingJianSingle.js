@@ -25,7 +25,7 @@ function selectTypeE(ip){
 
 /**扫码之后，根据类型渲染页面**/
 function scanCode(){
-    var code = "123456789";
+    var code = "123";
     
     $("#codeName").val(code);
     getTypes(code);

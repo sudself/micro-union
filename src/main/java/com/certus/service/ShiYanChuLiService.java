@@ -1,6 +1,7 @@
 package com.certus.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.certus.dao.DetectType;
 import com.certus.dao.Detects;
@@ -18,4 +19,10 @@ public interface ShiYanChuLiService {
 	public List<JingJianType> getJingJianType(String detectTypeId);
 	
 	public DetectType selectByPrimaryKey(String id);
+	
+	public String querySampleTables(String code);
+	
+	public Map<String,Object> queryDetectsByCode(String code);
+	
+	public String createCode(String code,String parentId);
 }

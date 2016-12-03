@@ -2,6 +2,7 @@ package com.certus.action.experiment;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -91,8 +92,10 @@ public class ScanCodeAction extends BaseAction {
     	
     	String detectTypeId = request.getParameter("detectTypeId");
         String codeName = request.getParameter("codeName");
-        String printCode = request.getParameter("printCode");
         String sampleTypeId = request.getParameter("sampleTypeId");
+        String parentId = request.getParameter("parentId");
+        String shiYanCiShu = shiYanChuLiService.createCode(codeName, parentId);
+//        String printCode = codeName+"#"+shiYanCiShu;//打印的条码，格式：code+#+实验次数
         
         String hCode = codeName;//后续要根据code算法，截取hospitalCode的部分
         Samples sample = shiYanChuLiService.getSampleByCode(hCode);
@@ -102,9 +105,14 @@ public class ScanCodeAction extends BaseAction {
         detect.setDetectTypeId(Integer.parseInt(detectTypeId));
         detect.setPrintTime(new Date());
         detect.setPrintUserId(user.getId());
-        detect.setCodeNo(printCode); //这里用的是printCode，不是codeName
+        detect.setCodeNo(codeName); //这里用的是printCode，不是codeName
         detect.setDealTime(new Date());
         detect.setDealUserId(user.getId());
+        detect.setChildId(Integer.valueOf(shiYanCiShu));
+        if(null != parentId && "" !=parentId){
+            detect.setParentId(Integer.valueOf(parentId));
+        }
+        
         detect.setStatus("打印条码完成");
         //后续还有判断是否要加childId
     	writeJson(shiYanChuLiService.addDetect(detect));
@@ -116,12 +124,29 @@ public class ScanCodeAction extends BaseAction {
         return "pingban";
     }
     
-    
     /**直接鉴定**/
     @Action(value="/experiment/jianding",results={@Result(name = "jianding", location = "/WEB-INF/view/experiment/zhiJieJianDing.jsp")})
     public String jianding(){
         return "jianding";
     }
     
-
+    /**根据条码查询，当前条码代表的记录**/
+    @Action(value="/experiment/queryDetectsByCode")
+    public void queryDetectsByCode(){
+        String code = request.getParameter("code");
+        HttpSession session = request.getSession();
+        Map<String,Object> detectsInfo= shiYanChuLiService.queryDetectsByCode(code);
+        session.setAttribute("detectsInfo",com.alibaba.fastjson.JSON.toJSON(detectsInfo));
+        writeJson(detectsInfo);
+    }
+    
+    
+    /**根据医院条码，确认需要跳转的页面，code中不包含#**/
+    @Action(value="/experiment/querySampleTables")
+    public void querySampleTables(){
+        String code = request.getParameter("code");
+        writeJson(shiYanChuLiService.querySampleTables(code));
+    }
+    
+    
 }

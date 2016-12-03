@@ -31,8 +31,8 @@
             and detect_method = #{detectMethod,jdbcType=VARCHAR}
      </if>
      
-     <if test="detectMethod != null and detectMethod != ''">
-            and detect_method = #{detectMethod,jdbcType=VARCHAR}
+     <if test="printPrefix != null and printPrefix != ''">
+            and print_prefix = #{printPrefix,jdbcType=VARCHAR}
      </if>
   
   </select>

@@ -37,13 +37,13 @@ margin-top:5px;
 
 
 <div class="row"> 
-    <div class="col-md-2 col-sm-4 col-xs-4" onclick="scanCode()" style="font-weight:bold;">
-      <!-- <button type="button" onclick="scanCode()" style="width:90%;font-weight:bold;font-size:25px;padding: 8px;">扫描玻片条码:</button> -->
+    <div class="col-md-2 col-sm-4 col-xs-4" style="font-weight:bold;">
        <h3>玻片条码: </h3>
     </div>
     
-    <div class="col-md-10 col-sm-8 col-xs-8">
-      <input type="text" id="codeName" class="form-control" name="codeName" style="max-width:300px;" />
+    <div class="col-md-8 col-sm-6 col-xs-6 form-group" >
+	    <input type="text" id="codeName"  name="codeName"  />
+	    <button type="button"  class="btn btn-info" onclick="scanCode()" style="folat:right;">查询</button> 
     </div>
 </div>
 
@@ -64,7 +64,7 @@ margin-top:5px;
      <div class="form-group"> 
         <label class="col-xs-6 control-label"></label> 
         <div class="col-xs-6" > 
-            <button type="button" style="margin-left:20px" class="btn btn-info" onclick="saveAndDealOther()">继续处理其他标本</button> 
+            <button type="button" style="margin-left:20px" class="btn btn-info" onclick="saveAndDealOther()">确认</button> 
         </div> 
     </div>
 </div>

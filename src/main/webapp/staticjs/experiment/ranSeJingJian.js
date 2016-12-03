@@ -41,28 +41,7 @@ function initRow(){
         success : function(data) {
             var htmlStr="";
             for(var i=0;i<data.length;i++){
-                
                 htmlStr+='<div class="col-md-3 col-sm-4 col-xs-6" >  <div id="'+data[i].id +'##'+ data[i].print_prefix +'" onclick="divSelected(this)" class="tuPianDiv" style="cursor:pointer;">'+data[i].detect_type+'</div></div>';
-                
-               /* if((i+1)%3==1){//每行三个  第一个
-                    htmlStr+= '<div class="row">  <div class="col-md-3 col-sm-4 col-xs-4">';
-                    if(i==0){
-                        htmlStr+= '<h4>涂片类型选择</h4>';
-                    }
-                    htmlStr+='</div>';
-                    
-                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'##'+ data[i].print_prefix +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
-                    
-                }else if((i+1)%3==0){//第三个
-                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'##'+ data[i].print_prefix +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
-                    htmlStr+='</div> </br> </br>';
-                }else{//第二个
-                    htmlStr+='<div class="col-md-3 col-sm-4 col-xs-4" >  <div id="'+data[i].id +'##'+ data[i].print_prefix +'" onclick="divSelected(this)" class="tuPianDiv">'+data[i].detect_type+'</div></div>';
-                }
-                
-                if(i==data.length-1 && (i+1)%3!=0){
-                    htmlStr+='</div> </br> </br>';
-                }*/
             }
             $("#rowContainer").html(htmlStr);
             
@@ -84,14 +63,12 @@ function printCode(){
     		var selectStr = selectIds[i].split("##");
     		var detectTypeId = selectStr[0];
     		var print_prefix = selectStr[1];
-    		var printCode = codeName+detectMothod+print_prefix;  //后续按条码算法需要更新
-	    	alert(printCode);
-	    	//
 	    	var params={
 	    			"detectTypeId":detectTypeId,
-	    			"printCode":printCode,
 	    			"codeName":codeName,
-	    			"sampleTypeId":sampleTypeId
+	    			"sampleTypeId":sampleTypeId,
+	    			"detectMothod":detectMothod,
+	    			"print_prefix":print_prefix
 	    	};
 	    	$.ajax({
 	            type : 'post',
@@ -111,8 +88,6 @@ function printCode(){
 
 /**染色之后并镜检**/
 function ranSeJingJian(){
-    /**更新染色记录到数据库*/   
-    
     /**跳转到镜检页面**/
     window.location = basepath+"/experiment/jingJianSingle.action?codeName="+codeName+"&sampleTypeId="+sampleTypeId+"&detectMothod=4";
 }

@@ -3,7 +3,7 @@
 <generatorConfiguration >
 	
  <!--  <classPathEntry location="D:\flexmall-00.05.00\mysql-connector-java-5.1.33.jar"/> -->
-  <classPathEntry location="D:\repository\.m2\repository\mysql\mysql-connector-java\5.1.9\mysql-connector-java-5.1.9.jar"/>
+  <classPathEntry location="E:\repository\.m2\repository\mysql\mysql-connector-java\5.1.9\mysql-connector-java-5.1.9.jar"/>
   <context id="DB2Tables" targetRuntime="MyBatis3">
 	<commentGenerator>   
 		<property name="suppressDate" value="true"/>
@@ -34,7 +34,7 @@
     <javaClientGenerator targetPackage="com.certus.dao" targetProject="micro-union" type="XMLMAPPER" />
     
 
-   <table schema="micro_union" tableName="jing_jian_type" domainObjectName="JingJianType" 
+   <table schema="micro_union" tableName="detects" domainObjectName="Detects" 
     	enableCountByExample="false" enableDeleteByExample="false" 
     	enableSelectByExample="false" enableUpdateByExample="false" 
     	selectByExampleQueryId="false">

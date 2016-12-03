@@ -28,4 +28,6 @@ public interface SamplesMapper extends BaseDao{
 	List<Map<String, Object>> getDetectsByParentId(Integer parentId);
 	
 	Samples getSampleByCode(String code);
+	
+	int getCountByHospitalCode(String code);
 }
