@@ -7,12 +7,14 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.certus.dao.DetectResult;
+import com.certus.dao.DetectResultMapper;
+import com.certus.dao.DetectResultRel;
+import com.certus.dao.DetectResultRelMapper;
 import com.certus.dao.DetectType;
 import com.certus.dao.DetectTypeMapper;
 import com.certus.dao.Detects;
 import com.certus.dao.DetectsMapper;
-import com.certus.dao.JingJianType;
-import com.certus.dao.JingJianTypeMapper;
 import com.certus.dao.Samples;
 import com.certus.dao.SamplesMapper;
 import com.certus.service.ShiYanChuLiService;
@@ -32,7 +34,11 @@ public class ShiYanChuLiServiceImpl implements ShiYanChuLiService{
 	private DetectsMapper detectsMapper;
     
     @Autowired
-    private JingJianTypeMapper jingJianTypeMapper;
+    private DetectResultMapper detectResultMapper;
+    
+    @Autowired
+    private DetectResultRelMapper detectResultRelMapper;
+    
     
     @Override
     public List<DetectType> getDetectType(String sampleTypeId,String detectMothod,String pre) {
@@ -59,8 +65,8 @@ public class ShiYanChuLiServiceImpl implements ShiYanChuLiService{
 	}
 	
     @Override
-    public List<JingJianType> getJingJianType(String detectTypeId) {
-        List<JingJianType> resultList = jingJianTypeMapper.getTypeByDetectType(detectTypeId);
+    public List<DetectResult> getJingJianType(String detectTypeId) {
+        List<DetectResult> resultList = detectResultMapper.getTypeByDetectType(Integer.valueOf(detectTypeId));
         return resultList;
     }
 
@@ -139,6 +145,23 @@ public class ShiYanChuLiServiceImpl implements ShiYanChuLiService{
         }else{
             return ""+(listDetescts.get(0).getChildId()+1);
         }
+    }
+
+    @Override
+    public int insertDetectResult(int detectId, String detect_result_ids) {
+       String[] ids = detect_result_ids.split(",");
+       for(String id:ids){
+           DetectResultRel vo = new DetectResultRel();
+           vo.setDetectId(detectId);
+           vo.setDetectResultId(Integer.valueOf(id));
+           detectResultRelMapper.insertSelective(vo);
+       }
+       return 0;
+    }
+
+    @Override
+    public List<DetectResultRel> getDetectResultByDetectId(int detectId) {
+        return detectResultRelMapper.getDetectResultByDetectId(detectId);
     }
 
 }

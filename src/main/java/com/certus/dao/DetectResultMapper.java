@@ -1,5 +1,7 @@
 package com.certus.dao;
 
+import java.util.List;
+
 import com.certus.dao.DetectResult;
 
 public interface DetectResultMapper extends BaseDao{
@@ -14,4 +16,7 @@ public interface DetectResultMapper extends BaseDao{
     int updateByPrimaryKeySelective(DetectResult record);
 
     int updateByPrimaryKey(DetectResult record);
+    
+    List<DetectResult> getTypeByDetectType(int detectTypeId );
+    
 }

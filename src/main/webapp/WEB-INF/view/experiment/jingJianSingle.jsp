@@ -64,7 +64,7 @@ margin-top:5px;
      <div class="form-group"> 
         <label class="col-xs-6 control-label"></label> 
         <div class="col-xs-6" > 
-            <button type="button" style="margin-left:20px" class="btn btn-info" onclick="saveAndDealOther()">确认</button> 
+            <button type="button" id="baoCunId" style="margin-left:20px" class="btn btn-info" onclick="saveAndDealOther()">保存</button> 
         </div> 
     </div>
 </div>

@@ -9,8 +9,7 @@ var selectIds = new Array();
 function selectTypeE(ip){
     
     var typeId = $(ip).attr('id');
-    
-    if($(ip).attr('checked') == true){
+    if($(ip).is(':checked')==true){
         selectIds.push(typeId);//选中
     }else{
         //删除
@@ -25,12 +24,19 @@ function selectTypeE(ip){
 
 /**扫码之后，根据类型渲染页面**/
 function scanCode(){
-    var code = "123";
     
-    $("#codeName").val(code);
+    var code = $("#codeName").val();
+    if(code == "undefined"|| code==""){
+    	alert("请输入条码");
+    	return ;
+    }else if(code.indexOf("#")<=0){
+    	alert("条码格式不对");
+    	return ;
+    }
     getTypes(code);
 }
 
+var detectId = -1;
 
 /**获取细菌涂片类型**/
 function getTypes(code){
@@ -38,8 +44,11 @@ function getTypes(code){
     var url=basepath+"/experiment/getJingJianTypeList.action";
     //需要根据code计算出涂片类型字段
     var params={
-            detectTypeId:1
+            detectTypeId:1,
+            code:code
     };
+    
+    detectId = -1;
     
     $.ajax({
         type : 'post',
@@ -49,10 +58,27 @@ function getTypes(code){
         success : function(data) {
             $("#sampleInputNote").html("");
             $("#h4id").html(data.name);
+            detectId = data.detectId;
             var typeList = data.resultList;
+            var detectResultList = data.detectResultList;
             var htmlStr="";
             for(var i=0;i<typeList.length;i++){
-                htmlStr+='<div class="col-md-6 col-sm-6 col-xs-6 checkbox" ><label><i class="icon-check-empty"></i><input type="checkbox" name="infoNote" onclick="selectTypeE(this)" id="'+typeList[i].id+'">&nbsp;'+typeList[i].jing_jian_type+'</label></div>';
+            	if(detectResultList == "undefined"){
+            		 htmlStr+='<div class="col-md-6 col-sm-6 col-xs-6 checkbox" ><label><i class="icon-check-empty"></i><input type="checkbox" name="infoNote" onclick="selectTypeE(this)" id="'+typeList[i].id+'">&nbsp;'+typeList[i].content+'</label></div>';
+            	}else{
+            		var flag = false;
+            		for(var j=0;j<detectResultList.length;j++){
+            			if(detectResultList[j].detectResultId == typeList[i].id){
+            				htmlStr+='<div class="col-md-6 col-sm-6 col-xs-6 checkbox" ><label><i class="icon-check"></i><input type="checkbox"  name="infoNote" onclick="selectTypeE(this)" id="'+typeList[i].id+'">&nbsp;'+typeList[i].content+'</label></div>';
+                			flag = true;
+                			break;
+            			}
+            		}
+            		if(!flag){
+            			htmlStr+='<div class="col-md-6 col-sm-6 col-xs-6 checkbox" ><label><i class="icon-check-empty"></i><input type="checkbox" name="infoNote" onclick="selectTypeE(this)" id="'+typeList[i].id+'">&nbsp;'+typeList[i].content+'</label></div>';
+            		}
+            	}
+                
             }
             $("#sampleInputNote").html(htmlStr);
 
@@ -62,17 +88,43 @@ function getTypes(code){
 				$("#dangerNote i").removeClass().addClass("icon-check-empty");
 				$("input[name='dangerNote']").removeAttr("checked");
 			}); 
+			
+			if(detectResultList == "undefined"){
+				$("#baoCunId").attr("disabled",false); 
+			}else{
+				$("#baoCunId").attr("disabled",true); 
+			}
+			
         },error: function(e) { 
-            
+        	$("#baoCunId").attr("disabled",false); 
         } 
     });
 }
 
 /**保存结果**/
 function saveAndDealOther(){
-    /**数据入库操作**/
-    
-    window.location = basepath+"/experiment/index.action";
+	
+	 if(selectIds.length <1){
+	        alert("请选择涂片类型");
+	        return;
+	 }else{
+		 var params={
+	    			"detectId":detectId,
+	    			"selectIds":selectIds.toString()
+	    	};
+		 $.ajax({
+	            type : 'post',
+	            url : basepath+"/experiment/handleDetectResult.action",
+	            data:params,
+	            dataType : 'json',
+	            success : function(data) {
+	            	$("#baoCunId").attr("disabled",true); 
+	            },error: function(e) { 
+	                alert("保存异常！");
+	            } 
+	      });
+			 
+	 }
 }
 
 

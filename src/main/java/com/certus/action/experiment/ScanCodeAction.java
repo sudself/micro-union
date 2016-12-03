@@ -12,9 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSONObject;
 import com.certus.action.BaseAction;
+import com.certus.dao.DetectResult;
+import com.certus.dao.DetectResultRel;
 import com.certus.dao.DetectType;
 import com.certus.dao.Detects;
-import com.certus.dao.JingJianType;
 import com.certus.dao.Samples;
 import com.certus.dao.Users;
 import com.certus.service.ShiYanChuLiService;
@@ -71,17 +72,34 @@ public class ScanCodeAction extends BaseAction {
     /**获取镜检小类型列表**/
     @Action(value="/experiment/getJingJianTypeList")
     public void getJingJianTypeList(){
-        String detectTypeId = request.getParameter("detectTypeId");
-        
-        List<JingJianType> resultList = shiYanChuLiService.getJingJianType(detectTypeId);
         JSONObject json = new JSONObject();
-        json.put("resultList", resultList);
-        DetectType detectType = shiYanChuLiService.selectByPrimaryKey(detectTypeId);
-        if(detectType != null){
-            json.put("name", detectType.getDetectType());
+        String code = request.getParameter("code");
+        Map<String,Object> detect = shiYanChuLiService.queryDetectsByCode(code);
+        if(null != detect){
+            String detectTypeId = detect.get("detect_type_id").toString();
+            String detectId = detect.get("id").toString();
+            
+            /**查询是否有实验结果**/
+            List<DetectResultRel> detectResultList = shiYanChuLiService.getDetectResultByDetectId(Integer.valueOf(detectId));
+            json.put("detectResultList", detectResultList);
+            List<DetectResult> resultList = shiYanChuLiService.getJingJianType(detectTypeId);
+            json.put("resultList", resultList);
+            json.put("detectId", detectId);
+            DetectType detectType = shiYanChuLiService.selectByPrimaryKey(detectTypeId);
+            if(detectType != null){
+                json.put("name", detectType.getDetectType());
+            }
         }
         
         writeJson(json);
+    }
+    
+    @Action(value="/experiment/handleDetectResult")
+    public void handleDetectResult(){
+        String detectId = request.getParameter("detectId");
+        String selectIds = request.getParameter("selectIds");
+        int count = shiYanChuLiService.insertDetectResult(Integer.valueOf(detectId),selectIds);
+        writeJson(count);
     }
     
     
