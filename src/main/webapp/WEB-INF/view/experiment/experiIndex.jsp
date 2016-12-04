@@ -41,24 +41,6 @@ var basepath= "${basePath}";
 	</div>
 	</form>
 </div>
-<!--
-<div class="container">
-
-<div class="labelCss">
-     <h3>标本处理</h3>
-</div>
-<div class="row"> 
-    <div class="col-md-4 col-sm-4 col-xs-4" >
-      <button type="button" onclick="handerScanCode()" style="border-radius: 10px;width:90%;font-weight:bold;font-size:25px;padding: 8px;">扫描条码</button>
-    </div>
-    
-    <div class="col-md-6 col-sm-6 col-xs-6">
-      <input type="text" id="codeName" name="codeName" style="border-radius: 5px;width:100%;border:1px solid #33CCFF" />
-    </div>
-</div>
-
-</div>
--->
 
 <script src="${basePath}/staticjs/experiment/experiment.js?t=<%=Math.random() %>"></script>
 

@@ -1,6 +1,10 @@
 $(document).ready(function() {
 	setNavigationBar("标本处理.png",basepath+"/experiment/index.action","标本处理");
     initRow();
+    if(null !=childCode && "" != childCode && childCode != undefined){
+    	displayName = displayName+"#"+childCode;
+    }
+    $("#tiaoMaDisplayPingBan").text('医院条码：'+displayName);
 });
 
 //选中的类型id
@@ -69,12 +73,14 @@ function okPrintCode(){
 	    			"codeName":codeName,
 	    			"sampleTypeId":sampleTypeId,
 	    			"detectMothod":detectMothod,
+	    			"childCode":childCode,
 	    			"print_prefix":print_prefix
 	    	};
 	    	$.ajax({
 	            type : 'post',
 	            url : basepath+"/experiment/handle.action",
 	            data:params,
+	            async:false,
 	            dataType : 'json',
 	            success : function(data) {
 	            	alert("打印成功！");
@@ -89,7 +95,7 @@ function okPrintCode(){
 /**染色**/
 function zhuanZhongPingban(){
     //跳转至转染色页面
-    window.location = basepath+"/experiment/jingjian.action?codeName="+codeName+"&sampleTypeId=1&detectMothod=1";
+    window.location = basepath+"/experiment/jingjian.action?codeName="+codeName+"&sampleTypeId="+sampleTypeId+"&detectMothod=1"+"&childCode="+childCode;
 }
 
 /**处理其他标本**/

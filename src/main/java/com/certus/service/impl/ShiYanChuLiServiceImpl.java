@@ -132,18 +132,32 @@ public class ShiYanChuLiServiceImpl implements ShiYanChuLiService{
     /**生成实验的次数**/
     /* (non-Javadoc)
      * params code 医院条码
-     * return 已经实验的次数
+     * return 已经实验的次数 +  当前记录的主键id
      * @see com.certus.service.ShiYanChuLiService#createCode(java.lang.String, java.lang.String)
      */
     @Override
-    public String createCode(String code, String parentId) {
+    public String createCode(String code, String childCode) {
         
         List<Detects> listDetescts = detectsMapper.getDetectsByCode(code);
         
         if(null == listDetescts || listDetescts.size() == 0){
             return "1";
         }else{
-            return ""+(listDetescts.get(0).getChildId()+1);
+            if(null == childCode || childCode == ""){
+                return ""+(listDetescts.get(0).getChildId()+1);
+            }else{
+                /**返回当前记录的id，作为新生成记录的parentid**/
+                int parentId= 0;
+                for(Detects vo:listDetescts){
+                    if(vo.getChildId() ==  Integer.valueOf(childCode)){
+                        parentId =vo.getId();
+                        break;
+                    }
+                }
+                
+                return ""+(listDetescts.get(0).getChildId()+1)+"-"+parentId;
+            }
+            
         }
     }
 

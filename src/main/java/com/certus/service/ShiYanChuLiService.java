@@ -25,7 +25,7 @@ public interface ShiYanChuLiService {
 	
 	public Map<String,Object> queryDetectsByCode(String code);
 	
-	public String createCode(String code,String parentId);
+	public String createCode(String code,String childCode);
 	
 	public int insertDetectResult(int detectId,String detect_result_ids);
 	

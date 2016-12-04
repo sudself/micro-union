@@ -1,6 +1,10 @@
 $(document).ready(function() {
 	setNavigationBar("标本处理.png",basepath+"/experiment/index.action","标本处理");
     initRow();
+    if(null !=childCode && "" != childCode && childCode != undefined){
+    	displayName = displayName+"#"+childCode;
+    }
+    $("#ranSeTiaoma").text('医院条码：'+displayName);
 });
 
 //选中的类型id
@@ -68,12 +72,14 @@ function printCode(){
 	    			"codeName":codeName,
 	    			"sampleTypeId":sampleTypeId,
 	    			"detectMothod":detectMothod,
+	    			"childCode":childCode,
 	    			"print_prefix":print_prefix
 	    	};
 	    	$.ajax({
 	            type : 'post',
 	            url : basepath+"/experiment/handle.action",
 	            data:params,
+	            async:false,
 	            dataType : 'json',
 	            success : function(data) {
 	            	alert("打印成功！");
@@ -89,7 +95,7 @@ function printCode(){
 /**染色之后并镜检**/
 function ranSeJingJian(){
     /**跳转到镜检页面**/
-    window.location = basepath+"/experiment/jingJianSingle.action?codeName="+codeName+"&sampleTypeId="+sampleTypeId+"&detectMothod=4";
+    window.location = basepath+"/experiment/jingJianSingle.action?codeName="+codeName+"&sampleTypeId="+sampleTypeId+"&detectMothod=4"+"&childCode="+childCode;
 }
 
 /**继续处理**/

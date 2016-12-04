@@ -4,12 +4,15 @@
 <c:set var="codeName" value='<%=request.getParameter("codeName")%>' />
 <c:set var="sampleTypeId" value='<%=request.getParameter("sampleTypeId")%>' />
 <c:set var="detectMothod" value='<%=request.getParameter("detectMothod")%>' />
+<c:set var="childCode" value='<%=request.getParameter("childCode")%>' />
 
 <script type="text/javascript"> 
 var basepath= "${basePath}";
 var codeName= "${codeName}";
 var sampleTypeId= "${sampleTypeId}";
 var detectMothod= "${detectMothod}";
+var childCode = "${childCode}";
+var displayName= "${codeName}";
 </script>
 
 <style type="text/css">
@@ -50,7 +53,7 @@ var detectMothod= "${detectMothod}";
 <div class="row showType"> 
 
     <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 " >
-         <button type="button" class="btn btn-default btn-lg btn-block" >医院条码：${codeName}</button>
+         <button type="button" id="tiaoMaDisplayPingBan" class="btn btn-default btn-lg btn-block" ></button>
     </div>
 
 </div>

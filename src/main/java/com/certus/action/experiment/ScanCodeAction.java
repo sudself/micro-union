@@ -110,25 +110,28 @@ public class ScanCodeAction extends BaseAction {
     	
     	String detectTypeId = request.getParameter("detectTypeId");
         String codeName = request.getParameter("codeName");
-        String sampleTypeId = request.getParameter("sampleTypeId");
-        String parentId = request.getParameter("parentId");
-        String shiYanCiShu = shiYanChuLiService.createCode(codeName, parentId);
+//        String sampleTypeId = request.getParameter("sampleTypeId");
+//        String parentId = request.getParameter("parentId");
+        String childCode = request.getParameter("childCode");//是否是子实验，带#号
+        String shiYanCiShu = shiYanChuLiService.createCode(codeName, childCode);
 //        String printCode = codeName+"#"+shiYanCiShu;//打印的条码，格式：code+#+实验次数
         
         String hCode = codeName;//后续要根据code算法，截取hospitalCode的部分
         Samples sample = shiYanChuLiService.getSampleByCode(hCode);
         Detects detect = new Detects();
         detect.setSampleId(sample.getId());
-        detect.setSampleTypeId(Integer.parseInt(sampleTypeId));
+        detect.setSampleTypeId(sample.getSampleType());
         detect.setDetectTypeId(Integer.parseInt(detectTypeId));
         detect.setPrintTime(new Date());
         detect.setPrintUserId(user.getId());
         detect.setCodeNo(codeName); //这里用的是printCode，不是codeName
         detect.setDealTime(new Date());
         detect.setDealUserId(user.getId());
-        detect.setChildId(Integer.valueOf(shiYanCiShu));
-        if(null != parentId && "" !=parentId){
-            detect.setParentId(Integer.valueOf(parentId));
+        if(null != childCode && "" !=childCode){
+            detect.setParentId(Integer.valueOf(shiYanCiShu.split("-")[1]));
+            detect.setChildId(Integer.valueOf(shiYanCiShu.split("-")[0]));
+        }else{
+            detect.setChildId(Integer.valueOf(shiYanCiShu));
         }
         
         detect.setStatus("打印条码完成");
