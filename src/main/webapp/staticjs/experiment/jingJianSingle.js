@@ -29,7 +29,7 @@ function scanCode(){
     if(code == "undefined"|| code==""){
     	alert("请输入条码");
     	return ;
-    }else if(code.indexOf("#")<=0){
+    }else if(code.indexOf("#")<0 || (code.indexOf("#")+1) == code.length){
     	alert("条码格式不对");
     	return ;
     }
@@ -58,12 +58,22 @@ function getTypes(code){
         success : function(data) {
             $("#sampleInputNote").html("");
             $("#h4id").html(data.name);
-            detectId = data.detectId;
+            if(data.detectId == undefined){
+            	alert("未找到条码对应的处理记录！");
+            	return;
+            }else{
+            	detectId = data.detectId;
+            }
+            
             var typeList = data.resultList;
+            if(typeList == undefined || typeList.length == 0){
+            	alert("请检查样本处理结果配置表！");
+            	return;
+            }
             var detectResultList = data.detectResultList;
             var htmlStr="";
             for(var i=0;i<typeList.length;i++){
-            	if(detectResultList == "undefined"){
+            	if(detectResultList == undefined || detectResultList.length == 0){
             		 htmlStr+='<div class="col-md-6 col-sm-6 col-xs-6 checkbox" ><label><i class="icon-check-empty"></i><input type="checkbox" name="infoNote" onclick="selectTypeE(this)" id="'+typeList[i].id+'">&nbsp;'+typeList[i].content+'</label></div>';
             	}else{
             		var flag = false;
@@ -89,7 +99,7 @@ function getTypes(code){
 				$("input[name='dangerNote']").removeAttr("checked");
 			}); 
 			
-			if(detectResultList == "undefined"){
+			if(detectResultList == undefined || detectResultList.length == 0){
 				$("#baoCunId").attr("disabled",false); 
 			}else{
 				$("#baoCunId").attr("disabled",true); 
@@ -119,6 +129,7 @@ function saveAndDealOther(){
 	            dataType : 'json',
 	            success : function(data) {
 	            	$("#baoCunId").attr("disabled",true); 
+	            	alert("保存成功！");
 	            },error: function(e) { 
 	                alert("保存异常！");
 	            } 
