@@ -1,9 +1,21 @@
 $(document).ready(function() {
 	setNavigationBar("标本处理.png",basepath+"/experiment/index.action","标本处理");
+	$("#codeName").focus();
 });
 
 //选中的类型id
 var selectIds = new Array();
+
+//防止回车form提交,输入框回车进行查询
+function gosearch() 
+{ 
+	if(window.event.keyCode == 13) 
+	{ 
+		scanCode(); 
+		return false; 
+	} 
+}
+
 
 /**复选框时间**/
 function selectTypeE(ip){
@@ -100,13 +112,13 @@ function getTypes(code){
 			}); 
 			
 			if(detectResultList == undefined || detectResultList.length == 0){
-				$("#baoCunId").attr("disabled",false); 
+				$("#baoCunId").show(); 
 			}else{
-				$("#baoCunId").attr("disabled",true); 
+				$("#baoCunId").hide(); 
 			}
 			
         },error: function(e) { 
-        	$("#baoCunId").attr("disabled",false); 
+        	$("#baoCunId").hide(); 
         } 
     });
 }
@@ -128,8 +140,8 @@ function saveAndDealOther(){
 	            data:params,
 	            dataType : 'json',
 	            success : function(data) {
-	            	$("#baoCunId").attr("disabled",true); 
 	            	alert("保存成功！");
+	                window.location = basepath+"/experiment/jingJianSingle.action";
 	            },error: function(e) { 
 	                alert("保存异常！");
 	            } 

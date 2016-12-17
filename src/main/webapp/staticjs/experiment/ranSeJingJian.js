@@ -4,7 +4,7 @@ $(document).ready(function() {
     if(null !=childCode && "" != childCode && childCode != undefined){
     	displayName = displayName+"#"+childCode;
     }
-    $("#ranSeTiaoma").text('医院条码：'+displayName);
+    $("#ranSeTiaoma").text('条码：'+displayName);
 });
 
 //选中的类型id

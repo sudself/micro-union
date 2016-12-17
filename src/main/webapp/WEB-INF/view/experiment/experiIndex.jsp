@@ -29,14 +29,10 @@ var basepath= "${basePath}";
     <div class="form-group"> 
         <label for="codeName" class="col-xs-5 col-sm-4 col-md-3 control-label">扫描条码</label> 
         <div class="col-xs-7 col-sm-8 col-md-6"> 
-            <input type="text" class="form-control" id="codeName" name="codeName" placeholder="扫描条码"> 
+            <input type="text" style="width: 70%;" id="codeName" name="codeName" placeholder="扫描条码" onkeypress="javascript:return gosearch();"> 
+            <input type="button" class="btn btn-info" onclick="handerScanCode()" value="提交"/>
         </div> 
     </div> 
-        <div class="form-group"> 
-        <label class="col-xs-5 col-sm-4 col-md-3 control-label"></label> 
-        <div class="col-xs-7 col-sm-8 col-md-6"> 
-            <button type="button" class="btn btn-info" onclick="handerScanCode()">添加备注信息</button> 
-        </div> 
     </div>
 	</div>
 	</form>

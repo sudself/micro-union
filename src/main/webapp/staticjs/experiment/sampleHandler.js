@@ -4,5 +4,5 @@ $(document).ready(function() {
     if(null !=childCode && "" != childCode && childCode != undefined){
     	displayName = displayName+"#"+childCode;
     }
-	$("#tiaoMaDisplay").text('医院条码：'+displayName);
+	$("#tiaoMaDisplay").text('条码：'+displayName);
 });

@@ -19,14 +19,14 @@
     <div class="form-group"> 
         <label for="hospitalCode" class="col-xs-5 col-sm-4 col-md-3 control-label">扫描条码</label> 
         <div class="col-xs-7 col-sm-8 col-md-6"> 
-            <input type="text" class="form-control" id="hospitalCode" placeholder="扫描条码"> 
+            <input type="text" class="form-control" id="hospitalCode" placeholder="扫描条码"  onkeypress="javascript:return doAction();"> 
         </div> 
     </div> 
     <c:if test="${bottomcode==1}">
     <div class="form-group"> 
         <label for="lastname" class="col-xs-5 col-sm-4 col-md-3 control-label">扫描瓶身条码(血，脑，体）</label> 
         <div class="col-xs-7 col-sm-8 col-md-6"> 
-            <input type="text" class="form-control" id="bottleCode" placeholder="扫描瓶身条码(血，脑，体）">
+            <input type="text" class="form-control" id="bottleCode" placeholder="扫描瓶身条码(血，脑，体）"  onkeypress="javascript:return doAction2();">
         </div> 
     </div> 
     </c:if>

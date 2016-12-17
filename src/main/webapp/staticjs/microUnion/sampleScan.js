@@ -1,6 +1,30 @@
 $(document).ready(function() {
 	setNavigationBar("标本录入.png",basepath+"/sampleInput/sampleType/index.action","标本录入");
+	$("#hospitalCode").focus();
 });
+
+
+function doAction() 
+{ 
+	if(window.event.keyCode == 13) 
+	{ 
+		if(bottomcode==1){
+			$("#bottleCode").focus();
+		}else{
+			queryRmarksList(); 
+		}	
+		return false; 
+	} 
+}
+
+function doAction2() 
+{ 
+	if(window.event.keyCode == 13) 
+	{ 
+		queryRmarksList(); 
+		return false; 
+	} 
+}
 
 var queryRmarksList=function(){
 	$("#sampleInputNote").hide();

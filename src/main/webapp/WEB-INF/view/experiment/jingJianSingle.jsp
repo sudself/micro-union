@@ -42,7 +42,7 @@ margin-top:5px;
     </div>
     
     <div class="col-md-8 col-sm-6 col-xs-6 form-group" >
-	    <input type="text" id="codeName"  name="codeName"  />
+	    <input type="text" id="codeName"  name="codeName"   onkeypress="javascript:return gosearch();"/>
 	    <button type="button"  class="btn btn-info" onclick="scanCode()" style="folat:right;">查询</button> 
     </div>
 </div>
@@ -64,7 +64,7 @@ margin-top:5px;
      <div class="form-group"> 
         <label class="col-xs-6 control-label"></label> 
         <div class="col-xs-6" > 
-            <button type="button" id="baoCunId" style="margin-left:20px" class="btn btn-info" onclick="saveAndDealOther()">保存</button> 
+            <button type="button" id="baoCunId" style="margin-left:20px;display:none; " class="btn btn-info" onclick="saveAndDealOther()">保存</button> 
         </div> 
     </div>
 </div>

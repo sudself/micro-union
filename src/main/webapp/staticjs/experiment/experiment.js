@@ -1,9 +1,20 @@
 $(document).ready(function() {
 	setNavigationBar("标本处理.png",basepath+"/experiment/index.action","标本处理");
+	$("#codeName").focus();
 });
 
 
 var sampleHanderUrl = basepath+"/experiment/sampleHander.action";
+
+//防止回车form提交,输入框回车进行查询
+function gosearch() 
+{ 
+	if(window.event.keyCode == 13) 
+	{ 
+		handerScanCode(); 
+		return false; 
+	} 
+}
 
 /**获得条码**/
 function handerScanCode(){
