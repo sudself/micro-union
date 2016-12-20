@@ -14,7 +14,7 @@ import com.certus.service.AnalysisService;
 
 @Service
 public class AnalysisAction extends BaseAction {
-
+	
     private static final Logger logger = Logger.getLogger(AnalysisAction.class);
     
     @Autowired
@@ -25,7 +25,17 @@ public class AnalysisAction extends BaseAction {
      */
     private static final long serialVersionUID = -3464057243853252923L;
 
-    @Action(value="/analysisAction/index",results={
+    private String code;
+    
+    public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	@Action(value="/analysisAction/index",results={
             @Result(name="list", location="/WEB-INF/microUnion/analysis.jsp")
     })
     public String index(){
@@ -46,7 +56,10 @@ public class AnalysisAction extends BaseAction {
             }
             sampleBo.setPage(page);
             sampleBo.setRows(rows);
-            
+            if(code != null && !"".equals(code)){
+            	String searchCode = code.split("#")[0];
+            	sampleBo.setHospitalCode(searchCode);
+            }
             writeJson(analysisService.getSamplesList(sampleBo));
             logger.info("listSamplesList success");
         } catch (Exception e) {

@@ -178,4 +178,12 @@ public class ShiYanChuLiServiceImpl implements ShiYanChuLiService{
         return detectResultRelMapper.getDetectResultByDetectId(detectId);
     }
 
+	@Override
+	public void handleDetectResult(Integer id) {
+		Detects detect =  new Detects();
+		detect.setId(id);
+		detect.setStatus("鉴定完成");
+		detectsMapper.updateByPrimaryKeySelective(detect);
+	}
+
 }

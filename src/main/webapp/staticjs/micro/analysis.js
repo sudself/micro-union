@@ -8,83 +8,33 @@ $(document).ready(function() {
 	initAll();
 });
 
+//防止回车form提交,输入框回车进行查询
+function gosearch() 
+{ 
+	if(window.event.keyCode == 13) 
+	{ 
+		initAll(); 
+		return false; 
+	} 
+}
+
 function initAll(){
 	clearData();
 	initSamplesTable();
 }
 function clearData(){
-	$('#samplesTableResult').html("");
+	//$('#samplesTableResult').html("");
+	$('#samples-list').html("<table id='datagrid'></table><div><div id='pager' class='pager'></div></div>");
+	
 }
 function getParams(){
 	   var params = {};
 	   params["page"] = currentPage;
 	   params["rows"] = rownum; 
+	   params["code"] = $("#codeName").val().trim(); 
 	   return params;
 }
 function initSamplesTable() {
-	 /*$("#datagrid").jqGrid({
-         url: 'list.action',
-         postData : getParams(),
-         datatype: "json",
-         autoheight:true, //
- 	    width : gridWidth,//
- 	    shrinkToFit : jqGridWidthFit(gridWidth,120),//
- 	    forceFit:true,//
- 	    rownumbers : true,//
-         colModel : [{
- 	        label : '医院条码',
- 	        name : 'hospital_code',
- 	        index : 'hospital_code',
- 	        width : 100,
- 	    },{
- 	        label : '瓶身条码',
- 	        name : 'bottle_code',
- 	        index : 'bottle_code',
- 	        width : 100
- 	    },{
- 	        label : '患者信息',
- 	        name : 'patient_info',
- 	        index : 'patient_info',
- 	        width : 60
- 	    },{
- 	        label : '录入时间',
- 	        name : 'receive_time',
- 	        index : 'receive_time',
- 	        width : 60
- 	    },{
- 	        label : '标本类型',
- 	        name : 'sample_type_name',
- 	        index : 'sample_type_name',
- 	        width : 60
- 	    },{
- 	        label : '当前状态',
- 	        name : 'status',
- 	        index : 'status',
- 	        width : 60
- 	    },{
- 	        label : '标本信息标志',
- 	        name : 'sample_content',
- 	        index : 'sample_content',
- 	        width : 60
- 	    }],
- 	   sortname : "id",//
-	    sortorder : "desc",//
-	    rowNum : rownum,
-	    page : 1,//
-	    viewrecords : true,//
-	    altRows :true,//
-	    altclass:'someClass',//
-	    hidegrid : false,//
-		 loadonce : true,
-         width: 780,
-         height: 250,
-         jsonReader : {
- 	        repeatitems : false
- 	    },
-         subGrid: true, // set the subGrid property to true to show expand buttons for each row
-         subGridRowExpanded: showChildGrid, // javascript function that will take care of showing the child grid
-         //pager: "#pager"
-     });*/
 	$("#datagrid").jqGrid({
 	    url : basepath+"/analysisAction/list.action",
 	    postData : getParams(), //发送数据  
@@ -171,7 +121,14 @@ function initSamplesTable() {
             //page: 1,
             colModel: [
                 { label: 'sn', name: 'id', key: true, hidden: true },
-                { label: '条形码', name: 'code_no', width: 100 },
+                { label: '条形码', name: 'code_no', width: 100,
+                	formatter : function(v, opt, rec) {
+                		if(rec.child_id != null && rec.child_id!=''){
+                			v=v+'#'+rec.child_id;
+                		}
+        				return v;
+        			}	
+                },
                 { label: '类型', name: 'detect_method', width: 100,
                 	formatter : function(v, opt, rec) {
         				switch (v) {
@@ -194,7 +151,8 @@ function initSamplesTable() {
                 { label: '操作', name: 'detect_type', width: 100},
                 { label: '打印时间', name: 'print_time', width: 100 },
                 { label: '处理时间', name: 'deal_time', width: 100 },
-                { label: '状态', name: 'status', width: 100 }
+                { label: '状态', name: 'status', width: 100 },
+                { label: '鉴定结果', name: 'content', width: 100 }
             ],
 			loadonce: true,
             width: gridWidth-100,
@@ -203,7 +161,12 @@ function initSamplesTable() {
     	    subGridRowExpanded: showChildDetects,
             jsonReader : {
      	        repeatitems : false
-     	    }
+     	    },
+      	    gridComplete : function() {        
+      		  if($("#" + childGridID).find('tr').size()<=1){
+      			 $("#" + parentRowID).hide();
+      		  }
+      	    }
             //pager: "#" + childGridPagerID
         });
 	}
@@ -224,7 +187,14 @@ function initSamplesTable() {
             //page: 1,
             colModel: [
                 { label: 'sn', name: 'id', key: true, hidden: true },
-                { label: '条形码', name: 'code_no', key: true, width: 100 },
+                { label: '条形码', name: 'code_no', key: true, width: 100 ,
+                	formatter : function(v, opt, rec) {
+                		if(rec.child_id != null && rec.child_id!=''){
+                			v=v+'#'+rec.child_id;
+                		}
+        				return v;
+        			}
+                },
                 { label: '类型', name: 'detect_method', width: 100,
                 	formatter : function(v, opt, rec) {
         				switch (v) {
@@ -247,7 +217,8 @@ function initSamplesTable() {
                 { label: '操作', name: 'detect_type', width: 100},
                 { label: '打印时间', name: 'print_time', width: 100 },
                 { label: '处理时间', name: 'deal_time', width: 100 },
-                { label: '状态', name: 'status', width: 100 }
+                { label: '状态', name: 'status', width: 100 },
+                { label: '鉴定结果', name: 'content', width: 100 }
             ],
 			loadonce: true,
             width: widthchind,
@@ -256,9 +227,16 @@ function initSamplesTable() {
     	    subGridRowExpanded: showChildDetects,
             jsonReader : {
      	        repeatitems : false
-     	    }
+     	    },
+     	   gridComplete : function() {        
+     		  if($("#" + childGridID).find('tr').size()<=1){
+     			 $("#" + parentRowID).hide();
+     		  }
+     		  
+     	   }
             //pager: "#" + childGridPagerID
         });
+        
 	}
 }
 function jqGridpaper() {

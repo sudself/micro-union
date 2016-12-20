@@ -189,16 +189,31 @@ select
         </if>
   </select>
     <select id="getSamplesDetailById" parameterType="java.lang.Integer" resultType="hashmap">
-    select d.id,d.code_no,d.print_time,d.deal_time  ,d.`status`,dt.detect_method,dt.detect_type
-from detects d,detect_type dt
-where d.detect_type_id=dt.id  and d.parent_id is NULL 
-and d.sample_id =#{sampleId,jdbcType=INTEGER} order by d.deal_time desc 
+ select un.id,un.code_no,un.child_id,un.print_time,un.deal_time  ,un.`status`,un.detect_method,un.detect_type,group_concat(un.content) content from 
+ (select d.id,d.code_no,d.child_id,d.print_time,d.deal_time  ,d.`status`,dt.detect_method,dt.detect_type,dr.content
+ from detects d,detect_type dt,detect_result dr,detect_result_rel drr
+ where d.detect_type_id=dt.id  and d.parent_id is NULL and dr.id=drr.detect_result_id AND drr.detect_id =	d.id
+ and d.sample_id =#{sampleId,jdbcType=INTEGER} 
+ UNION
+ select d.id,d.code_no,d.child_id,d.print_time,d.deal_time  ,d.`status`,dt.detect_method,dt.detect_type,null
+ from detects d,detect_type dt
+ where d.detect_type_id=dt.id  and d.parent_id is NULL 
+ and d.sample_id =#{sampleId,jdbcType=INTEGER}  
+ ) un
+ GROUP BY un.id,un.code_no,un.child_id,un.print_time,un.deal_time  ,un.`status`,un.detect_method,un.detect_type
+ order by un.deal_time desc 
   </select>
   <select id="getDetectsByParentId" parameterType="java.lang.Integer" resultType="hashmap">
-    select d.id,d.code_no,d.print_time,d.deal_time  ,d.`status`,dt.detect_method,dt.detect_type
+ select un.id,un.code_no,un.child_id,un.print_time,un.deal_time  ,un.`status`,un.detect_method,un.detect_type,group_concat(un.content) content from
+   ( select d.id,d.code_no,d.child_id,d.print_time,d.deal_time  ,d.`status`,dt.detect_method,dt.detect_type,dr.content
+from detects d,detect_type dt,detect_result dr,detect_result_rel drr
+where d.detect_type_id=dt.id  and d.parent_id =#{parentId,jdbcType=INTEGER} and dr.id=drr.detect_result_id AND drr.detect_id =	d.id
+UNION
+    select d.id,d.code_no,d.child_id,d.print_time,d.deal_time  ,d.`status`,dt.detect_method,dt.detect_type,null
 from detects d,detect_type dt
-where d.detect_type_id=dt.id  and d.parent_id =#{parentId,jdbcType=INTEGER} 
- order by d.deal_time desc 
+where d.detect_type_id=dt.id  and d.parent_id =#{parentId,jdbcType=INTEGER} ) un
+GROUP BY un.id,un.code_no,un.child_id,un.print_time,un.deal_time  ,un.`status`,un.detect_method,un.detect_type
+ order by un.deal_time desc;
   </select>
   <select id="getSampleByCode" resultMap="BaseResultMap" parameterType="string" >
     select 

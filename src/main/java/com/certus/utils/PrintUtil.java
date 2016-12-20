@@ -14,11 +14,11 @@ import javax.print.attribute.standard.PrinterName;
 
 public class PrintUtil {
 	
-    public static void DateToStr(String code) throws Exception {
+    public static void printCodeBar(String code) throws Exception {
     	PrintUtil printUtil = new PrintUtil();
     	StringBuffer s_prt_buffer = new StringBuffer();
-    	int x = 260;
-    	int y = 2;
+    	int x = 270;
+    	int y = 20;
     	s_prt_buffer.append("^XA").append("^FO").append(x).append(",").append(y).
     	append("^BY1,3,45^BCN,,Y,N^FD").append(code).append("^FS").append("^XZ");
     	printUtil.print(s_prt_buffer.toString());

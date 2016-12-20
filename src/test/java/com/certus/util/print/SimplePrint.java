@@ -41,11 +41,13 @@ public class SimplePrint {
 	}
 
 	protected void setCommand() {
-		String barcode = "123456788765432112345678";
+		String barcode = "12345678876#12";
 		// printCN("���ֲ���ABCD", 10, 30,30,34, 60);
 		// printCN("�л����񹲺͹�", 10, 60,30,34, 60);
 		// printChar(barcode,30,30,30,50);
-		printBarcode(barcode, 260, 2, 80);
+		//printBarcode(barcode, 260, 2, 80);
+		printBarcode(barcode, 270, 20, 80);
+
 	}
 
 	protected String getCommand() {

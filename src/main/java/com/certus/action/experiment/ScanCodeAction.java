@@ -19,6 +19,7 @@ import com.certus.dao.Detects;
 import com.certus.dao.Samples;
 import com.certus.dao.Users;
 import com.certus.service.ShiYanChuLiService;
+import com.certus.utils.PrintUtil;
 
 
 /**实验跟进---标本处理**/
@@ -99,6 +100,8 @@ public class ScanCodeAction extends BaseAction {
         String detectId = request.getParameter("detectId");
         String selectIds = request.getParameter("selectIds");
         int count = shiYanChuLiService.insertDetectResult(Integer.valueOf(detectId),selectIds);
+        //更新detect表状态
+        shiYanChuLiService.handleDetectResult(Integer.valueOf(detectId));
         writeJson(count);
     }
     
@@ -133,10 +136,19 @@ public class ScanCodeAction extends BaseAction {
         }else{
             detect.setChildId(Integer.valueOf(shiYanCiShu));
         }
+        String printcode = codeName+"#"+detect.getChildId();
+        boolean result = false;
+        try {
+			PrintUtil.printCodeBar(printcode);  //如未配置好打印机，测试时注释本行
+			detect.setStatus("条码打印完成");
+			result = shiYanChuLiService.addDetect(detect);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
         
-        detect.setStatus("打印条码完成");
         //后续还有判断是否要加childId
-    	writeJson(shiYanChuLiService.addDetect(detect));
+    	writeJson(result);
     }
     
     /**转种平板**/

@@ -21,7 +21,7 @@ public class ZKPrint {
 
 		try {
 			ZKPrint a = new ZKPrint();
-			String barcode = "1234567887654321abcdefgh";
+			String barcode = "20090601";
 			a.setCommand(barcode);
 			String str = a.getCommand();
 			System.out.println(str);
@@ -40,7 +40,8 @@ public class ZKPrint {
 	}
 
 	protected void setCommand(String barcode) {
-		printBarcode(barcode, 260, 2, 80);
+		//printBarcode(barcode, 260, 2, 80);
+		printBarcode(barcode, 270, 20, 80);
 	}
 
 	protected String getCommand() {

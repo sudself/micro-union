@@ -30,5 +30,7 @@ public interface ShiYanChuLiService {
 	public int insertDetectResult(int detectId,String detect_result_ids);
 	
 	public List<DetectResultRel> getDetectResultByDetectId(int detectId );
+
+	public void handleDetectResult(Integer valueOf);
 	
 }
