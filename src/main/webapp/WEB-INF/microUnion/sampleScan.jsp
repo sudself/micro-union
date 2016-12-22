@@ -12,6 +12,7 @@
 	<form class="form-horizontal" role="form"> 
 	<div id="sampleInputData">
 	<div class="form-group"> 
+	<span class="glyphicon glyphicon-plus"></span>
         <label for="hospitalCode" class="col-xs-5 col-sm-4 col-md-3 control-label"><h3>标本录入</h3></label> 
         <div class="col-xs-7 col-sm-8 col-md-6"> 
         </div> 
