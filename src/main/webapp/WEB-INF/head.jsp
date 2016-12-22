@@ -1,5 +1,8 @@
 <%@page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+String username = String.valueOf(session.getAttribute("loginName"));  
+%>
 <c:set var="basePath" value="${pageContext.request.contextPath}" />
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,6 +18,8 @@
     </div>
     <ul class="nav navbar-nav navbar-right" style="z-index:100;position:absolute;float:right;top:0px;right:20px;"> 
             <li ><a href="#" onclick="homePage();"  ><span class="glyphicon glyphicon-home"></span> 首页</a></a>
+            </li>
+            <li ><a href="#"><span class="glyphicon glyphicon-user"></span><%=username %></a>
             </li>
             <li ><a onclick="gotoLogin();" style="cursor:pointer;"><span class="icon-signout"></span> 退出</b></a>
             </li>
