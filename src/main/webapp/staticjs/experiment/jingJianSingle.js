@@ -70,13 +70,16 @@ function getTypes(code){
         success : function(data) {
             $("#sampleInputNote").html("");
             $("#h4id").html(data.name);
+            if(data.errorMsg != undefined){
+            	alert(data.errorMsg);
+            	return;
+            }
             if(data.detectId == undefined){
             	alert("未找到条码对应的处理记录！");
             	return;
             }else{
             	detectId = data.detectId;
             }
-            
             var typeList = data.resultList;
             if(typeList == undefined || typeList.length == 0){
             	alert("请检查样本处理结果配置表！");

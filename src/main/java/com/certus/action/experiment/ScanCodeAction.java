@@ -77,19 +77,25 @@ public class ScanCodeAction extends BaseAction {
         String code = request.getParameter("code");
         Map<String,Object> detect = shiYanChuLiService.queryDetectsByCode(code);
         if(null != detect){
-            String detectTypeId = detect.get("detect_type_id").toString();
-            String detectId = detect.get("id").toString();
+        	//染色镜检-1、转种平板-2、直接鉴定-3、镜检类型-4
+        	if("1".equals(detect.get("detect_method"))){
+        		String detectTypeId = detect.get("detect_type_id").toString();
+                String detectId = detect.get("id").toString();
+                
+                /**查询是否有实验结果**/
+                List<DetectResultRel> detectResultList = shiYanChuLiService.getDetectResultByDetectId(Integer.valueOf(detectId));
+                json.put("detectResultList", detectResultList);
+                List<DetectResult> resultList = shiYanChuLiService.getJingJianType(detectTypeId);
+                json.put("resultList", resultList);
+                json.put("detectId", detectId);
+                DetectType detectType = shiYanChuLiService.selectByPrimaryKey(detectTypeId);
+                if(detectType != null){
+                    json.put("name", detectType.getDetectType());
+                }
+        	}else{
+        		json.put("errorMsg","请扫码染色镜检条码");
+        	}
             
-            /**查询是否有实验结果**/
-            List<DetectResultRel> detectResultList = shiYanChuLiService.getDetectResultByDetectId(Integer.valueOf(detectId));
-            json.put("detectResultList", detectResultList);
-            List<DetectResult> resultList = shiYanChuLiService.getJingJianType(detectTypeId);
-            json.put("resultList", resultList);
-            json.put("detectId", detectId);
-            DetectType detectType = shiYanChuLiService.selectByPrimaryKey(detectTypeId);
-            if(detectType != null){
-                json.put("name", detectType.getDetectType());
-            }
         }
         
         writeJson(json);
